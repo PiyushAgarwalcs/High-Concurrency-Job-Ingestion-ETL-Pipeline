@@ -1478,5 +1478,25 @@
         "enabled": true,
         "bangalore": true,
         "category": "SaaS"
+    },
+    {
+        "name": "Tata Consultancy Services",
+        "career_url": "https://ibegin.tcs.com",
+        "ats": "custom",
+        "ats_url": "https://ibegin.tcs.com",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "IT & Business Solutions"
+    },
+    {
+        "name": "Tata Elxsi",
+        "career_url": "https://www.tataelxsi.com/careers",
+        "ats": "custom",
+        "ats_url": "https://www.tataelxsi.com/careers",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Design & Technology"
     }
 ]

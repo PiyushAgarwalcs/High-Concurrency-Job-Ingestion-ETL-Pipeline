@@ -148,5 +148,1855 @@
         "enabled": true,
         "bangalore": false,
         "category": "SaaS"
+    },
+    {
+        "name": "Mercury",
+        "career_url": "https://jobs.ashbyhq.com/mercury",
+        "ats": "ashby",
+        "ats_url": "mercury",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "FinTech / Banking"
+    },
+    {
+        "name": "Remote",
+        "career_url": "https://jobs.ashbyhq.com/remote",
+        "ats": "ashby",
+        "ats_url": "remote",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "HR & Global Employment"
+    },
+    {
+        "name": "Omnipresent",
+        "career_url": "https://jobs.ashbyhq.com/omnipresent",
+        "ats": "ashby",
+        "ats_url": "omnipresent",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Global Employment"
+    },
+    {
+        "name": "Factorial",
+        "career_url": "https://jobs.ashbyhq.com/factorial",
+        "ats": "ashby",
+        "ats_url": "factorial",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "HR Software"
+    },
+    {
+        "name": "Personio",
+        "career_url": "https://jobs.ashbyhq.com/personio",
+        "ats": "ashby",
+        "ats_url": "personio",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "HR Management"
+    },
+    {
+        "name": "HiBob",
+        "career_url": "https://jobs.ashbyhq.com/hibob",
+        "ats": "ashby",
+        "ats_url": "hibob",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Modern HR Platform"
+    },
+    {
+        "name": "CharlieHR",
+        "career_url": "https://jobs.ashbyhq.com/charliehr",
+        "ats": "ashby",
+        "ats_url": "charliehr",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "HR for Small Business"
+    },
+    {
+        "name": "BambooHR",
+        "career_url": "https://jobs.ashbyhq.com/bamboohr",
+        "ats": "ashby",
+        "ats_url": "bamboohr",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "HR Software"
+    },
+    {
+        "name": "Zenefits",
+        "career_url": "https://jobs.ashbyhq.com/zenefits",
+        "ats": "ashby",
+        "ats_url": "zenefits",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "HR & Benefits"
+    },
+    {
+        "name": "Namely",
+        "career_url": "https://jobs.ashbyhq.com/namely",
+        "ats": "ashby",
+        "ats_url": "namely",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "HR & Payroll"
+    },
+    {
+        "name": "Justworks",
+        "career_url": "https://jobs.ashbyhq.com/justworks",
+        "ats": "ashby",
+        "ats_url": "justworks",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "PEO & Payroll"
+    },
+    {
+        "name": "TriNet",
+        "career_url": "https://jobs.ashbyhq.com/trinet",
+        "ats": "ashby",
+        "ats_url": "trinet",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Full-Service HR"
+    },
+    {
+        "name": "Insperity",
+        "career_url": "https://jobs.ashbyhq.com/insperity",
+        "ats": "ashby",
+        "ats_url": "insperity",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "HR Services"
+    },
+    {
+        "name": "Paychex",
+        "career_url": "https://jobs.ashbyhq.com/paychex",
+        "ats": "ashby",
+        "ats_url": "paychex",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Payroll & HR"
+    },
+    {
+        "name": "ADP",
+        "career_url": "https://jobs.ashbyhq.com/adp",
+        "ats": "ashby",
+        "ats_url": "adp",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Human Capital Management"
+    },
+    {
+        "name": "Paycom",
+        "career_url": "https://jobs.ashbyhq.com/paycom",
+        "ats": "ashby",
+        "ats_url": "paycom",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Payroll & HR Software"
+    },
+    {
+        "name": "Paylocity",
+        "career_url": "https://jobs.ashbyhq.com/paylocity",
+        "ats": "ashby",
+        "ats_url": "paylocity",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Cloud HR & Payroll"
+    },
+    {
+        "name": "UKG",
+        "career_url": "https://jobs.ashbyhq.com/ukg",
+        "ats": "ashby",
+        "ats_url": "ukg",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Workforce Management"
+    },
+    {
+        "name": "Ceridian",
+        "career_url": "https://jobs.ashbyhq.com/ceridian",
+        "ats": "ashby",
+        "ats_url": "ceridian",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Dayforce HCM"
+    },
+    {
+        "name": "Cornerstone",
+        "career_url": "https://jobs.ashbyhq.com/cornerstoneondemand",
+        "ats": "ashby",
+        "ats_url": "cornerstoneondemand",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Talent Management"
+    },
+    {
+        "name": "Eightfold.ai",
+        "career_url": "https://jobs.ashbyhq.com/eightfoldai",
+        "ats": "ashby",
+        "ats_url": "eightfoldai",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Talent Intelligence"
+    },
+    {
+        "name": "Phenom",
+        "career_url": "https://jobs.ashbyhq.com/phenom",
+        "ats": "ashby",
+        "ats_url": "phenom",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Talent Experience"
+    },
+    {
+        "name": "SeekOut",
+        "career_url": "https://jobs.ashbyhq.com/seekout",
+        "ats": "ashby",
+        "ats_url": "seekout",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Talent Analytics"
+    },
+    {
+        "name": "Fetcher",
+        "career_url": "https://jobs.ashbyhq.com/fetcher",
+        "ats": "ashby",
+        "ats_url": "fetcher",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Recruiting Automation"
+    },
+    {
+        "name": "Gem",
+        "career_url": "https://jobs.ashbyhq.com/gem",
+        "ats": "ashby",
+        "ats_url": "gem",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Talent Engagement"
+    },
+    {
+        "name": "TopFunnel",
+        "career_url": "https://jobs.ashbyhq.com/topfunnel",
+        "ats": "ashby",
+        "ats_url": "topfunnel",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Recruiting Platform"
+    },
+    {
+        "name": "HireEZ",
+        "career_url": "https://jobs.ashbyhq.com/hireez",
+        "ats": "ashby",
+        "ats_url": "hireez",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Outbound Recruiting"
+    },
+    {
+        "name": "Entelo",
+        "career_url": "https://jobs.ashbyhq.com/entelo",
+        "ats": "ashby",
+        "ats_url": "entelo",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Recruitment Automation"
+    },
+    {
+        "name": "Seek",
+        "career_url": "https://jobs.ashbyhq.com/seek",
+        "ats": "ashby",
+        "ats_url": "seek",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Employment Marketplace"
+    },
+    {
+        "name": "StepStone",
+        "career_url": "https://jobs.ashbyhq.com/stepstone",
+        "ats": "ashby",
+        "ats_url": "stepstone",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Job Platform"
+    },
+    {
+        "name": "Totaljobs",
+        "career_url": "https://jobs.ashbyhq.com/totaljobs",
+        "ats": "ashby",
+        "ats_url": "totaljobs",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Job Board"
+    },
+    {
+        "name": "Jobsite",
+        "career_url": "https://jobs.ashbyhq.com/jobsite",
+        "ats": "ashby",
+        "ats_url": "jobsite",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Online Job Board"
+    },
+    {
+        "name": "Monster",
+        "career_url": "https://jobs.ashbyhq.com/monster",
+        "ats": "ashby",
+        "ats_url": "monster",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Job Search"
+    },
+    {
+        "name": "CareerBuilder",
+        "career_url": "https://jobs.ashbyhq.com/careerbuilder",
+        "ats": "ashby",
+        "ats_url": "careerbuilder",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Employment Website"
+    },
+    {
+        "name": "Snagajob",
+        "career_url": "https://jobs.ashbyhq.com/snagajob",
+        "ats": "ashby",
+        "ats_url": "snagajob",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Hourly Job Search"
+    },
+    {
+        "name": "Care.com",
+        "career_url": "https://jobs.ashbyhq.com/care",
+        "ats": "ashby",
+        "ats_url": "care",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Family Care Platform"
+    },
+    {
+        "name": "Rover",
+        "career_url": "https://jobs.ashbyhq.com/rover",
+        "ats": "ashby",
+        "ats_url": "rover",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Pet Care Marketplace"
+    },
+    {
+        "name": "Wag!",
+        "career_url": "https://jobs.ashbyhq.com/wag",
+        "ats": "ashby",
+        "ats_url": "wag",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Pet Care Services"
+    },
+    {
+        "name": "TaskRabbit",
+        "career_url": "https://jobs.ashbyhq.com/taskrabbit",
+        "ats": "ashby",
+        "ats_url": "taskrabbit",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Local Services"
+    },
+    {
+        "name": "Thumbtack",
+        "career_url": "https://jobs.ashbyhq.com/thumbtack",
+        "ats": "ashby",
+        "ats_url": "thumbtack",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Home Services Marketplace"
+    },
+    {
+        "name": "Angi",
+        "career_url": "https://jobs.ashbyhq.com/angi",
+        "ats": "ashby",
+        "ats_url": "angi",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Home Services"
+    },
+    {
+        "name": "Houzz",
+        "career_url": "https://jobs.ashbyhq.com/houzz",
+        "ats": "ashby",
+        "ats_url": "houzz",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Home Remodeling"
+    },
+    {
+        "name": "Porch",
+        "career_url": "https://jobs.ashbyhq.com/porch",
+        "ats": "ashby",
+        "ats_url": "porch",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Home Services Platform"
+    },
+    {
+        "name": "Procore",
+        "career_url": "https://jobs.ashbyhq.com/procore",
+        "ats": "ashby",
+        "ats_url": "procore",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Construction Management"
+    },
+    {
+        "name": "PlanGrid",
+        "career_url": "https://jobs.ashbyhq.com/plangrid",
+        "ats": "ashby",
+        "ats_url": "plangrid",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Construction Software"
+    },
+    {
+        "name": "Buildertrend",
+        "career_url": "https://jobs.ashbyhq.com/buildertrend",
+        "ats": "ashby",
+        "ats_url": "buildertrend",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Construction Management"
+    },
+    {
+        "name": "CoConstruct",
+        "career_url": "https://jobs.ashbyhq.com/coconstruct",
+        "ats": "ashby",
+        "ats_url": "coconstruct",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Custom Home Builder Software"
+    },
+    {
+        "name": "ServiceTitan",
+        "career_url": "https://jobs.ashbyhq.com/servicetitan",
+        "ats": "ashby",
+        "ats_url": "servicetitan",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Field Service Software"
+    },
+    {
+        "name": "Housecall Pro",
+        "career_url": "https://jobs.ashbyhq.com/housecallpro",
+        "ats": "ashby",
+        "ats_url": "housecallpro",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Field Service Management"
+    },
+    {
+        "name": "Jobber",
+        "career_url": "https://jobs.ashbyhq.com/jobber",
+        "ats": "ashby",
+        "ats_url": "jobber",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Operations Management Software"
+    },
+    {
+        "name": "Simpro",
+        "career_url": "https://jobs.ashbyhq.com/simpro",
+        "ats": "ashby",
+        "ats_url": "simpro",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Field Service Management"
+    },
+    {
+        "name": "WorkWave",
+        "career_url": "https://jobs.ashbyhq.com/workwave",
+        "ats": "ashby",
+        "ats_url": "workwave",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Field Service & Fleet"
+    },
+    {
+        "name": "Fleetio",
+        "career_url": "https://jobs.ashbyhq.com/fleetio",
+        "ats": "ashby",
+        "ats_url": "fleetio",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Fleet Maintenance Software"
+    },
+    {
+        "name": "KeepTruckin",
+        "career_url": "https://jobs.ashbyhq.com/motive",
+        "ats": "ashby",
+        "ats_url": "motive",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Fleet Management & IoT"
+    },
+    {
+        "name": "Geotab",
+        "career_url": "https://jobs.ashbyhq.com/geotab",
+        "ats": "ashby",
+        "ats_url": "geotab",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Telematics & IoT"
+    },
+    {
+        "name": "Lytx",
+        "career_url": "https://jobs.ashbyhq.com/lytx",
+        "ats": "ashby",
+        "ats_url": "lytx",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Video Telematics"
+    },
+    {
+        "name": "Netradyne",
+        "career_url": "https://jobs.ashbyhq.com/netradyne",
+        "ats": "ashby",
+        "ats_url": "netradyne",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Fleet Safety & AI"
+    },
+    {
+        "name": "Omnitracs",
+        "career_url": "https://jobs.ashbyhq.com/omnitracs",
+        "ats": "ashby",
+        "ats_url": "omnitracs",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Fleet Management"
+    },
+    {
+        "name": "Trimble",
+        "career_url": "https://jobs.ashbyhq.com/trimble",
+        "ats": "ashby",
+        "ats_url": "trimble",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Transportation & GPS"
+    },
+    {
+        "name": "Descartes",
+        "career_url": "https://jobs.ashbyhq.com/descartes",
+        "ats": "ashby",
+        "ats_url": "descartes",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Logistics Technology"
+    },
+    {
+        "name": "FourKites",
+        "career_url": "https://jobs.ashbyhq.com/fourkites",
+        "ats": "ashby",
+        "ats_url": "fourkites",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Supply Chain Visibility"
+    },
+    {
+        "name": "Project44",
+        "career_url": "https://jobs.ashbyhq.com/project44",
+        "ats": "ashby",
+        "ats_url": "project44",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Supply Chain Visibility"
+    },
+    {
+        "name": "Shippeo",
+        "career_url": "https://jobs.ashbyhq.com/shippeo",
+        "ats": "ashby",
+        "ats_url": "shippeo",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Real-Time Transportation"
+    },
+    {
+        "name": "Overhaul",
+        "career_url": "https://jobs.ashbyhq.com/overhaul",
+        "ats": "ashby",
+        "ats_url": "overhaul",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Supply Chain Security"
+    },
+    {
+        "name": "Roambee",
+        "career_url": "https://jobs.ashbyhq.com/roambee",
+        "ats": "ashby",
+        "ats_url": "roambee",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Asset Monitoring"
+    },
+    {
+        "name": "Tive",
+        "career_url": "https://jobs.ashbyhq.com/tive",
+        "ats": "ashby",
+        "ats_url": "tive",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Supply Chain Visibility"
+    },
+    {
+        "name": "Sensitech",
+        "career_url": "https://jobs.ashbyhq.com/sensitech",
+        "ats": "ashby",
+        "ats_url": "sensitech",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Supply Chain Visibility"
+    },
+    {
+        "name": "Controlant",
+        "career_url": "https://jobs.ashbyhq.com/controlant",
+        "ats": "ashby",
+        "ats_url": "controlant",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Pharma Supply Chain"
+    },
+    {
+        "name": "ModusLink",
+        "career_url": "https://jobs.ashbyhq.com/moduslink",
+        "ats": "ashby",
+        "ats_url": "moduslink",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Supply Chain Solutions"
+    },
+    {
+        "name": "Quiet Platforms",
+        "career_url": "https://jobs.ashbyhq.com/quietplatforms",
+        "ats": "ashby",
+        "ats_url": "quietplatforms",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Fulfillment Network"
+    },
+    {
+        "name": "ShipBob",
+        "career_url": "https://jobs.ashbyhq.com/shipbob",
+        "ats": "ashby",
+        "ats_url": "shipbob",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "E-Commerce Fulfillment"
+    },
+    {
+        "name": "ShipMonk",
+        "career_url": "https://jobs.ashbyhq.com/shipmonk",
+        "ats": "ashby",
+        "ats_url": "shipmonk",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "E-Commerce Fulfillment"
+    },
+    {
+        "name": "Red Stag",
+        "career_url": "https://jobs.ashbyhq.com/redstagfulfillment",
+        "ats": "ashby",
+        "ats_url": "redstagfulfillment",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Fulfillment Services"
+    },
+    {
+        "name": "Deliverr",
+        "career_url": "https://jobs.ashbyhq.com/deliverr",
+        "ats": "ashby",
+        "ats_url": "deliverr",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Next-Day Delivery Tech"
+    },
+    {
+        "name": "Fabric",
+        "career_url": "https://jobs.ashbyhq.com/fabric",
+        "ats": "ashby",
+        "ats_url": "fabric",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Micro-Fulfillment"
+    },
+    {
+        "name": "Alert Innovation",
+        "career_url": "https://jobs.ashbyhq.com/alertinnovation",
+        "ats": "ashby",
+        "ats_url": "alertinnovation",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Grocery Automation"
+    },
+    {
+        "name": "Symbotic",
+        "career_url": "https://jobs.ashbyhq.com/symbotic",
+        "ats": "ashby",
+        "ats_url": "symbotic",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Supply Chain Automation"
+    },
+    {
+        "name": "Berkshire Grey",
+        "career_url": "https://jobs.ashbyhq.com/berkshiregrey",
+        "ats": "ashby",
+        "ats_url": "berkshiregrey",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI Robotics"
+    },
+    {
+        "name": "Locus Robotics",
+        "career_url": "https://jobs.ashbyhq.com/locusrobotics",
+        "ats": "ashby",
+        "ats_url": "locusrobotics",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Autonomous Mobile Robots"
+    },
+    {
+        "name": "Fetch Robotics",
+        "career_url": "https://jobs.ashbyhq.com/fetchrobotics",
+        "ats": "ashby",
+        "ats_url": "fetchrobotics",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "On-Demand Automation"
+    },
+    {
+        "name": "Seegrid",
+        "career_url": "https://jobs.ashbyhq.com/seegrid",
+        "ats": "ashby",
+        "ats_url": "seegrid",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Autonomous Mobile Robots"
+    },
+    {
+        "name": "Otto Motors",
+        "career_url": "https://jobs.ashbyhq.com/ottomotors",
+        "ats": "ashby",
+        "ats_url": "ottomotors",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Self-Driving Vehicles"
+    },
+    {
+        "name": "GreyOrange",
+        "career_url": "https://jobs.ashbyhq.com/greyorange",
+        "ats": "ashby",
+        "ats_url": "greyorange",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Warehouse Automation"
+    },
+    {
+        "name": "Addverb",
+        "career_url": "https://jobs.ashbyhq.com/addverb",
+        "ats": "ashby",
+        "ats_url": "addverb",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Robotics & Automation"
+    },
+    {
+        "name": "Unbox Robotics",
+        "career_url": "https://jobs.ashbyhq.com/unboxrobotics",
+        "ats": "ashby",
+        "ats_url": "unboxrobotics",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Supply Chain Robotics"
+    },
+    {
+        "name": "Ati Motors",
+        "career_url": "https://jobs.ashbyhq.com/atimotors",
+        "ats": "ashby",
+        "ats_url": "atimotors",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Autonomous Industrial Vehicles"
+    },
+    {
+        "name": "Mukunda Foods",
+        "career_url": "https://jobs.ashbyhq.com/mukundafoods",
+        "ats": "ashby",
+        "ats_url": "mukundafoods",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Kitchen Automation"
+    },
+    {
+        "name": "Mukunda",
+        "career_url": "https://jobs.ashbyhq.com/mukunda",
+        "ats": "ashby",
+        "ats_url": "mukunda",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Kitchen Robotics"
+    },
+    {
+        "name": "Agility Robotics",
+        "career_url": "https://jobs.ashbyhq.com/agilityrobotics",
+        "ats": "ashby",
+        "ats_url": "agilityrobotics",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Bipedal Robots"
+    },
+    {
+        "name": "Boston Dynamics",
+        "career_url": "https://jobs.ashbyhq.com/bostondynamics",
+        "ats": "ashby",
+        "ats_url": "bostondynamics",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Advanced Robotics"
+    },
+    {
+        "name": "Figure AI",
+        "career_url": "https://jobs.ashbyhq.com/figure",
+        "ats": "ashby",
+        "ats_url": "figure",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Humanoid Robotics"
+    },
+    {
+        "name": "Sanctuary AI",
+        "career_url": "https://jobs.ashbyhq.com/sanctuary",
+        "ats": "ashby",
+        "ats_url": "sanctuary",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "General Purpose Humanoids"
+    },
+    {
+        "name": "1X Technologies",
+        "career_url": "https://jobs.ashbyhq.com/1x",
+        "ats": "ashby",
+        "ats_url": "1x",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Humanoid Robots"
+    },
+    {
+        "name": "Apptronik",
+        "career_url": "https://jobs.ashbyhq.com/apptronik",
+        "ats": "ashby",
+        "ats_url": "apptronik",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Humanoid Robotics"
+    },
+    {
+        "name": "Reflex Robotics",
+        "career_url": "https://jobs.ashbyhq.com/reflexrobotics",
+        "ats": "ashby",
+        "ats_url": "reflexrobotics",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Autonomous Robots"
+    },
+    {
+        "name": "Covariant",
+        "career_url": "https://jobs.ashbyhq.com/covariant",
+        "ats": "ashby",
+        "ats_url": "covariant",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Universal AI for Robots"
+    },
+    {
+        "name": "Ambi Robotics",
+        "career_url": "https://jobs.ashbyhq.com/ambirobotics",
+        "ats": "ashby",
+        "ats_url": "ambirobotics",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI-Powered Sorting"
+    },
+    {
+        "name": "Dexterity",
+        "career_url": "https://jobs.ashbyhq.com/dexterity",
+        "ats": "ashby",
+        "ats_url": "dexterity",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Full-Stack Robotics"
+    },
+    {
+        "name": "Kindred",
+        "career_url": "https://jobs.ashbyhq.com/kindred",
+        "ats": "ashby",
+        "ats_url": "kindred",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Piece-Picking Robots"
+    },
+    {
+        "name": "RightHand Robotics",
+        "career_url": "https://jobs.ashbyhq.com/righthandrobotics",
+        "ats": "ashby",
+        "ats_url": "righthandrobotics",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Autonomous Picking"
+    },
+    {
+        "name": "Osaro",
+        "career_url": "https://jobs.ashbyhq.com/osaro",
+        "ats": "ashby",
+        "ats_url": "osaro",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Machine Learning for Robotics"
+    },
+    {
+        "name": "Plus One Robotics",
+        "career_url": "https://jobs.ashbyhq.com/plusonerobotics",
+        "ats": "ashby",
+        "ats_url": "plusonerobotics",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Vision Software for Robots"
+    },
+    {
+        "name": "PickNik",
+        "career_url": "https://jobs.ashbyhq.com/picknik",
+        "ats": "ashby",
+        "ats_url": "picknik",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Robotics Software & ROS"
+    },
+    {
+        "name": "Apex.AI",
+        "career_url": "https://jobs.ashbyhq.com/apexai",
+        "ats": "ashby",
+        "ats_url": "apexai",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Software for Autonomous Mobility"
+    },
+    {
+        "name": "Applied Intuition",
+        "career_url": "https://jobs.ashbyhq.com/appliedintuition",
+        "ats": "ashby",
+        "ats_url": "appliedintuition",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Vehicle Software Platform"
+    },
+    {
+        "name": "Parallel Domain",
+        "career_url": "https://jobs.ashbyhq.com/paralleldomain",
+        "ats": "ashby",
+        "ats_url": "paralleldomain",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Synthetic Data for Autonomy"
+    },
+    {
+        "name": "Cognata",
+        "career_url": "https://jobs.ashbyhq.com/cognata",
+        "ats": "ashby",
+        "ats_url": "cognata",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Simulation for Autonomous Driving"
+    },
+    {
+        "name": "Metamoto",
+        "career_url": "https://jobs.ashbyhq.com/metamoto",
+        "ats": "ashby",
+        "ats_url": "metamoto",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Autonomous Vehicle Simulation"
+    },
+    {
+        "name": "Scale Autonomous",
+        "career_url": "https://jobs.ashbyhq.com/scaleautonomous",
+        "ats": "ashby",
+        "ats_url": "scaleautonomous",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Data Engine for AV"
+    },
+    {
+        "name": "Waabi",
+        "career_url": "https://jobs.ashbyhq.com/waabi",
+        "ats": "ashby",
+        "ats_url": "waabi",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Autonomous Trucking"
+    },
+    {
+        "name": "Aurora",
+        "career_url": "https://jobs.ashbyhq.com/aurora",
+        "ats": "ashby",
+        "ats_url": "aurora",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Self-Driving Technology"
+    },
+    {
+        "name": "Kodiak",
+        "career_url": "https://jobs.ashbyhq.com/kodiak",
+        "ats": "ashby",
+        "ats_url": "kodiak",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Autonomous Freight"
+    },
+    {
+        "name": "Gatik",
+        "career_url": "https://jobs.ashbyhq.com/gatik",
+        "ats": "ashby",
+        "ats_url": "gatik",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Autonomous Middle-Mile"
+    },
+    {
+        "name": "Einride",
+        "career_url": "https://jobs.ashbyhq.com/einride",
+        "ats": "ashby",
+        "ats_url": "einride",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Autonomous Freight Mobility"
+    },
+    {
+        "name": "Torc Robotics",
+        "career_url": "https://jobs.ashbyhq.com/torcrobotics",
+        "ats": "ashby",
+        "ats_url": "torcrobotics",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Self-Driving Truck Tech"
+    },
+    {
+        "name": "TuSimple",
+        "career_url": "https://jobs.ashbyhq.com/tusimple",
+        "ats": "ashby",
+        "ats_url": "tusimple",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Autonomous Trucking"
+    },
+    {
+        "name": "Plus",
+        "career_url": "https://jobs.ashbyhq.com/plusai",
+        "ats": "ashby",
+        "ats_url": "plusai",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Autonomous Driving"
+    },
+    {
+        "name": "Nuro",
+        "career_url": "https://jobs.ashbyhq.com/nuro",
+        "ats": "ashby",
+        "ats_url": "nuro",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Autonomous Local Delivery"
+    },
+    {
+        "name": "Serve Robotics",
+        "career_url": "https://jobs.ashbyhq.com/serverobotics",
+        "ats": "ashby",
+        "ats_url": "serverobotics",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Sidewalk Delivery Robots"
+    },
+    {
+        "name": "Starship",
+        "career_url": "https://jobs.ashbyhq.com/starship",
+        "ats": "ashby",
+        "ats_url": "starship",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Autonomous Delivery Robots"
+    },
+    {
+        "name": "Coco",
+        "career_url": "https://jobs.ashbyhq.com/coco",
+        "ats": "ashby",
+        "ats_url": "coco",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Remote-Controlled Delivery"
+    },
+    {
+        "name": "Kiwibot",
+        "career_url": "https://jobs.ashbyhq.com/kiwibot",
+        "ats": "ashby",
+        "ats_url": "kiwibot",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Robotic Delivery"
+    },
+    {
+        "name": "Flytrex",
+        "career_url": "https://jobs.ashbyhq.com/flytrex",
+        "ats": "ashby",
+        "ats_url": "flytrex",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Drone Delivery"
+    },
+    {
+        "name": "Zipline",
+        "career_url": "https://jobs.ashbyhq.com/zipline",
+        "ats": "ashby",
+        "ats_url": "zipline",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Automated Drone Delivery"
+    },
+    {
+        "name": "Wing",
+        "career_url": "https://jobs.ashbyhq.com/wing",
+        "ats": "ashby",
+        "ats_url": "wing",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Drone Delivery Services"
+    },
+    {
+        "name": "Matternet",
+        "career_url": "https://jobs.ashbyhq.com/matternet",
+        "ats": "ashby",
+        "ats_url": "matternet",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Urban Drone Logistics"
+    },
+    {
+        "name": "Swoop Aero",
+        "career_url": "https://jobs.ashbyhq.com/swoopaero",
+        "ats": "ashby",
+        "ats_url": "swoopaero",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Drone Logistics"
+    },
+    {
+        "name": "Volansi",
+        "career_url": "https://jobs.ashbyhq.com/volansi",
+        "ats": "ashby",
+        "ats_url": "volansi",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Autonomous VTOL Drones"
+    },
+    {
+        "name": "Skydio",
+        "career_url": "https://jobs.ashbyhq.com/skydio",
+        "ats": "ashby",
+        "ats_url": "skydio",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Autonomous Drones"
+    },
+    {
+        "name": "Percepto",
+        "career_url": "https://jobs.ashbyhq.com/percepto",
+        "ats": "ashby",
+        "ats_url": "percepto",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Autonomous Inspection Drones"
+    },
+    {
+        "name": "Airobotics",
+        "career_url": "https://jobs.ashbyhq.com/airobotics",
+        "ats": "ashby",
+        "ats_url": "airobotics",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Automated Drone Systems"
+    },
+    {
+        "name": "Shield AI",
+        "career_url": "https://jobs.ashbyhq.com/shieldai",
+        "ats": "ashby",
+        "ats_url": "shieldai",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI Pilot for Defense"
+    },
+    {
+        "name": "Anduril",
+        "career_url": "https://jobs.ashbyhq.com/anduril",
+        "ats": "ashby",
+        "ats_url": "anduril",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Defense Technology"
+    },
+    {
+        "name": "Palantir",
+        "career_url": "https://jobs.ashbyhq.com/palantir",
+        "ats": "ashby",
+        "ats_url": "palantir",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Big Data & AI Platforms"
+    },
+    {
+        "name": "Epirus",
+        "career_url": "https://jobs.ashbyhq.com/epirus",
+        "ats": "ashby",
+        "ats_url": "epirus",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "High-Power Microwave Defense"
+    },
+    {
+        "name": "Rebellion Defense",
+        "career_url": "https://jobs.ashbyhq.com/rebelliondefense",
+        "ats": "ashby",
+        "ats_url": "rebelliondefense",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Defense Software"
+    },
+    {
+        "name": "Primer",
+        "career_url": "https://jobs.ashbyhq.com/primer",
+        "ats": "ashby",
+        "ats_url": "primer",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI for National Security"
+    },
+    {
+        "name": "HawkEye 360",
+        "career_url": "https://jobs.ashbyhq.com/hawkeye360",
+        "ats": "ashby",
+        "ats_url": "hawkeye360",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Radio Frequency Geolocation"
+    },
+    {
+        "name": "BlackSky",
+        "career_url": "https://jobs.ashbyhq.com/blacksky",
+        "ats": "ashby",
+        "ats_url": "blacksky",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Real-Time Geospatial Intelligence"
+    },
+    {
+        "name": "Capella Space",
+        "career_url": "https://jobs.ashbyhq.com/capellaspace",
+        "ats": "ashby",
+        "ats_url": "capellaspace",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "SAR Satellite Imagery"
+    },
+    {
+        "name": "Planet",
+        "career_url": "https://jobs.ashbyhq.com/planet",
+        "ats": "ashby",
+        "ats_url": "planet",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Earth Observation Satellites"
+    },
+    {
+        "name": "Spire Global",
+        "career_url": "https://jobs.ashbyhq.com/spire",
+        "ats": "ashby",
+        "ats_url": "spire",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Space-to-Cloud Data Analytics"
+    },
+    {
+        "name": "Astranis",
+        "career_url": "https://jobs.ashbyhq.com/astranis",
+        "ats": "ashby",
+        "ats_url": "astranis",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Micro-GEO Satellites"
+    },
+    {
+        "name": "Rocket Lab",
+        "career_url": "https://jobs.ashbyhq.com/rocketlab",
+        "ats": "ashby",
+        "ats_url": "rocketlab",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Space Launch & Systems"
+    },
+    {
+        "name": "Relativity Space",
+        "career_url": "https://jobs.ashbyhq.com/relativityspace",
+        "ats": "ashby",
+        "ats_url": "relativityspace",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "3D-Printed Rockets"
+    },
+    {
+        "name": "Firefly Aerospace",
+        "career_url": "https://jobs.ashbyhq.com/firefly",
+        "ats": "ashby",
+        "ats_url": "firefly",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Space Launch Vehicles"
+    },
+    {
+        "name": "ABL Space Systems",
+        "career_url": "https://jobs.ashbyhq.com/ablspacesystems",
+        "ats": "ashby",
+        "ats_url": "ablspacesystems",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Small Satellite Launch"
+    },
+    {
+        "name": "Stoke Space",
+        "career_url": "https://jobs.ashbyhq.com/stokespace",
+        "ats": "ashby",
+        "ats_url": "stokespace",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Reusable Rockets"
+    },
+    {
+        "name": "Ursa Major",
+        "career_url": "https://jobs.ashbyhq.com/ursamajor",
+        "ats": "ashby",
+        "ats_url": "ursamajor",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Rocket Propulsion Systems"
+    },
+    {
+        "name": "Impulse Space",
+        "career_url": "https://jobs.ashbyhq.com/impulsespace",
+        "ats": "ashby",
+        "ats_url": "impulsespace",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "In-Space Transportation"
+    },
+    {
+        "name": "Momentus",
+        "career_url": "https://jobs.ashbyhq.com/momentus",
+        "ats": "ashby",
+        "ats_url": "momentus",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Space Infrastructure"
+    },
+    {
+        "name": "Varda Space",
+        "career_url": "https://jobs.ashbyhq.com/varda",
+        "ats": "ashby",
+        "ats_url": "varda",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "In-Space Manufacturing"
+    },
+    {
+        "name": "Signoz",
+        "career_url": "https://jobs.ashbyhq.com/signoz",
+        "ats": "ashby",
+        "ats_url": "signoz",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Open Source Observability"
+    },
+    {
+        "name": "Kestra",
+        "career_url": "https://jobs.ashbyhq.com/kestra",
+        "ats": "ashby",
+        "ats_url": "kestra",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Open Source Orchestration"
+    },
+    {
+        "name": "QuestDB Cloud",
+        "career_url": "https://jobs.ashbyhq.com/questdb",
+        "ats": "ashby",
+        "ats_url": "questdb",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Time Series Database"
+    },
+    {
+        "name": "Mistral AI Paris",
+        "career_url": "https://jobs.ashbyhq.com/mistral",
+        "ats": "ashby",
+        "ats_url": "mistral",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Frontier AI"
+    },
+    {
+        "name": "Midjourney",
+        "career_url": "https://jobs.ashbyhq.com/midjourney",
+        "ats": "ashby",
+        "ats_url": "midjourney",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Generative AI"
+    },
+    {
+        "name": "Civitai",
+        "career_url": "https://jobs.ashbyhq.com/civitai",
+        "ats": "ashby",
+        "ats_url": "civitai",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI Model Ecosystem"
+    },
+    {
+        "name": "Copy.ai",
+        "career_url": "https://jobs.ashbyhq.com/copyai",
+        "ats": "ashby",
+        "ats_url": "copyai",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI Writing Automation"
+    },
+    {
+        "name": "Notion AI",
+        "career_url": "https://jobs.ashbyhq.com/notion",
+        "ats": "ashby",
+        "ats_url": "notion",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "AI Productivity"
+    },
+    {
+        "name": "Whimsical",
+        "career_url": "https://jobs.ashbyhq.com/whimsical",
+        "ats": "ashby",
+        "ats_url": "whimsical",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Visual Workspace"
+    },
+    {
+        "name": "Excalidraw",
+        "career_url": "https://jobs.ashbyhq.com/excalidraw",
+        "ats": "ashby",
+        "ats_url": "excalidraw",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Virtual Whiteboard"
+    },
+    {
+        "name": "Tome",
+        "career_url": "https://jobs.ashbyhq.com/tome",
+        "ats": "ashby",
+        "ats_url": "tome",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI Storytelling"
+    },
+    {
+        "name": "Gamma",
+        "career_url": "https://jobs.ashbyhq.com/gamma",
+        "ats": "ashby",
+        "ats_url": "gamma",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI Presentations"
+    },
+    {
+        "name": "Vidio",
+        "career_url": "https://jobs.ashbyhq.com/vidio",
+        "ats": "ashby",
+        "ats_url": "vidio",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Video Technology"
+    },
+    {
+        "name": "Captions",
+        "career_url": "https://jobs.ashbyhq.com/captions",
+        "ats": "ashby",
+        "ats_url": "captions",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI Video Studio"
+    },
+    {
+        "name": "Opus Clip",
+        "career_url": "https://jobs.ashbyhq.com/opusclip",
+        "ats": "ashby",
+        "ats_url": "opusclip",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI Video Repurposing"
+    },
+    {
+        "name": "Pika",
+        "career_url": "https://jobs.ashbyhq.com/pika",
+        "ats": "ashby",
+        "ats_url": "pika",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI Video Generation"
+    },
+    {
+        "name": "Kling AI",
+        "career_url": "https://jobs.ashbyhq.com/kling",
+        "ats": "ashby",
+        "ats_url": "kling",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI Video Generation"
+    },
+    {
+        "name": "Haiper",
+        "career_url": "https://jobs.ashbyhq.com/haiper",
+        "ats": "ashby",
+        "ats_url": "haiper",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Video Foundation Models"
+    },
+    {
+        "name": "Leonardo.Ai",
+        "career_url": "https://jobs.ashbyhq.com/leonardoai",
+        "ats": "ashby",
+        "ats_url": "leonardoai",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Generative AI Art"
+    },
+    {
+        "name": "Scenario",
+        "career_url": "https://jobs.ashbyhq.com/scenario",
+        "ats": "ashby",
+        "ats_url": "scenario",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI Game Assets"
+    },
+    {
+        "name": "Photoroom",
+        "career_url": "https://jobs.ashbyhq.com/photoroom",
+        "ats": "ashby",
+        "ats_url": "photoroom",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI Photo Editor"
+    },
+    {
+        "name": "Magnific AI",
+        "career_url": "https://jobs.ashbyhq.com/magnific",
+        "ats": "ashby",
+        "ats_url": "magnific",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI Upscaling"
+    },
+    {
+        "name": "Krea",
+        "career_url": "https://jobs.ashbyhq.com/krea",
+        "ats": "ashby",
+        "ats_url": "krea",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Realtime AI Generation"
+    },
+    {
+        "name": "Spline",
+        "career_url": "https://jobs.ashbyhq.com/spline",
+        "ats": "ashby",
+        "ats_url": "spline",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "3D Design Tool"
+    },
+    {
+        "name": "Meshy",
+        "career_url": "https://jobs.ashbyhq.com/meshy",
+        "ats": "ashby",
+        "ats_url": "meshy",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "3D AI Generator"
+    },
+    {
+        "name": "CSM",
+        "career_url": "https://jobs.ashbyhq.com/csm",
+        "ats": "ashby",
+        "ats_url": "csm",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "3D World Models"
+    },
+    {
+        "name": "Tripo",
+        "career_url": "https://jobs.ashbyhq.com/tripo",
+        "ats": "ashby",
+        "ats_url": "tripo",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "3D Generative AI"
+    },
+    {
+        "name": "Rodin",
+        "career_url": "https://jobs.ashbyhq.com/rodin",
+        "ats": "ashby",
+        "ats_url": "rodin",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Generative 3D Avatars"
+    },
+    {
+        "name": "AlmaBetter",
+        "career_url": "https://jobs.ashbyhq.com/almabetter",
+        "ats": "ashby",
+        "ats_url": "almabetter",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Data Science & Web3"
+    },
+    {
+        "name": "Stoa",
+        "career_url": "https://jobs.ashbyhq.com/stoa",
+        "ats": "ashby",
+        "ats_url": "stoa",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Business Education"
+    },
+    {
+        "name": "GrowthSchool",
+        "career_url": "https://jobs.ashbyhq.com/growthschool",
+        "ats": "ashby",
+        "ats_url": "growthschool",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Cohort-based Learning"
+    },
+    {
+        "name": "Pinpoint",
+        "career_url": "https://jobs.ashbyhq.com/pinpoint",
+        "ats": "ashby",
+        "ats_url": "pinpoint",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "ATS Software"
+    },
+    {
+        "name": "Manatal",
+        "career_url": "https://jobs.ashbyhq.com/manatal",
+        "ats": "ashby",
+        "ats_url": "manatal",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI Recruitment Software"
     }
 ]

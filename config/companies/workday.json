@@ -208,5 +208,1375 @@
         "enabled": true,
         "bangalore": true,
         "category": "Semiconductor"
+    },
+    {
+        "name": "Dell Technologies",
+        "career_url": "https://dell.wd1.myworkdayjobs.com/External",
+        "ats": "workday",
+        "ats_url": "dell",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Hardware & Cloud"
+    },
+    {
+        "name": "eBay",
+        "career_url": "https://ebay.wd5.myworkdayjobs.com/apply",
+        "ats": "workday",
+        "ats_url": "ebay",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "E-Commerce"
+    },
+    {
+        "name": "Target",
+        "career_url": "https://target.wd5.myworkdayjobs.com/targetcareers",
+        "ats": "workday",
+        "ats_url": "target",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Retail & Tech"
+    },
+    {
+        "name": "Walmart Global Tech",
+        "career_url": "https://walmart.wd5.myworkdayjobs.com/WalmartExternal",
+        "ats": "workday",
+        "ats_url": "walmart",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Retail & Cloud"
+    },
+    {
+        "name": "Nike",
+        "career_url": "https://nike.wd1.myworkdayjobs.com/Careers",
+        "ats": "workday",
+        "ats_url": "nike",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Consumer Tech"
+    },
+    {
+        "name": "Home Depot",
+        "career_url": "https://homedepot.wd5.myworkdayjobs.com/HomeDepotCareers",
+        "ats": "workday",
+        "ats_url": "homedepot",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Retail Tech"
+    },
+    {
+        "name": "Mastercard",
+        "career_url": "https://mastercard.wd1.myworkdayjobs.com/CorporateCareers",
+        "ats": "workday",
+        "ats_url": "mastercard",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Payments"
+    },
+    {
+        "name": "Visa",
+        "career_url": "https://smartrecruiters.com/Visa",
+        "ats": "workday",
+        "ats_url": "visa",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Payments"
+    },
+    {
+        "name": "JPMorgan Chase",
+        "career_url": "https://jpmc.wd5.myworkdayjobs.com/JPMC_Careers",
+        "ats": "workday",
+        "ats_url": "jpmorgan",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Financial Services"
+    },
+    {
+        "name": "Morgan Stanley",
+        "career_url": "https://morganstanley.wd5.myworkdayjobs.com/MS_Careers",
+        "ats": "workday",
+        "ats_url": "morganstanley",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Investment Banking"
+    },
+    {
+        "name": "Goldman Sachs",
+        "career_url": "https://goldmansachs.wd1.myworkdayjobs.com/GS_Careers",
+        "ats": "workday",
+        "ats_url": "goldmansachs",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Financial Services"
+    },
+    {
+        "name": "Bank of America",
+        "career_url": "https://bac.wd1.myworkdayjobs.com/GlobalCareers",
+        "ats": "workday",
+        "ats_url": "bofa",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Banking"
+    },
+    {
+        "name": "Wells Fargo",
+        "career_url": "https://wellsfargo.wd1.myworkdayjobs.com/WellsFargoJobs",
+        "ats": "workday",
+        "ats_url": "wellsfargo",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Banking"
+    },
+    {
+        "name": "Citi",
+        "career_url": "https://citi.wd5.myworkdayjobs.com/CitiCareers",
+        "ats": "workday",
+        "ats_url": "citi",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Banking"
+    },
+    {
+        "name": "Barclays",
+        "career_url": "https://barclays.wd3.myworkdayjobs.com/Barclays_Careers",
+        "ats": "workday",
+        "ats_url": "barclays",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Banking"
+    },
+    {
+        "name": "Standard Chartered",
+        "career_url": "https://scb.wd3.myworkdayjobs.com/StandardCharteredCareers",
+        "ats": "workday",
+        "ats_url": "sc",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Banking"
+    },
+    {
+        "name": "BNP Paribas",
+        "career_url": "https://bnpparibas.wd3.myworkdayjobs.com/BNPP_Careers",
+        "ats": "workday",
+        "ats_url": "bnpparibas",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Banking"
+    },
+    {
+        "name": "Deutsche Bank",
+        "career_url": "https://db.wd3.myworkdayjobs.com/DB_Careers",
+        "ats": "workday",
+        "ats_url": "db",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Banking"
+    },
+    {
+        "name": "UBS",
+        "career_url": "https://ubs.wd3.myworkdayjobs.com/UBS_Careers",
+        "ats": "workday",
+        "ats_url": "ubs",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Wealth Management"
+    },
+    {
+        "name": "Credit Suisse",
+        "career_url": "https://creditsuisse.wd3.myworkdayjobs.com/CS_Careers",
+        "ats": "workday",
+        "ats_url": "creditsuisse",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Banking"
+    },
+    {
+        "name": "Societe Generale",
+        "career_url": "https://socgen.wd3.myworkdayjobs.com/SG_Careers",
+        "ats": "workday",
+        "ats_url": "socgen",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Banking"
+    },
+    {
+        "name": "State Street",
+        "career_url": "https://statestreet.wd1.myworkdayjobs.com/Global",
+        "ats": "workday",
+        "ats_url": "statestreet",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Financial Services"
+    },
+    {
+        "name": "Northern Trust",
+        "career_url": "https://northerntrust.wd1.myworkdayjobs.com/Careers",
+        "ats": "workday",
+        "ats_url": "northerntrust",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Asset Management"
+    },
+    {
+        "name": "BlackRock",
+        "career_url": "https://blackrock.wd1.myworkdayjobs.com/BlackRock_Professional",
+        "ats": "workday",
+        "ats_url": "blackrock",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Asset Management"
+    },
+    {
+        "name": "Vanguard",
+        "career_url": "https://vanguard.wd5.myworkdayjobs.com/VanguardCareers",
+        "ats": "workday",
+        "ats_url": "vanguard",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Investment Tech"
+    },
+    {
+        "name": "Fidelity Investments",
+        "career_url": "https://fidelity.wd1.myworkdayjobs.com/FMR_Careers",
+        "ats": "workday",
+        "ats_url": "fidelity",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "WealthTech"
+    },
+    {
+        "name": "Charles Schwab",
+        "career_url": "https://schwab.wd5.myworkdayjobs.com/SchwabJobs",
+        "ats": "workday",
+        "ats_url": "schwab",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Brokerage Tech"
+    },
+    {
+        "name": "Micron Technology",
+        "career_url": "https://micron.wd1.myworkdayjobs.com/External",
+        "ats": "workday",
+        "ats_url": "micron",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Memory & Storage"
+    },
+    {
+        "name": "ASML",
+        "career_url": "https://asml.wd3.myworkdayjobs.com/ASML_Careers",
+        "ats": "workday",
+        "ats_url": "asml",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Photolithography"
+    },
+    {
+        "name": "Cadence Design",
+        "career_url": "https://cadence.wd1.myworkdayjobs.com/External_Careers",
+        "ats": "workday",
+        "ats_url": "cadence",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "EDA & Silicon"
+    },
+    {
+        "name": "ANSYS",
+        "career_url": "https://ansys.wd1.myworkdayjobs.com/AnsysCareers",
+        "ats": "workday",
+        "ats_url": "ansys",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Engineering Simulation"
+    },
+    {
+        "name": "Dassault Systemes",
+        "career_url": "https://3ds.wd3.myworkdayjobs.com/3DS_Careers",
+        "ats": "workday",
+        "ats_url": "3ds",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "3D Software"
+    },
+    {
+        "name": "PTC",
+        "career_url": "https://ptc.wd1.myworkdayjobs.com/External",
+        "ats": "workday",
+        "ats_url": "ptc",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Industrial IoT & CAD"
+    },
+    {
+        "name": "Autodesk",
+        "career_url": "https://autodesk.wd1.myworkdayjobs.com/Ext",
+        "ats": "workday",
+        "ats_url": "autodesk",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Design Software"
+    },
+    {
+        "name": "Johnson Controls",
+        "career_url": "https://jci.wd1.myworkdayjobs.com/External",
+        "ats": "workday",
+        "ats_url": "jci",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Smart Buildings"
+    },
+    {
+        "name": "ABB",
+        "career_url": "https://abb.wd3.myworkdayjobs.com/ABB_Careers",
+        "ats": "workday",
+        "ats_url": "abb",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Robotics & Power"
+    },
+    {
+        "name": "Rockwell Automation",
+        "career_url": "https://rockwellautomation.wd1.myworkdayjobs.com/Careers",
+        "ats": "workday",
+        "ats_url": "rockwell",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Industrial Automation"
+    },
+    {
+        "name": "Emerson",
+        "career_url": "https://emerson.wd5.myworkdayjobs.com/EmersonCareers",
+        "ats": "workday",
+        "ats_url": "emerson",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Automation Solutions"
+    },
+    {
+        "name": "Fortive",
+        "career_url": "https://fortive.wd1.myworkdayjobs.com/Fortive_Careers",
+        "ats": "workday",
+        "ats_url": "fortive",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Industrial Tech"
+    },
+    {
+        "name": "Roper Technologies",
+        "career_url": "https://roper.wd1.myworkdayjobs.com/RoperCareers",
+        "ats": "workday",
+        "ats_url": "roper",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Software & Diagnostics"
+    },
+    {
+        "name": "Keysight Technologies",
+        "career_url": "https://keysight.wd1.myworkdayjobs.com/External",
+        "ats": "workday",
+        "ats_url": "keysight",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Electronic Measurement"
+    },
+    {
+        "name": "Teradyne",
+        "career_url": "https://teradyne.wd1.myworkdayjobs.com/Teradyne_Careers",
+        "ats": "workday",
+        "ats_url": "teradyne",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Automated Test Equipment"
+    },
+    {
+        "name": "National Instruments",
+        "career_url": "https://ni.wd5.myworkdayjobs.com/NICareers",
+        "ats": "workday",
+        "ats_url": "ni",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Automated Test Software"
+    },
+    {
+        "name": "MathWorks",
+        "career_url": "https://mathworks.wd1.myworkdayjobs.com/MathWorksCareers",
+        "ats": "workday",
+        "ats_url": "mathworks",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "MATLAB & Simulink"
+    },
+    {
+        "name": "Wolfram",
+        "career_url": "https://wolfram.wd1.myworkdayjobs.com/WolframCareers",
+        "ats": "workday",
+        "ats_url": "wolfram",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Computational Software"
+    },
+    {
+        "name": "Bentley Systems",
+        "career_url": "https://bentley.wd1.myworkdayjobs.com/BentleyCareers",
+        "ats": "workday",
+        "ats_url": "bentley",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Infrastructure Engineering"
+    },
+    {
+        "name": "Trimble Inc",
+        "career_url": "https://trimble.wd1.myworkdayjobs.com/TrimbleCareers",
+        "ats": "workday",
+        "ats_url": "trimblecorp",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Positioning Tech"
+    },
+    {
+        "name": "Garmin",
+        "career_url": "https://garmin.wd1.myworkdayjobs.com/GarminCareers",
+        "ats": "workday",
+        "ats_url": "garmin",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "GPS & Navigation"
+    },
+    {
+        "name": "TomTom",
+        "career_url": "https://tomtom.wd3.myworkdayjobs.com/TomTom_Careers",
+        "ats": "workday",
+        "ats_url": "tomtom",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Maps & Location Tech"
+    },
+    {
+        "name": "HERE Technologies",
+        "career_url": "https://here.wd3.myworkdayjobs.com/HERE_Careers",
+        "ats": "workday",
+        "ats_url": "here",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Location Platform"
+    },
+    {
+        "name": "Esri",
+        "career_url": "https://esri.wd1.myworkdayjobs.com/EsriCareers",
+        "ats": "workday",
+        "ats_url": "esri",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "GIS Software"
+    },
+    {
+        "name": "Hexagon",
+        "career_url": "https://hexagon.wd3.myworkdayjobs.com/Hexagon_Careers",
+        "ats": "workday",
+        "ats_url": "hexagon",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Digital Reality"
+    },
+    {
+        "name": "Cognex",
+        "career_url": "https://cognex.wd1.myworkdayjobs.com/CognexCareers",
+        "ats": "workday",
+        "ats_url": "cognex",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Machine Vision"
+    },
+    {
+        "name": "Keyence",
+        "career_url": "https://keyence.wd1.myworkdayjobs.com/KeyenceCareers",
+        "ats": "workday",
+        "ats_url": "keyence",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Sensors & Automation"
+    },
+    {
+        "name": "Omron",
+        "career_url": "https://omron.wd3.myworkdayjobs.com/Omron_Careers",
+        "ats": "workday",
+        "ats_url": "omron",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Automation & Healthcare"
+    },
+    {
+        "name": "FANUC",
+        "career_url": "https://fanuc.wd1.myworkdayjobs.com/FANUC_Careers",
+        "ats": "workday",
+        "ats_url": "fanuc",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Robotics & CNC"
+    },
+    {
+        "name": "Yaskawa",
+        "career_url": "https://yaskawa.wd1.myworkdayjobs.com/YaskawaCareers",
+        "ats": "workday",
+        "ats_url": "yaskawa",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Robotics & Drives"
+    },
+    {
+        "name": "KUKA",
+        "career_url": "https://kuka.wd3.myworkdayjobs.com/KUKA_Careers",
+        "ats": "workday",
+        "ats_url": "kuka",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Industrial Robotics"
+    },
+    {
+        "name": "Universal Robots",
+        "career_url": "https://universalrobots.wd3.myworkdayjobs.com/UR_Careers",
+        "ats": "workday",
+        "ats_url": "universalrobots",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Collaborative Robots"
+    },
+    {
+        "name": "iRobot",
+        "career_url": "https://irobot.wd5.myworkdayjobs.com/iRobotCareers",
+        "ats": "workday",
+        "ats_url": "irobot",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Consumer Robotics"
+    },
+    {
+        "name": "SharkNinja",
+        "career_url": "https://sharkninja.wd1.myworkdayjobs.com/SharkNinjaCareers",
+        "ats": "workday",
+        "ats_url": "sharkninja",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Smart Home Tech"
+    },
+    {
+        "name": "Dyson",
+        "career_url": "https://dyson.wd3.myworkdayjobs.com/Dyson_Careers",
+        "ats": "workday",
+        "ats_url": "dyson",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Engineering & Hardware"
+    },
+    {
+        "name": "Bose",
+        "career_url": "https://bose.wd1.myworkdayjobs.com/BoseCareers",
+        "ats": "workday",
+        "ats_url": "bose",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Audio Hardware & DSP"
+    },
+    {
+        "name": "Sonos",
+        "career_url": "https://sonos.wd1.myworkdayjobs.com/SonosCareers",
+        "ats": "workday",
+        "ats_url": "sonos",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Smart Sound Systems"
+    },
+    {
+        "name": "Sennheiser",
+        "career_url": "https://sennheiser.wd3.myworkdayjobs.com/Sennheiser_Careers",
+        "ats": "workday",
+        "ats_url": "sennheiser",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Audio Technology"
+    },
+    {
+        "name": "Harman",
+        "career_url": "https://harman.wd1.myworkdayjobs.com/Harman_Careers",
+        "ats": "workday",
+        "ats_url": "harman",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Connected Car & Audio"
+    },
+    {
+        "name": "Visteon",
+        "career_url": "https://visteon.wd1.myworkdayjobs.com/VisteonCareers",
+        "ats": "workday",
+        "ats_url": "visteon",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Cockpit Electronics"
+    },
+    {
+        "name": "Aptiv",
+        "career_url": "https://aptiv.wd5.myworkdayjobs.com/Aptiv_Careers",
+        "ats": "workday",
+        "ats_url": "aptiv",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Automotive Architecture"
+    },
+    {
+        "name": "Continental",
+        "career_url": "https://continental.wd3.myworkdayjobs.com/Continental_Careers",
+        "ats": "workday",
+        "ats_url": "continental",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Automotive Tech"
+    },
+    {
+        "name": "ZF Group",
+        "career_url": "https://zf.wd3.myworkdayjobs.com/ZF_Careers",
+        "ats": "workday",
+        "ats_url": "zf",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Mobility Systems"
+    },
+    {
+        "name": "Denso",
+        "career_url": "https://denso.wd3.myworkdayjobs.com/Denso_Careers",
+        "ats": "workday",
+        "ats_url": "denso",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Automotive Components"
+    },
+    {
+        "name": "Magna",
+        "career_url": "https://magna.wd3.myworkdayjobs.com/Magna_Careers",
+        "ats": "workday",
+        "ats_url": "magna",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Mobility Technology"
+    },
+    {
+        "name": "Valeo",
+        "career_url": "https://valeo.wd3.myworkdayjobs.com/Valeo_Careers",
+        "ats": "workday",
+        "ats_url": "valeo",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Automotive Systems"
+    },
+    {
+        "name": "Faurecia",
+        "career_url": "https://forvia.wd3.myworkdayjobs.com/Forvia_Careers",
+        "ats": "workday",
+        "ats_url": "forvia",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Automotive Tech"
+    },
+    {
+        "name": "Lear",
+        "career_url": "https://lear.wd1.myworkdayjobs.com/Lear_Careers",
+        "ats": "workday",
+        "ats_url": "lear",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Seating & Electrical"
+    },
+    {
+        "name": "BorgWarner",
+        "career_url": "https://borgwarner.wd1.myworkdayjobs.com/BorgWarnerCareers",
+        "ats": "workday",
+        "ats_url": "borgwarner",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Clean Energy Mobility"
+    },
+    {
+        "name": "Tenneco",
+        "career_url": "https://tenneco.wd1.myworkdayjobs.com/TennecoCareers",
+        "ats": "workday",
+        "ats_url": "tenneco",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Automotive Tech"
+    },
+    {
+        "name": "Dana",
+        "career_url": "https://dana.wd1.myworkdayjobs.com/DanaCareers",
+        "ats": "workday",
+        "ats_url": "dana",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Drivetrain & Electrification"
+    },
+    {
+        "name": "Meritor",
+        "career_url": "https://meritor.wd1.myworkdayjobs.com/MeritorCareers",
+        "ats": "workday",
+        "ats_url": "meritor",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Drivetrain Mobility"
+    },
+    {
+        "name": "Cummins",
+        "career_url": "https://cummins.wd1.myworkdayjobs.com/Cummins_Careers",
+        "ats": "workday",
+        "ats_url": "cummins",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Power Solutions & Hydrogen"
+    },
+    {
+        "name": "Caterpillar",
+        "career_url": "https://cat.wd5.myworkdayjobs.com/CaterpillarCareers",
+        "ats": "workday",
+        "ats_url": "caterpillar",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Construction Tech & Autonomy"
+    },
+    {
+        "name": "John Deere",
+        "career_url": "https://deere.wd5.myworkdayjobs.com/DeereCareers",
+        "ats": "workday",
+        "ats_url": "deere",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "AgTech & Autonomous Tech"
+    },
+    {
+        "name": "CNH Industrial",
+        "career_url": "https://cnh.wd3.myworkdayjobs.com/CNH_Careers",
+        "ats": "workday",
+        "ats_url": "cnh",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Agricultural Technology"
+    },
+    {
+        "name": "AGCO",
+        "career_url": "https://agco.wd1.myworkdayjobs.com/AGCO_Careers",
+        "ats": "workday",
+        "ats_url": "agco",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Precision Agriculture"
+    },
+    {
+        "name": "Kubota",
+        "career_url": "https://kubota.wd3.myworkdayjobs.com/KubotaCareers",
+        "ats": "workday",
+        "ats_url": "kubota",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Machinery & Tech"
+    },
+    {
+        "name": "Komatsu",
+        "career_url": "https://komatsu.wd3.myworkdayjobs.com/KomatsuCareers",
+        "ats": "workday",
+        "ats_url": "komatsu",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Mining Automation"
+    },
+    {
+        "name": "Hitachi Construction",
+        "career_url": "https://hitachicm.wd3.myworkdayjobs.com/HCM_Careers",
+        "ats": "workday",
+        "ats_url": "hitachicm",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Heavy Machinery"
+    },
+    {
+        "name": "Liebherr",
+        "career_url": "https://liebherr.wd3.myworkdayjobs.com/Liebherr_Careers",
+        "ats": "workday",
+        "ats_url": "liebherr",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Construction Machinery"
+    },
+    {
+        "name": "Volvo Group",
+        "career_url": "https://volvo.wd3.myworkdayjobs.com/Volvo_Careers",
+        "ats": "workday",
+        "ats_url": "volvo",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Transport & Autonomous"
+    },
+    {
+        "name": "Scania",
+        "career_url": "https://scania.wd3.myworkdayjobs.com/Scania_Careers",
+        "ats": "workday",
+        "ats_url": "scania",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Commercial Vehicles"
+    },
+    {
+        "name": "MAN Truck & Bus",
+        "career_url": "https://man.wd3.myworkdayjobs.com/MAN_Careers",
+        "ats": "workday",
+        "ats_url": "mantruck",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Transport Tech"
+    },
+    {
+        "name": "Daimler Truck",
+        "career_url": "https://daimlertruck.wd3.myworkdayjobs.com/DT_Careers",
+        "ats": "workday",
+        "ats_url": "daimlertruck",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Commercial Mobility"
+    },
+    {
+        "name": "PACCAR",
+        "career_url": "https://paccar.wd1.myworkdayjobs.com/PACCAR_Careers",
+        "ats": "workday",
+        "ats_url": "paccar",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Truck Technology"
+    },
+    {
+        "name": "Navistar",
+        "career_url": "https://navistar.wd1.myworkdayjobs.com/NavistarCareers",
+        "ats": "workday",
+        "ats_url": "navistar",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Commercial Vehicles"
+    },
+    {
+        "name": "Iveco Group",
+        "career_url": "https://ivecogroup.wd3.myworkdayjobs.com/IvecoCareers",
+        "ats": "workday",
+        "ats_url": "ivecogroup",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Commercial Vehicles"
+    },
+    {
+        "name": "Knorr-Bremse",
+        "career_url": "https://knorrbremse.wd3.myworkdayjobs.com/KB_Careers",
+        "ats": "workday",
+        "ats_url": "knorrbremse",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Braking Systems"
+    },
+    {
+        "name": "Wabtec",
+        "career_url": "https://wabtec.wd1.myworkdayjobs.com/WabtecCareers",
+        "ats": "workday",
+        "ats_url": "wabtec",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Rail Technology"
+    },
+    {
+        "name": "Alstom",
+        "career_url": "https://alstom.wd3.myworkdayjobs.com/Alstom_Careers",
+        "ats": "workday",
+        "ats_url": "alstom",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Smart Mobility"
+    },
+    {
+        "name": "Bombardier",
+        "career_url": "https://bombardier.wd3.myworkdayjobs.com/Bombardier_Careers",
+        "ats": "workday",
+        "ats_url": "bombardier",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Aviation Tech"
+    },
+    {
+        "name": "Boeing",
+        "career_url": "https://boeing.wd1.myworkdayjobs.com/EXTERNAL_CAREERS",
+        "ats": "workday",
+        "ats_url": "boeing",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Aerospace & Defense"
+    },
+    {
+        "name": "Airbus",
+        "career_url": "https://airbus.wd3.myworkdayjobs.com/Airbus_Careers",
+        "ats": "workday",
+        "ats_url": "airbus",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Aerospace & Satellites"
+    },
+    {
+        "name": "Lockheed Martin",
+        "career_url": "https://lockheedmartin.wd1.myworkdayjobs.com/External",
+        "ats": "workday",
+        "ats_url": "lockheedmartin",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Defense & Aerospace"
+    },
+    {
+        "name": "Raytheon Technologies",
+        "career_url": "https://rtx.wd1.myworkdayjobs.com/RTX_Careers",
+        "ats": "workday",
+        "ats_url": "rtx",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Aerospace Systems"
+    },
+    {
+        "name": "Northrop Grumman",
+        "career_url": "https://ngc.wd1.myworkdayjobs.com/NGC_Careers",
+        "ats": "workday",
+        "ats_url": "northropgrumman",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Defense & Space"
+    },
+    {
+        "name": "General Dynamics",
+        "career_url": "https://gd.wd1.myworkdayjobs.com/GD_Careers",
+        "ats": "workday",
+        "ats_url": "generaldynamics",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Defense & Marine"
+    },
+    {
+        "name": "L3Harris",
+        "career_url": "https://l3harris.wd1.myworkdayjobs.com/L3Harris_Careers",
+        "ats": "workday",
+        "ats_url": "l3harris",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Defense Communication"
+    },
+    {
+        "name": "Textron",
+        "career_url": "https://textron.wd1.myworkdayjobs.com/TextronCareers",
+        "ats": "workday",
+        "ats_url": "textron",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Aviation Systems"
+    },
+    {
+        "name": "General Electric",
+        "career_url": "https://ge.wd5.myworkdayjobs.com/GE_Careers",
+        "ats": "workday",
+        "ats_url": "ge",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Aviation & Energy"
+    },
+    {
+        "name": "Rolls-Royce",
+        "career_url": "https://rollsroyce.wd3.myworkdayjobs.com/RR_Careers",
+        "ats": "workday",
+        "ats_url": "rollsroyce",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Power Systems & Aviation"
+    },
+    {
+        "name": "Safran",
+        "career_url": "https://safran.wd3.myworkdayjobs.com/Safran_Careers",
+        "ats": "workday",
+        "ats_url": "safran",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Aviation Propulsion"
+    },
+    {
+        "name": "Thales",
+        "career_url": "https://thales.wd3.myworkdayjobs.com/Thales_Careers",
+        "ats": "workday",
+        "ats_url": "thales",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Defense & Identity Security"
+    },
+    {
+        "name": "Leonardo",
+        "career_url": "https://leonardo.wd3.myworkdayjobs.com/Leonardo_Careers",
+        "ats": "workday",
+        "ats_url": "leonardo",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Aerospace & Security"
+    },
+    {
+        "name": "BAE Systems",
+        "career_url": "https://baesystems.wd3.myworkdayjobs.com/BAES_Careers",
+        "ats": "workday",
+        "ats_url": "baesystems",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Defense Security"
+    },
+    {
+        "name": "Rheinmetall",
+        "career_url": "https://rheinmetall.wd3.myworkdayjobs.com/RHM_Careers",
+        "ats": "workday",
+        "ats_url": "rheinmetall",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Defense & Automotive"
+    },
+    {
+        "name": "Kongsberg",
+        "career_url": "https://kongsberg.wd3.myworkdayjobs.com/Kongsberg_Careers",
+        "ats": "workday",
+        "ats_url": "kongsberg",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Maritime & Defense"
+    },
+    {
+        "name": "Saab",
+        "career_url": "https://saab.wd3.myworkdayjobs.com/Saab_Careers",
+        "ats": "workday",
+        "ats_url": "saab",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Defense Systems"
+    },
+    {
+        "name": "Dassault Aviation",
+        "career_url": "https://dassaultaviation.wd3.myworkdayjobs.com/DA_Careers",
+        "ats": "workday",
+        "ats_url": "dassaultaviation",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Military & Business Jets"
+    },
+    {
+        "name": "Embraer",
+        "career_url": "https://embraer.wd3.myworkdayjobs.com/Embraer_Careers",
+        "ats": "workday",
+        "ats_url": "embraer",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Aviation Systems"
+    },
+    {
+        "name": "Slack Tech",
+        "career_url": "https://salesforce.wd1.myworkdayjobs.com/External_Career_Site",
+        "ats": "workday",
+        "ats_url": "slack",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Productivity Platform"
+    },
+    {
+        "name": "Cognizant",
+        "career_url": "https://cognizant.wd8.myworkdayjobs.com/Cognizant_Careers",
+        "ats": "workday",
+        "ats_url": "cognizant",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Digital Services"
+    },
+    {
+        "name": "Wipro",
+        "career_url": "https://wipro.wd3.myworkdayjobs.com/Wipro_External_Career_Site",
+        "ats": "workday",
+        "ats_url": "wipro",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "IT & Consulting"
+    },
+    {
+        "name": "Infosys",
+        "career_url": "https://career.infosys.com",
+        "ats": "workday",
+        "ats_url": "infosys",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "IT Consulting"
+    },
+    {
+        "name": "HCLTech",
+        "career_url": "https://hcl.wd3.myworkdayjobs.com/HCL_Careers",
+        "ats": "workday",
+        "ats_url": "hcltech",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Technology & Services"
+    },
+    {
+        "name": "Tech Mahindra",
+        "career_url": "https://techmahindra.wd3.myworkdayjobs.com/TechM_Careers",
+        "ats": "workday",
+        "ats_url": "techmahindra",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Digital Transformation"
+    },
+    {
+        "name": "LTIMindtree",
+        "career_url": "https://ltimindtree.wd3.myworkdayjobs.com/LTIMindtree_Careers",
+        "ats": "workday",
+        "ats_url": "ltimindtree",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Digital Solutions"
+    },
+    {
+        "name": "Mphasis",
+        "career_url": "https://mphasis.wd3.myworkdayjobs.com/Mphasis_Careers",
+        "ats": "workday",
+        "ats_url": "mphasis",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Applied Tech Services"
+    },
+    {
+        "name": "Hexaware",
+        "career_url": "https://hexaware.wd3.myworkdayjobs.com/Hexaware_Careers",
+        "ats": "workday",
+        "ats_url": "hexaware",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "IT & Cloud Services"
+    },
+    {
+        "name": "Persistent Systems",
+        "career_url": "https://persistent.wd3.myworkdayjobs.com/Persistent_Careers",
+        "ats": "workday",
+        "ats_url": "persistent",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Digital Engineering"
+    },
+    {
+        "name": "Cyient",
+        "career_url": "https://cyient.wd3.myworkdayjobs.com/Cyient_Careers",
+        "ats": "workday",
+        "ats_url": "cyient",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Engineering & Tech"
+    },
+    {
+        "name": "KPIT Technologies",
+        "career_url": "https://kpit.wd3.myworkdayjobs.com/KPIT_Careers",
+        "ats": "workday",
+        "ats_url": "kpit",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Automotive Software"
+    },
+    {
+        "name": "Birlasoft",
+        "career_url": "https://birlasoft.wd3.myworkdayjobs.com/Birlasoft_Careers",
+        "ats": "workday",
+        "ats_url": "birlasoft",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Enterprise Digital"
+    },
+    {
+        "name": "Zensar Technologies",
+        "career_url": "https://zensar.wd3.myworkdayjobs.com/Zensar_Careers",
+        "ats": "workday",
+        "ats_url": "zensar",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Digital Solutions"
+    },
+    {
+        "name": "Sonata Software",
+        "career_url": "https://sonata.wd3.myworkdayjobs.com/Sonata_Careers",
+        "ats": "workday",
+        "ats_url": "sonata",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Modernization Engineering"
+    },
+    {
+        "name": "Happiest Minds",
+        "career_url": "https://happiestminds.wd3.myworkdayjobs.com/HM_Careers",
+        "ats": "workday",
+        "ats_url": "happiestminds",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Mindful IT"
+    },
+    {
+        "name": "Sasken Technologies",
+        "career_url": "https://sasken.wd3.myworkdayjobs.com/Sasken_Careers",
+        "ats": "workday",
+        "ats_url": "sasken",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Product Engineering"
+    },
+    {
+        "name": "eInfochips",
+        "career_url": "https://arrow.wd1.myworkdayjobs.com/Arrow_Careers",
+        "ats": "workday",
+        "ats_url": "einfochips",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Silicon & IoT Services"
+    },
+    {
+        "name": "L&T Technology Services",
+        "career_url": "https://ltts.wd3.myworkdayjobs.com/LTTS_Careers",
+        "ats": "workday",
+        "ats_url": "ltts",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Engineering R&D Services"
     }
 ]

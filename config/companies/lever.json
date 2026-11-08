@@ -578,5 +578,1435 @@
         "enabled": true,
         "bangalore": false,
         "category": "FinTech"
+    },
+    {
+        "name": "Twitch",
+        "career_url": "https://jobs.lever.co/twitch",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/twitch",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Live Streaming"
+    },
+    {
+        "name": "SoundCloud",
+        "career_url": "https://jobs.lever.co/soundcloud",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/soundcloud",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Audio Streaming"
+    },
+    {
+        "name": "Udacity",
+        "career_url": "https://jobs.lever.co/udacity",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/udacity",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "EdTech"
+    },
+    {
+        "name": "Skillshare",
+        "career_url": "https://jobs.lever.co/skillshare",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/skillshare",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "EdTech"
+    },
+    {
+        "name": "Babbel",
+        "career_url": "https://jobs.lever.co/babbel",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/babbel",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "EdTech / Language"
+    },
+    {
+        "name": "Codecademy",
+        "career_url": "https://jobs.lever.co/codecademy",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/codecademy",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "EdTech"
+    },
+    {
+        "name": "Quizlet",
+        "career_url": "https://jobs.lever.co/quizlet",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/quizlet",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "EdTech"
+    },
+    {
+        "name": "Kahoot",
+        "career_url": "https://jobs.lever.co/kahoot",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/kahoot",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "EdTech / Gamification"
+    },
+    {
+        "name": "Course Hero",
+        "career_url": "https://jobs.lever.co/coursehero",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/coursehero",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "EdTech"
+    },
+    {
+        "name": "Brainly",
+        "career_url": "https://jobs.lever.co/brainly",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/brainly",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "EdTech Community"
+    },
+    {
+        "name": "GoGuardian",
+        "career_url": "https://jobs.lever.co/goguardian",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/goguardian",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "EdTech Security"
+    },
+    {
+        "name": "ClassDojo",
+        "career_url": "https://jobs.lever.co/classdojo",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/classdojo",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "School Communication"
+    },
+    {
+        "name": "Remind",
+        "career_url": "https://jobs.lever.co/remind",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/remind",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "EdTech Communication"
+    },
+    {
+        "name": "Handshake",
+        "career_url": "https://jobs.lever.co/joinhandshake",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/joinhandshake",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Early Career Platform"
+    },
+    {
+        "name": "Springboard",
+        "career_url": "https://jobs.lever.co/springboard",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/springboard",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Tech Bootcamps"
+    },
+    {
+        "name": "Outschool",
+        "career_url": "https://jobs.lever.co/outschool",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/outschool",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Live Online Classes"
+    },
+    {
+        "name": "Preply",
+        "career_url": "https://jobs.lever.co/preply",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/preply",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Language Tutoring"
+    },
+    {
+        "name": "Cambly",
+        "career_url": "https://jobs.lever.co/cambly",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/cambly",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "English Tutoring"
+    },
+    {
+        "name": "Lingoda",
+        "career_url": "https://jobs.lever.co/lingoda",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/lingoda",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Online Language School"
+    },
+    {
+        "name": "Italki",
+        "career_url": "https://jobs.lever.co/italki",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/italki",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Language Learning"
+    },
+    {
+        "name": "Photomath",
+        "career_url": "https://jobs.lever.co/photomath",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/photomath",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI Math Solver"
+    },
+    {
+        "name": "Loom",
+        "career_url": "https://jobs.lever.co/loom",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/loom",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Async Video"
+    },
+    {
+        "name": "Otter.ai",
+        "career_url": "https://jobs.lever.co/otterai",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/otterai",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI Transcription"
+    },
+    {
+        "name": "Descript",
+        "career_url": "https://jobs.lever.co/descript",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/descript",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI Audio & Video Editor"
+    },
+    {
+        "name": "InVideo",
+        "career_url": "https://jobs.lever.co/invideo",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/invideo",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Video Creation"
+    },
+    {
+        "name": "Synthesia",
+        "career_url": "https://jobs.lever.co/synthesia",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/synthesia",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI Video Generation"
+    },
+    {
+        "name": "HeyGen",
+        "career_url": "https://jobs.lever.co/heygen",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/heygen",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI Video Avatars"
+    },
+    {
+        "name": "D-ID",
+        "career_url": "https://jobs.lever.co/d-id",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/d-id",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI Video Generation"
+    },
+    {
+        "name": "Speechify",
+        "career_url": "https://jobs.lever.co/speechify",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/speechify",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI Text to Speech"
+    },
+    {
+        "name": "Murf AI",
+        "career_url": "https://jobs.lever.co/murfai",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/murfai",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "AI Voice Generator"
+    },
+    {
+        "name": "Resemble AI",
+        "career_url": "https://jobs.lever.co/resembleai",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/resembleai",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Voice Cloning"
+    },
+    {
+        "name": "WellSaid Labs",
+        "career_url": "https://jobs.lever.co/wellsaidlabs",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/wellsaidlabs",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI Voice"
+    },
+    {
+        "name": "Voicemod",
+        "career_url": "https://jobs.lever.co/voicemod",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/voicemod",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Voice Modifier"
+    },
+    {
+        "name": "Krisp",
+        "career_url": "https://jobs.lever.co/krisp",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/krisp",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI Noise Cancellation"
+    },
+    {
+        "name": "Rev",
+        "career_url": "https://jobs.lever.co/rev",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/rev",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Speech-to-Text Services"
+    },
+    {
+        "name": "Verbit",
+        "career_url": "https://jobs.lever.co/verbit",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/verbit",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Transcription & Captioning"
+    },
+    {
+        "name": "Sonix",
+        "career_url": "https://jobs.lever.co/sonix",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/sonix",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI Audio Transcription"
+    },
+    {
+        "name": "Trint",
+        "career_url": "https://jobs.lever.co/trint",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/trint",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Audio & Video Transcription"
+    },
+    {
+        "name": "Happy Scribe",
+        "career_url": "https://jobs.lever.co/happyscribe",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/happyscribe",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Transcription & Subtitles"
+    },
+    {
+        "name": "Amberscript",
+        "career_url": "https://jobs.lever.co/amberscript",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/amberscript",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Audio Transcription"
+    },
+    {
+        "name": "Castmagic",
+        "career_url": "https://jobs.lever.co/castmagic",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/castmagic",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI Content for Audio"
+    },
+    {
+        "name": "Podcastle",
+        "career_url": "https://jobs.lever.co/podcastle",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/podcastle",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Podcast Recording"
+    },
+    {
+        "name": "Riverside.fm",
+        "career_url": "https://jobs.lever.co/riversidefm",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/riversidefm",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Virtual Studio"
+    },
+    {
+        "name": "SquadCast",
+        "career_url": "https://jobs.lever.co/squadcast",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/squadcast",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Remote Recording"
+    },
+    {
+        "name": "Sounder",
+        "career_url": "https://jobs.lever.co/sounder",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/sounder",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Audio Intelligence"
+    },
+    {
+        "name": "Acast",
+        "career_url": "https://jobs.lever.co/acast",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/acast",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Podcast Platform"
+    },
+    {
+        "name": "Audioboom",
+        "career_url": "https://jobs.lever.co/audioboom",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/audioboom",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Podcasting Platform"
+    },
+    {
+        "name": "Libsyn",
+        "career_url": "https://jobs.lever.co/libsyn",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/libsyn",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Podcast Hosting"
+    },
+    {
+        "name": "Megaphone",
+        "career_url": "https://jobs.lever.co/megaphone",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/megaphone",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Podcast Hosting"
+    },
+    {
+        "name": "Simplecast",
+        "career_url": "https://jobs.lever.co/simplecast",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/simplecast",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Podcast Hosting"
+    },
+    {
+        "name": "Captivate",
+        "career_url": "https://jobs.lever.co/captivate",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/captivate",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Podcast Platform"
+    },
+    {
+        "name": "Transistor",
+        "career_url": "https://jobs.lever.co/transistor",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/transistor",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Podcast Hosting"
+    },
+    {
+        "name": "Buzzsprout",
+        "career_url": "https://jobs.lever.co/buzzsprout",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/buzzsprout",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Podcast Hosting"
+    },
+    {
+        "name": "Podbean",
+        "career_url": "https://jobs.lever.co/podbean",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/podbean",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Podcast Publishing"
+    },
+    {
+        "name": "Anchor",
+        "career_url": "https://jobs.lever.co/anchor",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/anchor",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Podcast Platform"
+    },
+    {
+        "name": "RedCircle",
+        "career_url": "https://jobs.lever.co/redcircle",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/redcircle",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Podcasting Platform"
+    },
+    {
+        "name": "Castos",
+        "career_url": "https://jobs.lever.co/castos",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/castos",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Podcast Hosting"
+    },
+    {
+        "name": "Blubrry",
+        "career_url": "https://jobs.lever.co/blubrry",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/blubrry",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Podcasting Hosting"
+    },
+    {
+        "name": "Spreaker",
+        "career_url": "https://jobs.lever.co/spreaker",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/spreaker",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Podcast Platform"
+    },
+    {
+        "name": "Kajabi",
+        "career_url": "https://jobs.lever.co/kajabi",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/kajabi",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Creator Platform"
+    },
+    {
+        "name": "Teachable",
+        "career_url": "https://jobs.lever.co/teachable",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/teachable",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Online Courses"
+    },
+    {
+        "name": "Thinkific",
+        "career_url": "https://jobs.lever.co/thinkific",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/thinkific",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Course Platform"
+    },
+    {
+        "name": "Podia",
+        "career_url": "https://jobs.lever.co/podia",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/podia",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Creator Storefront"
+    },
+    {
+        "name": "Gumroad",
+        "career_url": "https://jobs.lever.co/gumroad",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/gumroad",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "E-Commerce for Creators"
+    },
+    {
+        "name": "Substack",
+        "career_url": "https://jobs.lever.co/substack",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/substack",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Newsletters & Subscriptions"
+    },
+    {
+        "name": "Ghost",
+        "career_url": "https://jobs.lever.co/ghost",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/ghost",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Independent Publishing"
+    },
+    {
+        "name": "Medium",
+        "career_url": "https://jobs.lever.co/medium",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/medium",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Open Publishing"
+    },
+    {
+        "name": "Vocal",
+        "career_url": "https://jobs.lever.co/vocal",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/vocal",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Creator Storytelling"
+    },
+    {
+        "name": "Buy Me a Coffee",
+        "career_url": "https://jobs.lever.co/buymeacoffee",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/buymeacoffee",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Creator Funding"
+    },
+    {
+        "name": "Ko-fi",
+        "career_url": "https://jobs.lever.co/kofi",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/kofi",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Creator Donations"
+    },
+    {
+        "name": "Memberful",
+        "career_url": "https://jobs.lever.co/memberful",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/memberful",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Membership Software"
+    },
+    {
+        "name": "Circle.so",
+        "career_url": "https://jobs.lever.co/circle",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/circle",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Community Platform"
+    },
+    {
+        "name": "Mighty Networks",
+        "career_url": "https://jobs.lever.co/mightynetworks",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/mightynetworks",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Community Software"
+    },
+    {
+        "name": "Bettermode",
+        "career_url": "https://jobs.lever.co/bettermode",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/bettermode",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Customer Community"
+    },
+    {
+        "name": "Discourse",
+        "career_url": "https://jobs.lever.co/discourse",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/discourse",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Discussion Platform"
+    },
+    {
+        "name": "Flarum",
+        "career_url": "https://jobs.lever.co/flarum",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/flarum",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Community Forums"
+    },
+    {
+        "name": "NodeBB",
+        "career_url": "https://jobs.lever.co/nodebb",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/nodebb",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Forum Software"
+    },
+    {
+        "name": "Vanilla Forums",
+        "career_url": "https://jobs.lever.co/vanillaforums",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/vanillaforums",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Enterprise Communities"
+    },
+    {
+        "name": "Invision Community",
+        "career_url": "https://jobs.lever.co/invisionpower",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/invisionpower",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Community Software"
+    },
+    {
+        "name": "vBulletin",
+        "career_url": "https://jobs.lever.co/vbulletin",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/vbulletin",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Community Software"
+    },
+    {
+        "name": "XenForo",
+        "career_url": "https://jobs.lever.co/xenforo",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/xenforo",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Community Software"
+    },
+    {
+        "name": "Hivebrite",
+        "career_url": "https://jobs.lever.co/hivebrite",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/hivebrite",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Community Platform"
+    },
+    {
+        "name": "Graduway",
+        "career_url": "https://jobs.lever.co/graduway",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/graduway",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Alumni Networking"
+    },
+    {
+        "name": "ToucanTech",
+        "career_url": "https://jobs.lever.co/toucantech",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/toucantech",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Community Software"
+    },
+    {
+        "name": "Kite",
+        "career_url": "https://jobs.lever.co/kite",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/kite",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Developer Tools"
+    },
+    {
+        "name": "Tabnine",
+        "career_url": "https://jobs.lever.co/tabnine",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/tabnine",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "AI Code Completion"
+    },
+    {
+        "name": "Replit",
+        "career_url": "https://jobs.lever.co/replit",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/replit",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Online Collaborative IDE"
+    },
+    {
+        "name": "Gitpod",
+        "career_url": "https://jobs.lever.co/gitpod",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/gitpod",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Cloud Development Environments"
+    },
+    {
+        "name": "Coder",
+        "career_url": "https://jobs.lever.co/coder",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/coder",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Cloud Development Environments"
+    },
+    {
+        "name": "CodeSandbox",
+        "career_url": "https://jobs.lever.co/codesandbox",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/codesandbox",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Cloud Development"
+    },
+    {
+        "name": "StackBlitz",
+        "career_url": "https://jobs.lever.co/stackblitz",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/stackblitz",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "WebAssembly IDE"
+    },
+    {
+        "name": "Glitch",
+        "career_url": "https://jobs.lever.co/glitch",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/glitch",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Web App Creator"
+    },
+    {
+        "name": "Qovery",
+        "career_url": "https://jobs.lever.co/qovery",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/qovery",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Cloud Platform"
+    },
+    {
+        "name": "Northflank",
+        "career_url": "https://jobs.lever.co/northflank",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/northflank",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Developer Platform"
+    },
+    {
+        "name": "Coherence",
+        "career_url": "https://jobs.lever.co/coherence",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/coherence",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Developer Platform"
+    },
+    {
+        "name": "Zeet",
+        "career_url": "https://jobs.lever.co/zeet",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/zeet",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "DevOps Automation"
+    },
+    {
+        "name": "Shipyard",
+        "career_url": "https://jobs.lever.co/shipyard",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/shipyard",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Ephemeral Environments"
+    },
+    {
+        "name": "Bunnyshell",
+        "career_url": "https://jobs.lever.co/bunnyshell",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/bunnyshell",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Environment as a Service"
+    },
+    {
+        "name": "ReleaseHub",
+        "career_url": "https://jobs.lever.co/releasehub",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/releasehub",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Environments as a Service"
+    },
+    {
+        "name": "Uffizzi",
+        "career_url": "https://jobs.lever.co/uffizzi",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/uffizzi",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Preview Environments"
+    },
+    {
+        "name": "Okteto",
+        "career_url": "https://jobs.lever.co/okteto",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/okteto",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Cloud Development"
+    },
+    {
+        "name": "Garden",
+        "career_url": "https://jobs.lever.co/garden",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/garden",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Kubernetes Testing"
+    },
+    {
+        "name": "Telepresence",
+        "career_url": "https://jobs.lever.co/telepresence",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/telepresence",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Local Kubernetes Dev"
+    },
+    {
+        "name": "Tilt",
+        "career_url": "https://jobs.lever.co/tilt",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/tilt",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Multi-Service Dev"
+    },
+    {
+        "name": "Skaffold",
+        "career_url": "https://jobs.lever.co/skaffold",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/skaffold",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Continuous Kubernetes Dev"
+    },
+    {
+        "name": "DevSpace",
+        "career_url": "https://jobs.lever.co/devspace",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/devspace",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Kubernetes Developer Tool"
+    },
+    {
+        "name": "Ambassador",
+        "career_url": "https://jobs.lever.co/datawire",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/datawire",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Kubernetes API Gateway"
+    },
+    {
+        "name": "Emissary-ingress",
+        "career_url": "https://jobs.lever.co/emissary",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/emissary",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "API Gateway"
+    },
+    {
+        "name": "Tyk",
+        "career_url": "https://jobs.lever.co/tyk",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/tyk",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "API Management"
+    },
+    {
+        "name": "Gravitee.io",
+        "career_url": "https://jobs.lever.co/gravitee",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/gravitee",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "API Platform"
+    },
+    {
+        "name": "WSO2",
+        "career_url": "https://jobs.lever.co/wso2",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/wso2",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Integration & API Management"
+    },
+    {
+        "name": "MuleSoft",
+        "career_url": "https://jobs.lever.co/mulesoft",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/mulesoft",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "API Integration"
+    },
+    {
+        "name": "Boomi",
+        "career_url": "https://jobs.lever.co/boomi",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/boomi",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Cloud Integration"
+    },
+    {
+        "name": "SnapLogic",
+        "career_url": "https://jobs.lever.co/snaplogic",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/snaplogic",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Intelligent Integration"
+    },
+    {
+        "name": "Workato",
+        "career_url": "https://jobs.lever.co/workato",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/workato",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Enterprise Automation"
+    },
+    {
+        "name": "Tray.io",
+        "career_url": "https://jobs.lever.co/tray",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/tray",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Low-Code Automation"
+    },
+    {
+        "name": "Make",
+        "career_url": "https://jobs.lever.co/make",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/make",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Visual Automation Platform"
+    },
+    {
+        "name": "n8n",
+        "career_url": "https://jobs.lever.co/n8n",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/n8n",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Workflow Automation"
+    },
+    {
+        "name": "Zapier India",
+        "career_url": "https://jobs.lever.co/zapier",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/zapier",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Workflow Automation"
+    },
+    {
+        "name": "Activepieces",
+        "career_url": "https://jobs.lever.co/activepieces",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/activepieces",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Open Source Automation"
+    },
+    {
+        "name": "Appsmith",
+        "career_url": "https://jobs.lever.co/appsmith",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/appsmith",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Low-Code Internal Tools"
+    },
+    {
+        "name": "ToolJet",
+        "career_url": "https://jobs.lever.co/tooljet",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/tooljet",
+        "priority": true,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Open Source Internal Tools"
+    },
+    {
+        "name": "Budibase",
+        "career_url": "https://jobs.lever.co/budibase",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/budibase",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Internal Tools Builder"
+    },
+    {
+        "name": "Illa Cloud",
+        "career_url": "https://jobs.lever.co/illacloud",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/illacloud",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Low-Code Development"
+    },
+    {
+        "name": "DronaHQ",
+        "career_url": "https://jobs.lever.co/dronahq",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/dronahq",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Low-Code Platform"
+    },
+    {
+        "name": "Superblocks",
+        "career_url": "https://jobs.lever.co/superblocks",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/superblocks",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Enterprise Internal Tools"
+    },
+    {
+        "name": "Internal.io",
+        "career_url": "https://jobs.lever.co/internal",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/internal",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Application Builder"
+    },
+    {
+        "name": "Airplane",
+        "career_url": "https://jobs.lever.co/airplane",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/airplane",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Developer Platform for Internal Tools"
+    },
+    {
+        "name": "Interval",
+        "career_url": "https://jobs.lever.co/interval",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/interval",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Internal Tools Software"
+    },
+    {
+        "name": "Glide",
+        "career_url": "https://jobs.lever.co/glide",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/glide",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "No-Code App Builder"
+    },
+    {
+        "name": "Softr",
+        "career_url": "https://jobs.lever.co/softr",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/softr",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "No-Code Web Apps"
+    },
+    {
+        "name": "Framer",
+        "career_url": "https://jobs.lever.co/framer",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/framer",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Interactive Web Design"
+    },
+    {
+        "name": "Bubble",
+        "career_url": "https://jobs.lever.co/bubble",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/bubble",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "No-Code Web Apps"
+    },
+    {
+        "name": "FlutterFlow",
+        "career_url": "https://jobs.lever.co/flutterflow",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/flutterflow",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Visual Flutter App Builder"
+    },
+    {
+        "name": "Draftbit",
+        "career_url": "https://jobs.lever.co/draftbit",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/draftbit",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "React Native Builder"
+    },
+    {
+        "name": "Adalo",
+        "career_url": "https://jobs.lever.co/adalo",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/adalo",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "No-Code Mobile Apps"
+    },
+    {
+        "name": "Bravo Studio",
+        "career_url": "https://jobs.lever.co/bravostudio",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/bravostudio",
+        "priority": false,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Design to Native App"
+    },
+    {
+        "name": "Monday",
+        "career_url": "https://api.lever.co/v0/postings/monday",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/monday",
+        "priority": true,
+        "enabled": true,
+        "bangalore": false,
+        "category": "Work OS"
+    },
+    {
+        "name": "Verloop.io",
+        "career_url": "https://api.lever.co/v0/postings/verloop",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/verloop",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Customer Support Automation"
+    },
+    {
+        "name": "Stage",
+        "career_url": "https://api.lever.co/v0/postings/stage",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/stage",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Dialect OTT Platform"
+    },
+    {
+        "name": "Masai School",
+        "career_url": "https://api.lever.co/v0/postings/masaischool",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/masaischool",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Outcome-Driven EdTech"
+    },
+    {
+        "name": "Newton School",
+        "career_url": "https://api.lever.co/v0/postings/newtonschool",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/newtonschool",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Coding Bootcamps"
+    },
+    {
+        "name": "Talview",
+        "career_url": "https://api.lever.co/v0/postings/talview",
+        "ats": "lever",
+        "ats_url": "https://api.lever.co/v0/postings/talview",
+        "priority": false,
+        "enabled": true,
+        "bangalore": true,
+        "category": "Measurement & Assessment"
     }
 ]
