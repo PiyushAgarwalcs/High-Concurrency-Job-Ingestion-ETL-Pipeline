@@ -52,13 +52,22 @@ class JobListing:
             self.job_id = self.generate_hash()
 
     def generate_hash(self) -> str:
-        """Generate SHA256 hash from company + title + apply_url for dedup as requested in V2."""
-        raw = (
-            self.company_name.lower()
-            + self.job_title.lower()
-            + self.apply_url.lower()
-        )
-        return hashlib.sha256(raw.encode("utf-8")).hexdigest()
+        """Generate collision-resistant canonical SHA-256 state fingerprint via OmniSight."""
+        try:
+            from core.omnisight import OmniSightEngine
+            return OmniSightEngine.generate_fingerprint(
+                self.company_name,
+                self.job_title,
+                self.location,
+                self.apply_url
+            )
+        except Exception:
+            raw = (
+                self.company_name.lower().strip()
+                + self.job_title.lower().strip()
+                + self.apply_url.lower().strip()
+            )
+            return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
     def _normalize_location(self) -> str:
         """Normalize location for filtering."""

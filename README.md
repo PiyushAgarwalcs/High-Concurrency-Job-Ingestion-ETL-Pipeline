@@ -1,13 +1,15 @@
 <div align="center">
   
-# 🚀 AI/ML & Backend Software Engineering Job Discovery Pipeline
+# 🚀 AI/ML & Backend Software Engineering Job Discovery Pipeline V3
 
-**An enterprise-grade, asynchronous web scraping and aggregation pipeline designed to discover freshly posted software engineering roles minutes after they hit official career pages.**
+**A high-concurrency, pure backend data engineering system combining Async Concurrency, the DeployGuard Isolation Safety Gate, the OmniSight State Fingerprinting Engine, and an Integrated Telemetry Harness.**
 
-[![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/downloads/release/python-3120/)
-[![Asyncio](https://img.shields.io/badge/Asyncio-Enabled-success.svg)](https://docs.python.org/3/library/asyncio.html)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%20%7C%203.11%20%7C%203.12-blue.svg)](https://www.python.org/)
+[![Pydantic v2](https://img.shields.io/badge/Pydantic-v2.14-E92063.svg)](https://docs.pydantic.dev/)
+[![Asyncio](https://img.shields.io/badge/Asyncio-Concurrency-success.svg)](https://docs.python.org/3/library/asyncio.html)
 [![GitHub Actions](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-2088FF.svg)](https://github.com/features/actions)
-[![SQLite](https://img.shields.io/badge/Database-SQLite-003B57.svg)](https://sqlite.org/index.html)
+[![SQLite](https://img.shields.io/badge/Database-SQLite%20WAL-003B57.svg)](https://sqlite.org/index.html)
+[![Tests Passing](https://img.shields.io/badge/Tests-16%20Passed-brightgreen.svg)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 </div>
@@ -16,53 +18,110 @@
 
 ## 📖 Overview
 
-Traditional job boards (LinkedIn, Indeed) suffer from severe latency, ghost jobs, and extreme applicant saturation. To gain a competitive advantage in the AI/ML and Software Engineering space, I engineered a highly concurrent, fully automated pipeline that bypasses third-party boards entirely.
+Traditional job platforms (LinkedIn, Indeed) suffer from severe latency, ghost jobs, and applicant saturation. To gain a major competitive edge, this pipeline bypasses third-party boards entirely.
 
-Instead, this system directly interrogates **300+ official company APIs** and Applicant Tracking Systems (ATS) to fetch raw JSON job data, applies strict NLP-based keyword filtering to isolate entry-level/fresher roles in targeted geographical areas (e.g., Bangalore), and delivers real-time notifications via Telegram.
+Instead, the system directly interrogates **300+ official company APIs and Applicant Tracking Systems (ATS)** (Greenhouse, Lever, Ashby, Workday, SmartRecruiters, etc.) using `aiohttp` and `asyncio`, processes listings through **DeployGuard** safety gates, performs deterministic state deduplication via **OmniSight**, ranks jobs algorithmically, and delivers immediate real-time alerts.
 
-## ✨ Technical Highlights
+---
 
-- **Massive Concurrency:** Replaced legacy synchronous HTML parsing (BeautifulSoup) with an `asyncio` & `aiohttp` architecture. The system aggressively manages network connections via `asyncio.Semaphore`, capable of querying and parsing 300+ enterprise endpoints in **under 30 seconds**.
-- **Automated ATS API Discovery:** Eliminates the brittleness of DOM/CSS scraping. The `CompanyValidator` auto-detects 15+ underlying ATS providers (Greenhouse, Lever, Workday, BambooHR, etc.) from standard career URLs and dynamically invokes the correct native JSON API parser.
-- **Smart Data Extraction:** Employs RegEx to automatically parse raw job descriptions for explicit salary figures (e.g., extracting "15 LPA") and format ATS posting dates cleanly into standard ISO strings for the Telegram alert payload.
-- **Resilient Fault Tolerance:** Built for the wild. Features an SQLite-backed `source_health` monitoring system that tracks HTTP 403s (Cloudflare/Bot-protection) and timeouts. Implements exponential backoff, realistic browser header rotation, automatic `zstd` decoding, and gracefully disables blocking sources to prevent socket exhaustion without crashing the main thread.
-- **Idempotent Deduplication:** Every discovered job undergoes SHA-256 hashing based on its unique attributes. The SQLite database ensures that historical jobs are tracked and filtered out, guaranteeing zero notification spam.
-- **Zero-Touch Automation:** Deployed entirely on **GitHub Actions**. A scheduled cron workflow provisions an Ubuntu runner every **3 hours**, executes the pipeline, securely caches the SQLite state database across ephemeral runs, and pushes notifications seamlessly.
+## 🏗️ System Architecture & Data Flow
 
-## 🏗️ System Architecture
-
-```mermaid
-graph TD
-    A[GitHub Actions Cron] --> B[Scraper Manager]
-    
-    subgraph Async Scraping Engine
-        B -->|Async HTTP| C1[Greenhouse API]
-        B -->|Async HTTP| C2[Lever API]
-        B -->|Async HTTP| C3[Workday API]
-        B -->|Async HTTP| C4[12+ Other ATS APIs]
-    end
-    
-    C1 & C2 & C3 & C4 --> D[Raw Job Aggregator]
-    
-    D --> E[Filter Engine]
-    E -->|NLP Keyword Match| F[Deduplication Engine]
-    F -->|SHA-256 Hash Check| G[(SQLite Database)]
-    
-    G -->|New Hashes Only| H[Report Generator]
-    H -->|Markdown/CSV| I[GitHub Artifacts]
-    H -->|Instant Alert| J[Telegram Bot API]
+```text
+┌────────────────────────────────────────────────────────────────────────┐
+│                      1. ASYNC INGESTION GATEWAY                        │
+│ • Scheduled via Serverless GitHub Actions CRON (4x Daily)              │
+│ • Manages async HTTP worker pool via aiohttp + asyncio.gather          │
+│ • Direct ATS JSON queries (Greenhouse, Lever, Ashby, Workday, etc.)    │
+│ • Enforces domain-aware throttling: 5/host semaphore, 30 global        │
+└──────────────────────────────────┬─────────────────────────────────────┘
+                                   │
+                                   ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│                    2. THE DEPLOYGUARD LAYER (Safety Gate)              │
+│ • Programmatic Pydantic v2 schema validation (`JobPayload`)            │
+│ • URL tracking sanitizer: Strips UTM params, referral & affiliate tags │
+│ • Non-tech title & spam quarantine                                    │
+│ • Custom Circuit Breaker: 15-min cooldown on 3 consecutive 429/503s    │
+└──────────────────────────────────┬─────────────────────────────────────┘
+                                   │ (Validated Canonical Records)
+                                   ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│                 3. THE OMNISIGHT LAYER (Deduplication Fabric)          │
+│ • Unicode NFKC normalization, whitespace squashing, case standardization│
+│ • Cryptographic State Fingerprint: SHA-256(company : title : location) │
+│ • High-Speed SQLite Ledger: Fast primary key indexing & size telemetry │
+└──────────────────────────────────┬─────────────────────────────────────┘
+                                   │ (Brand New, Unseen Unique Listings)
+                                   ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│                  4. STRATEGY-PATTERN NOTIFIER & METRICS                │
+│ • Strategy pattern: `BaseNotifier` -> `TelegramNotifier`, `Console`    │
+│ • Real-time Telemetry: Sustained throughput (req/s), resilience rate,   │
+│   deduplication %, schema compliance %, and database disk footprint    │
+│ • Automatic GitHub Actions Step Summary markdown report generation     │
+└────────────────────────────────────────────────────────────────────────┘
 ```
 
-## 🛠️ Technology Stack
+---
 
-| Category | Technology |
-| :--- | :--- |
-| **Core Language** | Python 3.12 |
-| **Concurrency & Networking** | `asyncio`, `aiohttp`, `aiofiles` |
-| **Data Parsing** | `beautifulsoup4` (for fallback XML feeds), standard `json` |
-| **Database** | `aiosqlite` (Asynchronous SQLite) |
-| **CI/CD & DevOps** | GitHub Actions, Actions Cache (State Persistence) |
-| **Notifications** | Telegram Bot API |
+## ✨ Core Engineering Pillars
+
+### 1. 🛡️ DeployGuard Safety Gate (`core/deployguard.py`)
+- **Pydantic v2 Validation:** Programmatically inspects every incoming listing against the `JobPayload` schema. Rejects malformed titles, broken URLs, and invalid salaries.
+- **URL Sanitization:** Normalizes all apply URLs by automatically stripping tracking queries (`utm_*`, `gh_src`, `lever-origin`, `ref`, `source`, `fbclid`).
+- **Domain-Aware Circuit Breaker:** Implements a finite state machine (**CLOSED -> OPEN -> HALF-OPEN**) per ATS domain. Upon 3 consecutive HTTP 429, 503, or connection timeouts, trips open for 15 minutes, isolating the failing domain and shielding your IP from bans.
+
+### 2. 🔍 OmniSight Deduplication Fabric (`core/omnisight.py`)
+- **Canonical Text Normalization:** Cleans job titles (`"Software Development Engineer - I"` -> `"sde 1"`) and maps locations (`"Bengaluru, Karnataka"` -> `"bangalore"`).
+- **Deterministic SHA-256 State Fingerprinting:** Formats a canonical composite string `company:title:location` and computes a 64-character SHA-256 digest. Identical positions cross-posted on different job boards yield the exact same fingerprint.
+- **Indexed SQLite Ledger:** Fast O(1) query lookup table `job_fingerprints` with persistence across runs and automatic 90-day pruning policies.
+
+### 3. 📊 OmniSight Telemetry & Observability (`core/metrics.py`)
+- **Zero-Overhead Performance Instrumentation:** Uses `time.perf_counter()` to record end-to-end execution latency.
+- **Quantitative Telemetry Metrics:**
+  - Sustained throughput ($\text{req/s}$)
+  - Upstream resilience rate ($\%$)
+  - Schema compliance rate ($\%$)
+  - Deduplication ratio ($\%$)
+  - SQLite disk footprint ($\text{MB}$)
+- **ASCII Executive Dashboard:** Outputs a structured ASCII report to `stdout` and injects rich Markdown summary tables into `$GITHUB_STEP_SUMMARY`.
+
+### 4. 📬 Strategy-Pattern Notifier Engine (`notifiers/`)
+- Abstract base class `BaseNotifier` with concrete strategies:
+  - `TelegramNotifier`: Dispatches chunked, HTML-formatted cards with exponential retries.
+  - `ConsoleNotifier`: Outputs structured CLI cards for dry runs, CI testing, and local development.
+
+---
+
+## 🧪 Comprehensive Test Suite
+
+The pipeline includes a unit and integration test suite:
+
+```bash
+# Run the complete test suite
+python -m pytest tests/ -v
+```
+
+```text
+tests/test_deployguard.py::test_sanitize_url_removes_tracking_params PASSED
+tests/test_deployguard.py::test_job_payload_valid PASSED
+tests/test_deployguard.py::test_job_payload_rejects_placeholder_title PASSED
+tests/test_deployguard.py::test_job_payload_rejects_invalid_url PASSED
+tests/test_deployguard.py::test_job_payload_rejects_empty_company PASSED
+tests/test_deployguard.py::test_circuit_breaker_transitions PASSED
+tests/test_metrics.py::test_metrics_tracker_calculations PASSED
+tests/test_metrics.py::test_metrics_tracker_zero_division_safety PASSED
+tests/test_metrics.py::test_metrics_report_formatting PASSED
+tests/test_omnisight.py::test_normalize_title PASSED
+tests/test_omnisight.py::test_normalize_location PASSED
+tests/test_omnisight.py::test_fingerprint_equivalence_across_variations PASSED
+tests/test_omnisight.py::test_is_new_listing_and_duplicate_suppression PASSED
+tests/test_omnisight.py::test_batch_check_and_register PASSED
+tests/test_omnisight.py::test_db_size_reporting PASSED
+tests/test_pipeline_integration.py::test_full_data_engineering_pipeline_flow PASSED
+```
+
+---
 
 ## 🚀 Quick Start (Local Setup)
 
@@ -77,24 +136,40 @@ graph TD
    pip install -r requirements.txt
    ```
 
-3. **Configure Environment Variables:**
-   Rename `.env.example` to `.env` and add your Telegram credentials:
+3. **Run Unit Tests:**
+   ```bash
+   python -m pytest tests/ -v
+   ```
+
+4. **Execute Local Dry Run (Console Output):**
+   ```bash
+   python main.py --dry-run --console-notify
+   ```
+
+5. **Production Deployment with Telegram Alerts:**
+   Configure environment variables:
    ```env
    TELEGRAM_BOT_TOKEN="your_telegram_bot_token"
    TELEGRAM_CHAT_ID="your_telegram_chat_id"
    ```
-
-4. **Execute the Pipeline:**
-   To run the scraper and test filters locally without firing Telegram notifications:
+   Run live:
    ```bash
-   python main.py --dry-run
+   python main.py
    ```
 
-## 📈 Analytics & Reporting
+---
 
-Beyond Telegram alerts, the system maintains historical metrics:
-- **Source Health Logging:** Tracks average API response times, timeout frequencies, and consecutive failures per company.
-- **Run Summaries:** Generates `reports/jobs_latest.csv` and `broken_pages_report.md` on every execution to allow for continuous performance tuning.
+## ⚡ Serverless CI/CD Automation
+
+Automated via `.github/workflows/job_alert.yml` on an **Ubuntu runner**:
+1. Checks out repository and sets up Python 3.12.
+2. Restores persistent SQLite database cache across runs (`@actions/cache`).
+3. Executes `pytest tests/ -v` to ensure zero regressions.
+4. Executes `python main.py` to scrape upstreams, isolate errors, and notify Telegram.
+5. Emits the OmniSight Telemetry Report directly to GitHub Actions Step Summaries.
+6. Uploads daily Markdown/CSV audit reports as build artifacts.
+
+---
 
 ## 📄 License
-This project is open-source and available under the MIT License.
+Licensed under the [MIT License](LICENSE).

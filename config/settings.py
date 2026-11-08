@@ -54,11 +54,20 @@ TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 TELEGRAM_API_URL = "https://api.telegram.org/bot{token}/sendMessage"
 TELEGRAM_MAX_MESSAGE_LENGTH = 4096
 
-# ─── Scraping Configuration ────────────────────────────────────────────────────
-REQUEST_TIMEOUT = 30          # V2 spec: maximum timeout 30 seconds
-RETRY_ATTEMPTS = 3            # V2 spec: Retry 3 times
-RETRY_DELAY = 2               
-MAX_CONCURRENT_REQUESTS = 10  # Reduced to prevent socket exhaustion
+# ─── Scraping & DeployGuard Concurrency Configuration ───────────────────────────
+REQUEST_TIMEOUT = 30          # Maximum request timeout in seconds
+RETRY_ATTEMPTS = 3            # Retry up to 3 times on transient failures
+RETRY_DELAY = 2               # Base backoff delay in seconds
+MAX_CONCURRENT_REQUESTS = 30  # Global concurrency limit
+PER_HOST_CONCURRENCY = 5      # Domain-aware concurrency cap (DeployGuard isolation)
+
+# ─── DeployGuard Circuit Breaker Thresholds ─────────────────────────────────────
+CIRCUIT_BREAKER_FAILURES = 3   # Consecutive 429/503/timeout failures to trip breaker
+CIRCUIT_BREAKER_COOLDOWN = 900 # 15-minute cooldown window before half-open probe
+
+# ─── OmniSight Deduplication & State Ledger ─────────────────────────────────────
+OMNISIGHT_DB_PATH = os.path.join(DATA_DIR, "jobs.db")
+FINGERPRINT_HASH_ALGO = "sha256"
 
 # ─── HTTP Headers ───────────────────────────────────────────────────────────────
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"

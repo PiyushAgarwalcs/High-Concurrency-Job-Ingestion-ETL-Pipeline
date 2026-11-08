@@ -44,6 +44,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      # ── 5b. Run Test Suite (DeployGuard & OmniSight Verification) ────────
+      - name: Run Test Suite
+        run: |
+          pytest tests/ -v
+
       # ── 6. Run pipeline ───────────────────────────────────────────────────
       - name: Run Job Alert Pipeline
         env:
