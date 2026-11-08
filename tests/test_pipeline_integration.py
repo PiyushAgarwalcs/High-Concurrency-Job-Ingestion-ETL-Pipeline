@@ -1,12 +1,12 @@
 """
-Integration tests for the complete V3 Pipeline (DeployGuard + OmniSight + Strategy Notifier).
+Integration tests for the complete Pipeline (RequestGuard + StateLedger + Strategy Notifier).
 """
 
 import os
 import tempfile
 import pytest
-from core.deployguard import JobPayload, CircuitBreaker
-from core.omnisight import OmniSightEngine
+from core.request_guard import JobSchema, CircuitBreaker
+from core.state_ledger import StateLedger
 from core.metrics import MetricsTracker
 from core.models import JobListing
 from notifiers.console import ConsoleNotifier
@@ -21,9 +21,9 @@ def test_full_data_engineering_pipeline_flow():
         metrics = MetricsTracker()
         metrics.start()
 
-        # 2. DeployGuard Circuit Breaker Init
+        # 2. RequestGuard Circuit Breaker Init
         circuit_breaker = CircuitBreaker(failure_threshold=3, cooldown_seconds=60)
-        assert circuit_breaker.can_execute("greenhouse.io") is True
+        assert circuit_breaker.can_request("greenhouse.io") is True
 
         # 3. Raw Incoming Data
         raw_scraped_records = [
@@ -45,7 +45,7 @@ def test_full_data_engineering_pipeline_flow():
             # Malformed item to test quarantine
             {
                 "company_name": "Spam Corp",
-                "job_title": "test",  # rejected by non-job regex
+                "job_title": "test",  # rejected by placeholder regex
                 "location": "Remote",
                 "apply_url": "https://example.com/spam",
             },
@@ -62,11 +62,11 @@ def test_full_data_engineering_pipeline_flow():
         metrics.total_endpoints = 2
         metrics.raw_jobs_count = len(raw_scraped_records)
 
-        # 4. DeployGuard Validation & Quarantine Gate
+        # 4. RequestGuard Validation & Quarantine Gate
         validated_listings = []
         for raw in raw_scraped_records:
             try:
-                payload = JobPayload(**raw)
+                payload = JobSchema(**raw)
                 validated_listings.append(payload.to_job_listing())
                 metrics.successful_fetches += 1
             except Exception:
@@ -75,10 +75,10 @@ def test_full_data_engineering_pipeline_flow():
         assert len(validated_listings) == 3  # 1 quarantined
         assert metrics.schema_quarantined_count == 1
 
-        # 5. OmniSight Deduplication
-        omnisight = OmniSightEngine(temp_db)
+        # 5. StateLedger Deduplication
+        state_ledger = StateLedger(temp_db)
         candidates = [item.to_dict() for item in validated_listings]
-        new_items, duplicates = omnisight.batch_check_and_register(candidates)
+        new_items, duplicates = state_ledger.batch_check_and_register(candidates)
 
         metrics.duplicates_filtered = duplicates
         metrics.new_jobs_identified = len(new_items)
@@ -97,10 +97,10 @@ def test_full_data_engineering_pipeline_flow():
 
         # 7. Telemetry Metrics Stop & Verify
         metrics.stop()
-        db_size = omnisight.get_db_size_mb()
+        db_size = state_ledger.get_db_size_mb()
         report = metrics.format_summary_report(db_size)
 
-        assert "DeployGuard & OmniSight V3" in report
+        assert "RequestGuard & StateLedger" in report
         assert "25.0% (1 duplicate listings)" in report
         assert "75.0% (1 quarantined records)" in report
 

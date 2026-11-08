@@ -52,10 +52,10 @@ class JobListing:
             self.job_id = self.generate_hash()
 
     def generate_hash(self) -> str:
-        """Generate collision-resistant canonical SHA-256 state fingerprint via OmniSight."""
+        """Generate collision-resistant canonical SHA-256 state fingerprint via StateLedger."""
         try:
-            from core.omnisight import OmniSightEngine
-            return OmniSightEngine.generate_fingerprint(
+            from core.state_ledger import StateLedger
+            return StateLedger.generate_fingerprint(
                 self.company_name,
                 self.job_title,
                 self.location,

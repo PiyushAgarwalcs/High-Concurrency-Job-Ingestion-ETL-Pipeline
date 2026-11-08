@@ -50,7 +50,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # ── 6. Run Test Suite (DeployGuard & OmniSight Verification) ──────────
+      # ── 6. Run Test Suite (RequestGuard & StateLedger Verification) ───────
       - name: Run Test Suite
         run: |
           pytest tests/ -v

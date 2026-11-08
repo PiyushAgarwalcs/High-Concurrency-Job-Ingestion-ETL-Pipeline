@@ -27,8 +27,8 @@ from config.settings import (
 )
 from database.db_manager import DBManager
 from scrapers.scraper_manager import ScraperManager
-from core.deployguard import CircuitBreaker
-from core.omnisight import OmniSightEngine
+from core.request_guard import CircuitBreaker
+from core.state_ledger import StateLedger
 from core.metrics import MetricsTracker
 from core.filter_engine import FilterEngine
 from core.dedup_engine import DedupEngine
@@ -95,30 +95,30 @@ async def async_main() -> int:
 
     logger.info("═" * 68)
     logger.info("🚀 AI/ML Fresher Job Discovery Pipeline V3")
-    logger.info("   Architecture: DeployGuard Isolation Gate & OmniSight Telemetry")
+    logger.info("   Architecture: RequestGuard Safety Gate & StateLedger Telemetry")
     logger.info(f"   Execution Timestamp : {now_ist.strftime('%Y-%m-%d %H:%M:%S IST')}")
     logger.info(f"   Dry Run Mode        : {is_dry_run}")
     logger.info("═" * 68)
 
     try:
-        # ── Step 1: Initialize Database & OmniSight State Ledger ─────────────
-        logger.info("\n📂 Step 1: Initializing SQLite Database & OmniSight State Ledger...")
+        # ── Step 1: Initialize Database & StateLedger Deduplication Ledger ────
+        logger.info("\n📂 Step 1: Initializing SQLite Database & StateLedger...")
         db_manager = DBManager(DB_PATH)
         await db_manager.init_db()
 
-        omnisight = OmniSightEngine(DB_PATH)
+        state_ledger = StateLedger(DB_PATH)
         known_job_ids = await db_manager.get_all_job_ids()
         logger.info(f"   Historical known listings: {len(known_job_ids)}")
 
         # Prune old state (90 days) to keep dedup queries fast
         pruned_jobs = await db_manager.prune_old_jobs(days=90)
-        pruned_fps = omnisight.prune_old_fingerprints(days=90)
+        pruned_fps = state_ledger.prune_old_fingerprints(days=90)
         if pruned_jobs or pruned_fps:
             logger.info(f"   Pruned {pruned_jobs} jobs and {pruned_fps} historical state fingerprints.")
             known_job_ids = await db_manager.get_all_job_ids()
 
-        # ── Step 2: Initialize DeployGuard Circuit Breaker & Scrape ──────────
-        logger.info("\n🔍 Step 2: Async Ingestion via DeployGuard Gateway...")
+        # ── Step 2: Initialize RequestGuard Circuit Breaker & Scrape ─────────
+        logger.info("\n🔍 Step 2: Async Ingestion via RequestGuard Gateway...")
         circuit_breaker = CircuitBreaker(
             failure_threshold=CIRCUIT_BREAKER_FAILURES,
             cooldown_seconds=CIRCUIT_BREAKER_COOLDOWN
@@ -135,7 +135,7 @@ async def async_main() -> int:
         if not raw_jobs:
             logger.warning("⚠ No jobs collected from any source this cycle!")
             metrics.stop()
-            db_size_mb = omnisight.get_db_size_mb()
+            db_size_mb = state_ledger.get_db_size_mb()
             metrics.print_summary_report(db_size_mb)
             metrics.write_github_step_summary(db_size_mb)
 
@@ -157,8 +157,8 @@ async def async_main() -> int:
         filtered_jobs = filter_engine.filter_jobs(raw_jobs)
         logger.info(f"   Passed filtering: {len(filtered_jobs)} / {len(raw_jobs)} listings")
 
-        # ── Step 4: OmniSight Deterministic Deduplication ────────────────────
-        logger.info("\n🔄 Step 4: OmniSight Deduplication...")
+        # ── Step 4: StateLedger Deterministic Deduplication ───────────────────
+        logger.info("\n🔄 Step 4: StateLedger Deduplication...")
         dedup_engine = DedupEngine()
         unique_jobs = dedup_engine.deduplicate(filtered_jobs)
         metrics.duplicates_filtered = len(raw_jobs) - len(unique_jobs)
@@ -169,9 +169,9 @@ async def async_main() -> int:
         metrics.new_jobs_identified = len(new_jobs)
         logger.info(f"   Brand new unique listings identified: {len(new_jobs)}")
 
-        # Register fingerprints into OmniSight ledger
+        # Register fingerprints into StateLedger
         for job in new_jobs:
-            omnisight.is_new_listing(
+            state_ledger.is_new_listing(
                 fingerprint=job.job_id,
                 company=job.company_name,
                 title=job.job_title,
@@ -230,7 +230,7 @@ async def async_main() -> int:
 
         # ── Step 10: Telemetry Metrics Summary Report ────────────────────────
         metrics.stop()
-        db_size_mb = omnisight.get_db_size_mb()
+        db_size_mb = state_ledger.get_db_size_mb()
 
         # Print to stdout and append to GitHub Actions Summary
         metrics.print_summary_report(db_size_mb)

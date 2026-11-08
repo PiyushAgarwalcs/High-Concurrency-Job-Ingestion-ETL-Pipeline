@@ -1,5 +1,5 @@
 """
-Unit tests for OmniSight Metrics Tracker & Telemetry Harness.
+Unit tests for Pipeline Metrics Tracker & Telemetry Harness.
 """
 
 import time
@@ -26,7 +26,7 @@ def test_metrics_tracker_calculations():
     duration = tracker.get_duration()
     assert duration >= 0.04
 
-    throughput = tracker.get_sustained_throughput()
+    throughput = tracker.get_throughput()
     assert throughput > 0.0
 
     resilience = tracker.get_resilience_rate()
@@ -45,7 +45,7 @@ def test_metrics_tracker_calculations():
 def test_metrics_tracker_zero_division_safety():
     empty_tracker = MetricsTracker()
     # No calls made yet
-    assert empty_tracker.get_sustained_throughput() == 0.0
+    assert empty_tracker.get_throughput() == 0.0
     assert empty_tracker.get_resilience_rate() == 100.0
     assert empty_tracker.get_dedup_rate() == 0.0
     assert empty_tracker.get_schema_compliance_rate() == 100.0
@@ -57,7 +57,7 @@ def test_metrics_report_formatting():
     tracker.successful_fetches = 20
     tracker.raw_jobs_count = 100
     report = tracker.format_summary_report(db_size_mb=1.25)
-    assert "PIPELINE EXECUTION TELEMETRY" in report
-    assert "DeployGuard Resilience" in report
+    assert "PIPELINE EXECUTION METRICS" in report
+    assert "RequestGuard Resilience" in report
     assert "1.25 MB" in report
 

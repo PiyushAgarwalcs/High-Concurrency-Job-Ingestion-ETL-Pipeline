@@ -39,10 +39,6 @@ Thumbs.db
 .coverage
 htmlcov/
 
-# Reference Projects
-deployguard/
-AMD-OmniSight/
-
 # Logs
 *.log
 logs/

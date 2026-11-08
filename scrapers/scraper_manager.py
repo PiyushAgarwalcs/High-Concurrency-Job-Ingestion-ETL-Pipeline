@@ -19,7 +19,7 @@ from config.settings import (
 )
 from database.db_manager import DBManager
 from core.validator import CompanyValidator
-from core.deployguard import CircuitBreaker, JobPayload
+from core.request_guard import CircuitBreaker, JobSchema
 from core.metrics import MetricsTracker
 
 from scrapers.greenhouse import GreenhouseScraper
@@ -113,14 +113,14 @@ class ScraperManager:
         career_url = company.get("career_url") or company.get("ats_url", "")
         domain = self.circuit_breaker.extract_domain(career_url)
 
-        # 1. DeployGuard Circuit Breaker Gate
-        if not self.circuit_breaker.can_execute(domain):
+        # 1. RequestGuard Circuit Breaker Gate
+        if not self.circuit_breaker.can_request(domain):
             logger.warning(
-                f"🛡️  [DeployGuard] Circuit Breaker OPEN for domain '{domain}' - Isolating '{company_name}'"
+                f"🛡️  [RequestGuard] Circuit Breaker OPEN for domain '{domain}' - Isolating '{company_name}'"
             )
             self.metrics_tracker.http_errors_isolated += 1
             self.metrics_tracker.circuit_breaker_trips += 1
-            return company_name, False, 0.0, [], f"DeployGuard: Circuit Breaker OPEN for '{domain}'"
+            return company_name, False, 0.0, [], f"RequestGuard: Circuit Breaker OPEN for '{domain}'"
 
         host_semaphore = self._get_domain_semaphore(domain)
 
@@ -174,16 +174,16 @@ class ScraperManager:
                     raw_jobs = await scraper.safe_scrape(company)
                     runtime = time.time() - start_time
 
-                    # 7. DeployGuard Schema Validation & Quarantine
+                    # 7. RequestGuard Schema Validation & Quarantine
                     validated_jobs: List[JobListing] = []
                     for raw in raw_jobs:
                         try:
-                            payload = JobPayload.from_job_listing(raw)
+                            payload = JobSchema.from_job_listing(raw)
                             validated_jobs.append(payload.to_job_listing())
                         except Exception as val_err:
                             self.metrics_tracker.schema_quarantined_count += 1
                             logger.debug(
-                                f"🛡️  [DeployGuard] Quarantined invalid record from '{company_name}': {val_err}"
+                                f"🛡️  [RequestGuard] Quarantined invalid record from '{company_name}': {val_err}"
                             )
 
                     # Mark success in Circuit Breaker and DB Manager
@@ -220,7 +220,7 @@ class ScraperManager:
             return company_name, False, runtime, [], err_str
 
     # ─────────────────────────────────────────────────────────────────────────
-    # LinkedIn Easy Apply (with DeployGuard validation)
+    # LinkedIn Easy Apply (with RequestGuard validation)
     # ─────────────────────────────────────────────────────────────────────────
 
     async def _scrape_linkedin(
@@ -228,10 +228,10 @@ class ScraperManager:
         session: aiohttp.ClientSession,
         semaphore: asyncio.Semaphore,
     ) -> List[JobListing]:
-        """Run LinkedIn Easy Apply scraper and enforce DeployGuard schema validation."""
+        """Run LinkedIn Easy Apply scraper and enforce RequestGuard schema validation."""
         domain = "linkedin.com"
-        if not self.circuit_breaker.can_execute(domain):
-            logger.warning("🛡️  [DeployGuard] Circuit breaker OPEN for linkedin.com - Skipping LinkedIn.")
+        if not self.circuit_breaker.can_request(domain):
+            logger.warning("🛡️  [RequestGuard] Circuit breaker OPEN for linkedin.com - Skipping LinkedIn.")
             self.metrics_tracker.http_errors_isolated += 1
             return []
 
@@ -241,11 +241,11 @@ class ScraperManager:
             validated_jobs: List[JobListing] = []
             for raw in raw_jobs:
                 try:
-                    payload = JobPayload.from_job_listing(raw)
+                    payload = JobSchema.from_job_listing(raw)
                     validated_jobs.append(payload.to_job_listing())
                 except Exception as val_err:
                     self.metrics_tracker.schema_quarantined_count += 1
-                    logger.debug(f"🛡️  [DeployGuard] Quarantined LinkedIn job: {val_err}")
+                    logger.debug(f"🛡️  [RequestGuard] Quarantined LinkedIn job: {val_err}")
 
             self.circuit_breaker.record_success(domain)
             self.metrics_tracker.successful_fetches += 1
