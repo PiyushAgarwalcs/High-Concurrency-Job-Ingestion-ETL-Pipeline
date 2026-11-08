@@ -89,13 +89,13 @@ class ScraperManager:
         self._domain_semaphores: Dict[str, asyncio.Semaphore] = {}
 
     def _get_domain_semaphore(self, domain: str) -> asyncio.Semaphore:
-        """Get or initialize a host-level concurrency semaphore (DeployGuard isolation)."""
+        """Get or initialize a host-level concurrency semaphore (RequestGuard isolation)."""
         if domain not in self._domain_semaphores:
             self._domain_semaphores[domain] = asyncio.Semaphore(PER_HOST_CONCURRENCY)
         return self._domain_semaphores[domain]
 
     # ─────────────────────────────────────────────────────────────────────────
-    # Per-company processing with DeployGuard & OmniSight Gates
+    # Per-company processing with RequestGuard & StateLedger Gates
     # ─────────────────────────────────────────────────────────────────────────
 
     async def _process_company(
@@ -105,7 +105,7 @@ class ScraperManager:
         company: Dict[str, Any],
     ) -> Tuple[str, bool, float, List[JobListing], str]:
         """
-        Process a single company source through DeployGuard circuit breaker
+        Process a single company source through RequestGuard circuit breaker
         and dual-semaphore concurrency throttles.
         """
         start_time = time.time()

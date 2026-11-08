@@ -1,6 +1,6 @@
 """
 AI/ML Fresher Job Discovery & Automation Pipeline V3
-Fuses DeployGuard (Upstream Isolation & Safety Gate) and OmniSight (State Fingerprinting & Telemetry).
+Fuses RequestGuard (Upstream Isolation & Safety Gate) and StateLedger (State Fingerprinting & Telemetry).
 
 100% Deterministic, Zero Cost, No LLMs.
 """
