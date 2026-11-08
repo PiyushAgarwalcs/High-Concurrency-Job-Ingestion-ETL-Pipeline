@@ -96,9 +96,9 @@ class GitHubRepoScraper(BaseScraper):
                                         apply_url=url,
                                         source_platform="github",
                                         ats_provider="unknown",
-                                        company_prestige_score=company.get("priority", False) and 10 or 5,
+                                        company_prestige_score=source.get("priority", False) and 10 or 5,
                                         estimated_salary_lpa=None,
-                                        company_category=company.get("category")
+                                        company_category=source.get("category")
                                     ))
                 
                 # 4. Update Commit Hash

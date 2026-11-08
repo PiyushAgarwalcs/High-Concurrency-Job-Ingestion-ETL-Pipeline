@@ -6,7 +6,6 @@ import logging
 from typing import Dict, Any, List
 import aiohttp
 import asyncio
-import json
 
 from core.models import JobListing
 from scrapers.base_scraper import BaseScraper

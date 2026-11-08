@@ -6,7 +6,7 @@ Generates Markdown and CSV reports for Jobs, Health, and Broken Pages.
 import os
 import csv
 from datetime import datetime, timezone, timedelta
-from typing import List, Dict, Any
+from typing import List
 
 from database.db_manager import DBManager
 from core.models import JobListing

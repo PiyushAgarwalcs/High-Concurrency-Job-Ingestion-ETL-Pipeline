@@ -21,12 +21,6 @@ from database.db_manager import DBManager
 from core.validator import CompanyValidator
 from core.request_guard import CircuitBreaker, JobSchema
 from core.metrics import MetricsTracker
-
-from scrapers.greenhouse import GreenhouseScraper
-from scrapers.lever import LeverScraper
-from scrapers.ashby import AshbyScraper
-from scrapers.workday import WorkdayScraper
-from scrapers.smartrecruiters import SmartRecruitersScraper
 from scrapers.linkedin_scraper import LinkedInEasyApplyScraper
 
 logger = logging.getLogger(__name__)

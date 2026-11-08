@@ -118,7 +118,7 @@ class MetricsTracker:
         border = "═" * 68
         lines = [
             f"╔{border}╗",
-            f"║ 📊 PIPELINE EXECUTION METRICS (RequestGuard & StateLedger)       ║",
+            "║ 📊 PIPELINE EXECUTION METRICS (RequestGuard & StateLedger)       ║",
             f"╠{border}╣",
             f"║ ⏱️  Total Duration          : {duration:>6.2f} seconds                            ║",
             f"║ 🚀 Sustained Throughput    : {throughput:>6.2f} req/s across {self.total_endpoints:<4} endpoints       ║",

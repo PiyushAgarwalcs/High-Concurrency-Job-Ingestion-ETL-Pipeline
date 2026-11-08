@@ -10,7 +10,6 @@ public guest APIs with respectful rate limits and graceful degradation.
 import asyncio
 import logging
 import re
-from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 from urllib.parse import urlencode
 

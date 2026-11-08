@@ -11,7 +11,6 @@ import logging
 import logging.config
 import os
 import sys
-import time
 from datetime import datetime, timezone
 
 from config.settings import (
@@ -75,13 +74,15 @@ def setup_logging():
     logging.getLogger("aiohttp").setLevel(logging.WARNING)
 
 
-async def async_main() -> int:
-    parser = argparse.ArgumentParser(description="V3 Job Discovery Pipeline (DeployGuard & OmniSight)")
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="V3 Job Discovery Pipeline (RequestGuard & StateLedger)")
     parser.add_argument("--dry-run", action="store_true", help="Run without mutating DB or sending Telegram pings")
     parser.add_argument("--skip-notify", action="store_true", help="Skip dispatching alerts")
     parser.add_argument("--console-notify", action="store_true", help="Force console output for notifications")
-    args = parser.parse_args()
+    return parser.parse_args()
 
+
+async def async_main(args: argparse.Namespace) -> int:
     setup_logging()
     logger = logging.getLogger("main")
 
@@ -257,7 +258,8 @@ async def async_main() -> int:
 
 
 def main():
-    return asyncio.run(async_main())
+    args = parse_args()
+    return asyncio.run(async_main(args))
 
 
 if __name__ == "__main__":

@@ -7,7 +7,6 @@ from typing import Dict, Any, List
 import aiohttp
 import asyncio
 from bs4 import BeautifulSoup
-import json
 
 from core.models import JobListing
 from scrapers.base_scraper import BaseScraper

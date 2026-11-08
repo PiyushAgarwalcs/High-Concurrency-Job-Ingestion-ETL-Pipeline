@@ -9,7 +9,7 @@ Improvements:
 """
 
 import logging
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone
 from typing import List
 from core.models import JobListing
 from config.settings import SCORING_CONFIG

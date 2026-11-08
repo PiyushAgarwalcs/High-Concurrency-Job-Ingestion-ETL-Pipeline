@@ -3,7 +3,6 @@ Workday ATS Scraper.
 """
 from scrapers.base_scraper import BaseScraper
 from core.models import JobListing
-import json
 
 class WorkdayScraper(BaseScraper):
     def __init__(self, session, semaphore):
