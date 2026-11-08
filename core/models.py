@@ -70,26 +70,9 @@ class JobListing:
             return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
     def _normalize_location(self) -> str:
-        """Normalize location for filtering."""
-        loc = self.location.lower().strip()
-        # Map known city variations to canonical names
-        city_map = {
-            "bengaluru": "bangalore", "bangalore": "bangalore",
-            "hyderabad": "hyderabad", "secunderabad": "hyderabad",
-            "gurugram": "gurgaon", "gurgaon": "gurgaon",
-            "noida": "noida", "greater noida": "noida",
-            "chennai": "chennai", "madras": "chennai",
-            "pune": "pune", "mumbai": "mumbai", "bombay": "mumbai",
-            "delhi": "delhi", "new delhi": "delhi",
-        }
-        for variant, canonical in city_map.items():
-            if variant in loc:
-                return canonical
-        if "remote" in loc:
-            return "remote"
-        if "india" in loc:
-            return "india"
-        return loc
+        """Normalize location for filtering using canonical StateLedger rules."""
+        from core.state_ledger import StateLedger
+        return StateLedger.normalize_location(self.location)
 
     def to_dict(self) -> dict:
         """Convert to dictionary for JSON serialization or SQLite insertion."""

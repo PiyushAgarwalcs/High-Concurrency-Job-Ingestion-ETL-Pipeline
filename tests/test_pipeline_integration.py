@@ -11,7 +11,7 @@ from core.models import JobListing
 from notifiers.console import ConsoleNotifier
 
 
-def test_full_data_engineering_pipeline_flow():
+async def test_full_data_engineering_pipeline_flow():
     with tempfile.NamedTemporaryFile(suffix=".db", delete=False) as tf:
         temp_db = tf.name
 
@@ -88,9 +88,9 @@ def test_full_data_engineering_pipeline_flow():
 
         # 6. Console Notifier Strategy
         notifier = ConsoleNotifier()
-        assert notifier.test_connection() is True
+        assert await notifier.test_connection() is True
         job_listings = [JobListing.from_dict(item) for item in new_items]
-        notified = notifier.send_job_alerts(job_listings, {"total_sources": 2, "successful_sources": 2})
+        notified = await notifier.send_job_alerts(job_listings, {"total_sources": 2, "successful_sources": 2})
         assert notified is True
         metrics.notifications_dispatched = len(new_items)
 

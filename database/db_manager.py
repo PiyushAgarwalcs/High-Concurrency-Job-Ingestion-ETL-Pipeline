@@ -4,6 +4,7 @@ Provides connection pooling and handles schema creation and queries.
 """
 
 import aiosqlite
+import asyncio
 import json
 import logging
 import os
@@ -17,12 +18,33 @@ logger = logging.getLogger(__name__)
 class DBManager:
     def __init__(self, db_path: str):
         self.db_path = db_path
+        self._conn: Optional[aiosqlite.Connection] = None
+        self._lock = asyncio.Lock()
         # Ensure directory exists
         os.makedirs(os.path.dirname(self.db_path), exist_ok=True)
 
+    async def get_connection(self) -> aiosqlite.Connection:
+        """Get or initialize the persistent SQLite connection in WAL mode."""
+        if self._conn is None:
+            self._conn = await aiosqlite.connect(self.db_path, timeout=30.0)
+            await self._conn.execute("PRAGMA journal_mode=WAL;")
+            await self._conn.execute("PRAGMA synchronous=NORMAL;")
+        return self._conn
+
+    async def close(self) -> None:
+        """Close the persistent SQLite connection if open."""
+        if self._conn is not None:
+            try:
+                await self._conn.close()
+            except Exception as e:
+                logger.warning(f"Error closing DB connection: {e}")
+            finally:
+                self._conn = None
+
     async def init_db(self):
         """Initialize the database schema."""
-        async with aiosqlite.connect(self.db_path, timeout=30.0) as db:
+        async with self._lock:
+            db = await self.get_connection()
             # 1. Jobs Table
             await db.execute('''
                 CREATE TABLE IF NOT EXISTS jobs (
@@ -172,14 +194,16 @@ class DBManager:
 
     async def get_all_job_ids(self) -> set[str]:
         """Fetch all known job hashes to prevent duplicates across runs."""
-        async with aiosqlite.connect(self.db_path, timeout=30.0) as db:
+        async with self._lock:
+            db = await self.get_connection()
             async with db.execute('SELECT job_id FROM jobs') as cursor:
                 rows = await cursor.fetchall()
                 return {row[0] for row in rows}
                 
     async def get_job_by_id(self, job_id: str) -> Optional[JobListing]:
         """Fetch a specific job by its ID."""
-        async with aiosqlite.connect(self.db_path, timeout=30.0) as db:
+        async with self._lock:
+            db = await self.get_connection()
             db.row_factory = self._dict_factory
             async with db.execute('SELECT * FROM jobs WHERE job_id = ?', (job_id,)) as cursor:
                 row = await cursor.fetchone()
@@ -192,7 +216,8 @@ class DBManager:
         if not jobs:
             return
             
-        async with aiosqlite.connect(self.db_path, timeout=30.0) as db:
+        async with self._lock:
+            db = await self.get_connection()
             now = datetime.now(timezone.utc).isoformat()
             
             for job in jobs:
@@ -225,7 +250,8 @@ class DBManager:
     async def mark_notification_sent(self, job_id: str, telegram_msg_id: str = None) -> None:
         """Mark a job as notified and log it."""
         now = datetime.now(timezone.utc).isoformat()
-        async with aiosqlite.connect(self.db_path, timeout=30.0) as db:
+        async with self._lock:
+            db = await self.get_connection()
             await db.execute(
                 'UPDATE jobs SET notification_sent = ? WHERE job_id = ?', 
                 (True, job_id)
@@ -238,7 +264,8 @@ class DBManager:
 
     async def record_workflow_run(self, stats: Dict[str, Any]) -> None:
         """Record the statistics of a workflow run."""
-        async with aiosqlite.connect(self.db_path, timeout=30.0) as db:
+        async with self._lock:
+            db = await self.get_connection()
             await db.execute('''
                 INSERT INTO workflow_runs (
                     started_at, finished_at, runtime, jobs_found, 
@@ -264,7 +291,8 @@ class DBManager:
         now = datetime.now(timezone.utc)
         now_str = now.isoformat()
         
-        async with aiosqlite.connect(self.db_path, timeout=30.0) as db:
+        async with self._lock:
+            db = await self.get_connection()
             db.row_factory = self._dict_factory
             async with db.execute('SELECT * FROM source_health WHERE source_name = ?', (source_name,)) as cursor:
                 row = await cursor.fetchone()
@@ -318,7 +346,8 @@ class DBManager:
         which breaks across UTC-offset formats).
         """
         now = datetime.now(timezone.utc)
-        async with aiosqlite.connect(self.db_path, timeout=30.0) as db:
+        async with self._lock:
+            db = await self.get_connection()
             db.row_factory = self._dict_factory
             async with db.execute(
                 'SELECT disabled, retry_after FROM source_health WHERE source_name = ?',
@@ -349,24 +378,46 @@ class DBManager:
 
 
     async def prune_old_jobs(self, days: int = 90) -> int:
-        """Delete job records older than `days` days to keep the DB lean.
-        Returns the number of rows deleted.
+        """Delete job records, notifications, and workflow telemetry older than `days` days to keep the DB lean.
+        Returns the number of job rows deleted.
         """
         from datetime import timedelta
         cutoff = (datetime.now(timezone.utc) - timedelta(days=days)).isoformat()
-        async with aiosqlite.connect(self.db_path, timeout=30.0) as db:
+        async with self._lock:
+            db = await self.get_connection()
+            # 1. Prune jobs
             cursor = await db.execute(
                 "DELETE FROM jobs WHERE discovery_timestamp < ? AND notification_sent = 1",
                 (cutoff,)
             )
             deleted = cursor.rowcount
+
+            # 2. Prune old notifications logs
+            await db.execute(
+                "DELETE FROM notifications WHERE sent_at < ?",
+                (cutoff,)
+            )
+
+            # 3. Prune old workflow run history
+            await db.execute(
+                "DELETE FROM workflow_runs WHERE started_at < ?",
+                (cutoff,)
+            )
+
+            # 4. Prune old general history events
+            await db.execute(
+                "DELETE FROM history WHERE timestamp < ?",
+                (cutoff,)
+            )
+
             await db.commit()
         if deleted:
-            logger.info(f"Pruned {deleted} jobs older than {days} days from DB")
+            logger.info(f"Pruned {deleted} jobs and associated telemetry logs older than {days} days from DB")
         return deleted
 
     async def get_github_commit_hash(self, repo_url: str) -> Optional[str]:
-        async with aiosqlite.connect(self.db_path, timeout=30.0) as db:
+        async with self._lock:
+            db = await self.get_connection()
             db.row_factory = self._dict_factory
             async with db.execute('SELECT last_commit_hash FROM github_sources WHERE repo_url = ?', (repo_url,)) as cursor:
                 row = await cursor.fetchone()
@@ -376,7 +427,8 @@ class DBManager:
         
     async def update_github_commit_hash(self, repo_url: str, commit_hash: str) -> None:
         now = datetime.now(timezone.utc).isoformat()
-        async with aiosqlite.connect(self.db_path, timeout=30.0) as db:
+        async with self._lock:
+            db = await self.get_connection()
             await db.execute('''
                 INSERT INTO github_sources (repo_url, last_commit_hash, last_checked) 
                 VALUES (?, ?, ?)

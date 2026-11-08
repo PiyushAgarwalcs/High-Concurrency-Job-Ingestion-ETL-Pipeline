@@ -14,11 +14,11 @@ logger = logging.getLogger(__name__)
 class ConsoleNotifier(BaseNotifier):
     """Outputs job listings directly to stdout in a clean structured format."""
 
-    def test_connection(self) -> bool:
+    async def test_connection(self) -> bool:
         """Always reachable."""
         return True
 
-    def send_job_alerts(
+    async def send_job_alerts(
         self,
         new_jobs: List[JobListing],
         stats: Dict[str, Any],

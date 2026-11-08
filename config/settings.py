@@ -8,6 +8,12 @@ import json
 from datetime import timezone, timedelta
 from typing import Dict, Any, List
 
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 # ─── Base Paths ─────────────────────────────────────────────────────────────────
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 CONFIG_DIR = os.path.join(BASE_DIR, "config")
@@ -68,6 +74,7 @@ CIRCUIT_BREAKER_COOLDOWN = 900 # 15-minute cooldown window before testing recove
 # ─── StateLedger Deduplication Settings ─────────────────────────────────────────
 STATE_LEDGER_DB_PATH = os.path.join(DATA_DIR, "jobs.db")
 FINGERPRINT_HASH_ALGO = "sha256"
+RETENTION_DAYS = int(os.environ.get("RETENTION_DAYS", "90"))
 
 # ─── HTTP Headers ───────────────────────────────────────────────────────────────
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"

@@ -32,7 +32,12 @@ class BaseScraper(ABC):
         for attempt in range(1, RETRY_ATTEMPTS + 1):
             try:
                 async with self.semaphore:
-                    async with self.session.get(url, headers=headers, params=params, timeout=REQUEST_TIMEOUT) as response:
+                    async with self.session.get(
+                        url,
+                        headers=headers,
+                        params=params,
+                        timeout=aiohttp.ClientTimeout(total=REQUEST_TIMEOUT),
+                    ) as response:
                         if response.status == 200:
                             if json_response:
                                 return await response.json()

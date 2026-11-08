@@ -90,7 +90,7 @@ class JobSchema(BaseModel):
     posting_date: Optional[str] = Field(default=None, max_length=50)
     company_category: Optional[str] = Field(default=None, max_length=100)
     company_prestige_score: int = Field(default=5, ge=1, le=10)
-    rank_score: float = Field(default=0.0, ge=0.0, le=100.0)
+    rank_score: float = Field(default=0.0, ge=0.0, le=1000.0)
     role_priority: int = Field(default=3, ge=1, le=3)
 
     @field_validator("company_name", mode="before")

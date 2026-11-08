@@ -3,13 +3,13 @@ Telegram Bot Notifier implementing the BaseNotifier strategy.
 Dispatches formatted HTML job alerts via the Telegram Bot API with exponential backoff retries.
 """
 
+import asyncio
 import logging
 import os
-import time
 from datetime import datetime
 from typing import List, Dict, Any, Optional
 
-import requests
+import aiohttp
 
 from config.settings import (
     TELEGRAM_BOT_TOKEN,
@@ -42,7 +42,7 @@ class TelegramNotifier(BaseNotifier):
         """Check dry run mode at runtime so CLI flag takes precedence."""
         return os.environ.get("DRY_RUN", "false").lower() == "true"
 
-    def test_connection(self) -> bool:
+    async def test_connection(self) -> bool:
         """Test the Telegram bot credentials and network connection."""
         if self._is_dry_run:
             logger.info("[DRY RUN] Skipping Telegram connection test")
@@ -54,20 +54,22 @@ class TelegramNotifier(BaseNotifier):
 
         try:
             url = f"https://api.telegram.org/bot{self.bot_token}/getMe"
-            response = requests.get(url, timeout=10)
-            if response.status_code == 200:
-                data = response.json()
-                bot_name = data.get("result", {}).get("username", "Unknown")
-                logger.info(f"Telegram bot connected: @{bot_name}")
-                return True
-            else:
-                logger.error(f"Telegram bot connection failed: {response.text}")
-                return False
+            async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=10)) as session:
+                async with session.get(url) as response:
+                    if response.status == 200:
+                        data = await response.json()
+                        bot_name = data.get("result", {}).get("username", "Unknown")
+                        logger.info(f"Telegram bot connected: @{bot_name}")
+                        return True
+                    else:
+                        resp_text = await response.text()
+                        logger.error(f"Telegram bot connection failed: {resp_text}")
+                        return False
         except Exception as e:
             logger.error(f"Telegram connection test error: {e}")
             return False
 
-    def send_job_alerts(
+    async def send_job_alerts(
         self,
         new_jobs: List[JobListing],
         stats: Dict[str, Any],
@@ -78,18 +80,18 @@ class TelegramNotifier(BaseNotifier):
         """
         if not new_jobs:
             logger.info("No new jobs to send.")
-            return self._send_no_jobs_message(stats)
+            return await self._send_no_jobs_message(stats)
 
         messages = self._format_job_messages(new_jobs, stats)
         all_succeeded = True
 
         for index, message in enumerate(messages):
-            if not self._send_message(message):
+            if not await self._send_message(message):
                 all_succeeded = False
                 logger.error(f"Failed to send message chunk {index + 1}/{len(messages)}")
             else:
                 logger.info(f"Sent message chunk {index + 1}/{len(messages)}")
-                time.sleep(1)  # Respect Telegram rate limit of 1 msg/sec
+                await asyncio.sleep(1)  # Respect Telegram rate limit of 1 msg/sec
 
         return all_succeeded
 
@@ -203,7 +205,7 @@ class TelegramNotifier(BaseNotifier):
         filled = min(score, 10)
         return "█" * filled + "░" * (10 - filled)
 
-    def _send_no_jobs_message(self, stats: Optional[Dict[str, Any]] = None) -> bool:
+    async def _send_no_jobs_message(self, stats: Optional[Dict[str, Any]] = None) -> bool:
         now_ist = datetime.now(IST).strftime("%d %b %Y, %I:%M %p IST")
         message = (
             "📭 <b>AI/ML Job Alert — No New Jobs</b>\n"
@@ -215,9 +217,9 @@ class TelegramNotifier(BaseNotifier):
             "━━━━━━━━━━━━━━━━━━━━━━\n"
             "<i>Powered by AI/ML Job Alert Pipeline</i> 🤖"
         )
-        return self._send_message(message)
+        return await self._send_message(message)
 
-    def _send_message(self, text: str) -> bool:
+    async def _send_message(self, text: str) -> bool:
         if self._is_dry_run:
             logger.info(f"[DRY RUN] Would send Telegram message ({len(text)} chars)")
             return True
@@ -235,27 +237,29 @@ class TelegramNotifier(BaseNotifier):
 
         for attempt in range(RETRY_ATTEMPTS):
             try:
-                response = requests.post(self.api_url, json=payload, timeout=30)
-                if response.status_code == 200:
-                    return True
+                async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=30)) as session:
+                    async with session.post(self.api_url, json=payload) as response:
+                        if response.status == 200:
+                            return True
 
-                # If HTML parsing fails, fallback to plain text
-                if response.status_code == 400 and "parse" in response.text.lower():
-                    logger.warning("HTML parse failed, attempting plain text fallback")
-                    return self._send_plain_text(text)
+                        resp_text = await response.text()
+                        # If HTML parsing fails, fallback to plain text
+                        if response.status == 400 and "parse" in resp_text.lower():
+                            logger.warning("HTML parse failed, attempting plain text fallback")
+                            return await self._send_plain_text(text)
 
-                logger.warning(
-                    f"Telegram API response (attempt {attempt + 1}): {response.status_code} - {response.text}"
-                )
-            except requests.exceptions.RequestException as e:
+                        logger.warning(
+                            f"Telegram API response (attempt {attempt + 1}): {response.status} - {resp_text}"
+                        )
+            except Exception as e:
                 logger.warning(f"Telegram network error (attempt {attempt + 1}): {e}")
 
-            time.sleep(RETRY_DELAY * (attempt + 1))
+            await asyncio.sleep(RETRY_DELAY * (attempt + 1))
 
         logger.error("Failed to send Telegram message after all retries")
         return False
 
-    def _send_plain_text(self, html_text: str) -> bool:
+    async def _send_plain_text(self, html_text: str) -> bool:
         import re
         plain_text = re.sub(r"<[^>]+>", "", html_text)
         payload = {
@@ -264,9 +268,10 @@ class TelegramNotifier(BaseNotifier):
             "disable_web_page_preview": True,
         }
         try:
-            response = requests.post(self.api_url, json=payload, timeout=30)
-            return response.status_code == 200
-        except requests.exceptions.RequestException as e:
+            async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=30)) as session:
+                async with session.post(self.api_url, json=payload) as response:
+                    return response.status == 200
+        except Exception as e:
             logger.error(f"Telegram plain text fallback failed: {e}")
             return False
 

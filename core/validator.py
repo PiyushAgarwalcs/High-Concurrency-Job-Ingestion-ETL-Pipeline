@@ -3,6 +3,7 @@ Company Validator for AI/ML Job Alert System V2.
 Validates career page URLs and automatically detects ATS providers.
 """
 
+import asyncio
 import logging
 import aiohttp
 from typing import Dict, Any, Tuple
@@ -54,7 +55,12 @@ class CompanyValidator:
                 "Sec-Ch-Ua-Platform": '"Windows"',
                 "Upgrade-Insecure-Requests": "1"
             }
-            async with self.session.get(career_url, headers=headers, timeout=30.0, allow_redirects=True, ssl=False) as response:
+            async with self.session.get(
+                career_url,
+                headers=headers,
+                timeout=aiohttp.ClientTimeout(total=30.0),
+                allow_redirects=True,
+            ) as response:
                 # FIX #9: Log HTTP status for all non-200 responses
                 if response.status in (404, 403, 500, 502, 503, 504):
                     body_snippet = ""
@@ -82,7 +88,7 @@ class CompanyValidator:
 
                 return True, detected_ats, feed_url, ""
                 
-        except __import__('asyncio').TimeoutError:
+        except asyncio.TimeoutError:
             return False, company.get("ats", "unknown"), "", "TimeoutError"
         except Exception as e:
             err_msg = str(e) if str(e) else e.__class__.__name__

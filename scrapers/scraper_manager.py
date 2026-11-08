@@ -6,8 +6,11 @@ and DeployGuard Domain-Aware Circuit Breaking and Concurrency Throttling.
 import asyncio
 import aiohttp
 import logging
+import ssl
 from typing import List, Dict, Any, Tuple, Optional
 import time
+
+import certifi
 
 from core.models import JobListing
 from config.settings import (
@@ -293,7 +296,8 @@ class ScraperManager:
 
         # Initialize global semaphore and connection pool
         global_semaphore = asyncio.Semaphore(MAX_CONCURRENT_REQUESTS)
-        connector = aiohttp.TCPConnector(ssl=False, limit=MAX_CONCURRENT_REQUESTS)
+        ssl_ctx = ssl.create_default_context(cafile=certifi.where())
+        connector = aiohttp.TCPConnector(ssl=ssl_ctx, limit=MAX_CONCURRENT_REQUESTS)
         timeout = aiohttp.ClientTimeout(total=45, connect=15)
 
         async with aiohttp.ClientSession(connector=connector, timeout=timeout) as session:

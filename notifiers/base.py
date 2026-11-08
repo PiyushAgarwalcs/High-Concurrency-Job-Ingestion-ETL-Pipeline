@@ -12,7 +12,7 @@ class BaseNotifier(ABC):
     """Abstract base class for all notification providers."""
 
     @abstractmethod
-    def send_job_alerts(
+    async def send_job_alerts(
         self,
         new_jobs: List[JobListing],
         stats: Dict[str, Any],
@@ -24,7 +24,7 @@ class BaseNotifier(ABC):
         pass
 
     @abstractmethod
-    def test_connection(self) -> bool:
+    async def test_connection(self) -> bool:
         """Verify network reachability and credentials."""
         pass
 

@@ -32,17 +32,16 @@ class ReportGenerator:
         daily_jobs = []
         weekly_jobs = []
         
-        import aiosqlite
-        async with aiosqlite.connect(self.db_manager.db_path) as db:
-            db.row_factory = self.db_manager._dict_factory
+        db = await self.db_manager.get_connection()
+        db.row_factory = self.db_manager._dict_factory
+        
+        async with db.execute('SELECT * FROM jobs WHERE discovery_timestamp >= ? ORDER BY discovery_timestamp DESC', (daily_threshold,)) as cursor:
+            rows = await cursor.fetchall()
+            daily_jobs = [JobListing.from_dict(r) for r in rows]
             
-            async with db.execute('SELECT * FROM jobs WHERE discovery_timestamp >= ? ORDER BY discovery_timestamp DESC', (daily_threshold,)) as cursor:
-                rows = await cursor.fetchall()
-                daily_jobs = [JobListing.from_dict(r) for r in rows]
-                
-            async with db.execute('SELECT * FROM jobs WHERE discovery_timestamp >= ? ORDER BY discovery_timestamp DESC', (weekly_threshold,)) as cursor:
-                rows = await cursor.fetchall()
-                weekly_jobs = [JobListing.from_dict(r) for r in rows]
+        async with db.execute('SELECT * FROM jobs WHERE discovery_timestamp >= ? ORDER BY discovery_timestamp DESC', (weekly_threshold,)) as cursor:
+            rows = await cursor.fetchall()
+            weekly_jobs = [JobListing.from_dict(r) for r in rows]
                 
         self._write_job_report(daily_jobs, "daily_summary")
         self._write_job_report(weekly_jobs, "weekly_summary")
@@ -67,11 +66,10 @@ class ReportGenerator:
                 writer.writerow([j.company_name, j.job_title, j.location, j.source_platform, j.apply_url, j.discovery_timestamp])
 
     async def _generate_health_report(self):
-        import aiosqlite
-        async with aiosqlite.connect(self.db_manager.db_path) as db:
-            db.row_factory = self.db_manager._dict_factory
-            async with db.execute('SELECT * FROM source_health ORDER BY consecutive_failures DESC, average_runtime DESC') as cursor:
-                health_data = await cursor.fetchall()
+        db = await self.db_manager.get_connection()
+        db.row_factory = self.db_manager._dict_factory
+        async with db.execute('SELECT * FROM source_health ORDER BY consecutive_failures DESC, average_runtime DESC') as cursor:
+            health_data = await cursor.fetchall()
                 
         # Markdown
         md_path = os.path.join(self.output_dir, "source_health_report.md")
@@ -91,11 +89,10 @@ class ReportGenerator:
                 writer.writerows(health_data)
 
     async def _generate_broken_pages_report(self):
-        import aiosqlite
-        async with aiosqlite.connect(self.db_manager.db_path) as db:
-            db.row_factory = self.db_manager._dict_factory
-            async with db.execute('SELECT source_name, consecutive_failures, last_failure FROM source_health WHERE consecutive_failures > 0 ORDER BY consecutive_failures DESC') as cursor:
-                broken_data = await cursor.fetchall()
+        db = await self.db_manager.get_connection()
+        db.row_factory = self.db_manager._dict_factory
+        async with db.execute('SELECT source_name, consecutive_failures, last_failure FROM source_health WHERE consecutive_failures > 0 ORDER BY consecutive_failures DESC') as cursor:
+            broken_data = await cursor.fetchall()
                 
         # Markdown
         md_path = os.path.join(self.output_dir, "broken_pages_report.md")

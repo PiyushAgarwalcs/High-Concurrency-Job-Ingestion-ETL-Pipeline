@@ -126,26 +126,40 @@ class FilterEngine:
         exp_text    = (job.experience_required or "").lower()
         title_lower = job.job_title.lower()
         desc_lower  = (job.job_description_summary or "").lower()
-        combined    = title_lower + " " + exp_text + " " + desc_lower
+        combined    = f"{title_lower} {exp_text} {desc_lower}"
 
+        # 1. Explicit keyword check with word boundaries to avoid matching substrings
         for kw in self.ignore_experience:
-            if kw in combined:
+            pattern = r"(?<!\w)" + re.escape(kw.lower()) + r"(?!\w)"
+            if re.search(pattern, combined):
                 return True
 
+        # 2. Regex pattern checks for experience ranges / minimums
         exp_patterns = [
             r"(\d+)\s*\+\s*(?:years?|yrs?)",
             r"(\d+)\s*[-\u2013]\s*\d+\s*(?:years?|yrs?)",
-            r"minimum\s*(\d+)\s*(?:years?|yrs?)",
+            r"minimum\s*(?:of\s*)?(\d+)\s*(?:years?|yrs?)",
             r"at\s*least\s*(\d+)\s*(?:years?|yrs?)",
+            r"(\d+)\s*(?:to|-)\s*\d+\s*(?:years?|yrs?)\s*(?:of\s*)?experience",
         ]
         for pattern in exp_patterns:
-            m = re.search(pattern, combined)
-            if m:
+            for m in re.finditer(pattern, combined):
                 try:
                     if int(m.group(1)) > MAX_EXPERIENCE_YEARS:
                         return True
                 except ValueError:
                     pass
+
+        # 3. Direct numeric experience field (e.g. '3', '4+', '5 years')
+        if exp_text:
+            num_match = re.search(r"^(\d+)(?:\+)?\s*(?:years?|yrs?)?$", exp_text.strip())
+            if num_match:
+                try:
+                    if int(num_match.group(1)) > MAX_EXPERIENCE_YEARS:
+                        return True
+                except ValueError:
+                    pass
+
         return False
 
     # ── Location filter ───────────────────────────────────────────────────────

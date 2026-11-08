@@ -10,6 +10,7 @@ import argparse
 import logging
 import logging.config
 import os
+import signal
 import sys
 from datetime import datetime, timezone
 
@@ -23,6 +24,7 @@ from config.settings import (
     NOTIFY_ON_EMPTY,
     CIRCUIT_BREAKER_FAILURES,
     CIRCUIT_BREAKER_COOLDOWN,
+    RETENTION_DAYS,
 )
 from database.db_manager import DBManager
 from scrapers.scraper_manager import ScraperManager
@@ -101,6 +103,7 @@ async def async_main(args: argparse.Namespace) -> int:
     logger.info(f"   Dry Run Mode        : {is_dry_run}")
     logger.info("═" * 68)
 
+    db_manager: Optional[DBManager] = None
     try:
         # ── Step 1: Initialize Database & StateLedger Deduplication Ledger ────
         logger.info("\n📂 Step 1: Initializing SQLite Database & StateLedger...")
@@ -111,11 +114,11 @@ async def async_main(args: argparse.Namespace) -> int:
         known_job_ids = await db_manager.get_all_job_ids()
         logger.info(f"   Historical known listings: {len(known_job_ids)}")
 
-        # Prune old state (90 days) to keep dedup queries fast
-        pruned_jobs = await db_manager.prune_old_jobs(days=90)
-        pruned_fps = state_ledger.prune_old_fingerprints(days=90)
+        # Prune old state to keep dedup queries fast and DB lean
+        pruned_jobs = await db_manager.prune_old_jobs(days=RETENTION_DAYS)
+        pruned_fps = state_ledger.prune_old_fingerprints(days=RETENTION_DAYS)
         if pruned_jobs or pruned_fps:
-            logger.info(f"   Pruned {pruned_jobs} jobs and {pruned_fps} historical state fingerprints.")
+            logger.info(f"   Pruned {pruned_jobs} jobs and {pruned_fps} historical state fingerprints (older than {RETENTION_DAYS} days).")
             known_job_ids = await db_manager.get_all_job_ids()
 
         # ── Step 2: Initialize RequestGuard Circuit Breaker & Scrape ─────────
@@ -159,26 +162,15 @@ async def async_main(args: argparse.Namespace) -> int:
         logger.info(f"   Passed filtering: {len(filtered_jobs)} / {len(raw_jobs)} listings")
 
         # ── Step 4: StateLedger Deterministic Deduplication ───────────────────
-        logger.info("\n🔄 Step 4: StateLedger Deduplication...")
-        dedup_engine = DedupEngine()
-        unique_jobs = dedup_engine.deduplicate(filtered_jobs)
-        metrics.duplicates_filtered = len(raw_jobs) - len(unique_jobs)
+        logger.info("\n🔄 Step 4: StateLedger Batch Deduplication & Registration...")
+        candidate_dicts = [job.to_dict() for job in filtered_jobs]
+        new_job_dicts, duplicate_count = state_ledger.batch_check_and_register(candidate_dicts)
+        new_jobs = [JobListing.from_dict(d) for d in new_job_dicts]
+        unique_jobs = filtered_jobs
 
-        # ── Step 5: Identify Brand New Listings via SQLite Ledger ────────────
-        logger.info("\n🆕 Step 5: Extracting Unseen Listings...")
-        new_jobs = dedup_engine.find_new_jobs(unique_jobs, known_job_ids)
+        metrics.duplicates_filtered = len(raw_jobs) - len(new_jobs)
         metrics.new_jobs_identified = len(new_jobs)
-        logger.info(f"   Brand new unique listings identified: {len(new_jobs)}")
-
-        # Register fingerprints into StateLedger
-        for job in new_jobs:
-            state_ledger.is_new_listing(
-                fingerprint=job.job_id,
-                company=job.company_name,
-                title=job.job_title,
-                location=job.location,
-                canonical_url=job.apply_url
-            )
+        logger.info(f"   Brand new unique listings identified: {len(new_jobs)} (duplicates filtered: {duplicate_count})")
 
         # ── Step 6: Rank & Score Listings ────────────────────────────────────
         logger.info("\n📊 Step 6: Ranking and Scoring Listings...")
@@ -199,15 +191,15 @@ async def async_main(args: argparse.Namespace) -> int:
             if not top_jobs and not NOTIFY_ON_EMPTY:
                 logger.info("   No new jobs and NOTIFY_ON_EMPTY=false — skipping console alert")
             else:
-                if notifier.send_job_alerts(top_jobs, scrape_stats):
+                if await notifier.send_job_alerts(top_jobs, scrape_stats):
                     notifications_sent = len(top_jobs)
         elif not args.skip_notify:
             logger.info("   Strategy Selected: TelegramNotifier (Production Webhook)")
             notifier = TelegramNotifier()
-            if notifier.test_connection():
+            if await notifier.test_connection():
                 if not top_jobs and not NOTIFY_ON_EMPTY:
                     logger.info("   No new jobs and NOTIFY_ON_EMPTY=false — skipping Telegram ping")
-                elif notifier.send_job_alerts(top_jobs, scrape_stats):
+                elif await notifier.send_job_alerts(top_jobs, scrape_stats):
                     notifications_sent = len(top_jobs)
             else:
                 logger.warning("   Telegram connection test failed. Notifications skipped.")
@@ -252,14 +244,53 @@ async def async_main(args: argparse.Namespace) -> int:
         logger.info("✅ V3 Pipeline Execution Succeeded!")
         return 0
 
+    except asyncio.CancelledError:
+        logger.warning("⚠️ V3 Pipeline task was cancelled.")
+        return 1
     except Exception as e:
         logger.error(f"❌ V3 Pipeline failed: {e}", exc_info=True)
+        if not args.skip_notify and not is_dry_run:
+            try:
+                alert_notifier = TelegramNotifier()
+                crash_msg = (
+                    "⚠️ <b>AI/ML Job Alert Pipeline Failure</b>\n"
+                    "━━━━━━━━━━━━━━━━━━━━━━\n"
+                    f"🕐 {datetime.now(IST).strftime('%d %b %Y, %I:%M %p IST')}\n"
+                    f"❌ <b>Error:</b> <code>{TelegramNotifier._escape_html(str(e)[:300])}</code>\n\n"
+                    "Please check GitHub Actions workflow logs for details."
+                )
+                await alert_notifier._send_message(crash_msg)
+            except Exception as alert_err:
+                logger.warning(f"Could not dispatch crash alert to Telegram: {alert_err}")
         return 1
+    finally:
+        if db_manager is not None:
+            await db_manager.close()
 
 
 def main():
     args = parse_args()
-    return asyncio.run(async_main(args))
+
+    # Register graceful shutdown signals for containers & runner hosts
+    def _sig_handler(signum, frame):
+        logger.warning(f"⚠️ Termination signal ({signum}) received. Shutting down...")
+        sys.exit(128 + signum)
+
+    try:
+        signal.signal(signal.SIGTERM, _sig_handler)
+        signal.signal(signal.SIGINT, _sig_handler)
+    except (ValueError, AttributeError):
+        pass
+
+    try:
+        # Wrap in a 20-minute safety timeout (GitHub Actions 25m runner limit)
+        return asyncio.run(asyncio.wait_for(async_main(args), timeout=1200.0))
+    except (asyncio.TimeoutError, TimeoutError):
+        logger.error("🛑 Pipeline exceeded global 20-minute safety timeout. Aborted gracefully.")
+        return 1
+    except KeyboardInterrupt:
+        logger.warning("🛑 Pipeline interrupted by user.")
+        return 130
 
 
 if __name__ == "__main__":
