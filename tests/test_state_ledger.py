@@ -82,3 +82,4 @@ def test_batch_check_and_register(temp_ledger):
 
 def test_db_size_reporting(temp_ledger):
     assert temp_ledger.get_db_size_mb() >= 0.0
+

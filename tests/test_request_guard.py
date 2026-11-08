@@ -99,3 +99,4 @@ def test_circuit_breaker_transitions():
     assert cb.can_request(domain) is True
     assert cb.is_blocked(domain) is False
     assert cb.get_status_summary()["blocked_domains_count"] == 0
+

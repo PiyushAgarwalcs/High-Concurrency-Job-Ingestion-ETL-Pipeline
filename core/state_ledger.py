@@ -286,3 +286,4 @@ class StateLedger:
         except Exception as e:
             logger.warning(f"Failed to prune old fingerprints: {e}")
             return 0
+
