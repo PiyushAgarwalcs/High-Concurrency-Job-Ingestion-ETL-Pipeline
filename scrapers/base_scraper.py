@@ -1,5 +1,5 @@
 """
-Async Base Scraper for AI/ML Job Alert System V2.
+Async Base Scraper for High-Concurrency Job Ingestion & ETL System.
 Provides retry logic, timeout, rate limiting, and HTTP error handling using aiohttp.
 """
 

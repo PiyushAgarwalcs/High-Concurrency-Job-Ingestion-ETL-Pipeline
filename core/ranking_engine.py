@@ -1,5 +1,5 @@
 """
-Ranking Engine for AI/ML Job Alert System V2.
+Ranking Engine for High-Concurrency Job Ingestion & ETL System.
 
 Improvements:
 - Salary bonus: +5 per LPA above 12 LPA

@@ -1,5 +1,5 @@
 """
-Instahyre Optional Scraper for AI/ML Job Alert System V2.
+Instahyre Optional Scraper for High-Concurrency Job Ingestion & ETL System.
 Gracefully degrades if blocked.
 """
 

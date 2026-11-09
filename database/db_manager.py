@@ -1,5 +1,5 @@
 """
-Async SQLite Database Manager for AI/ML Job Alert System V2.
+Async SQLite Database Manager for High-Concurrency Job Ingestion & ETL System.
 Provides connection pooling and handles schema creation and queries.
 """
 

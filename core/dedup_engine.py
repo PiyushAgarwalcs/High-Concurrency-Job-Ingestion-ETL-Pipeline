@@ -1,5 +1,5 @@
 """
-Deduplication Engine for AI/ML Job Alert System V2.
+Deduplication Engine for High-Concurrency Job Ingestion & ETL System.
 Uses the new V2 SHA256 hashing (Company + Role + Apply URL) and checks against SQLite database.
 """
 

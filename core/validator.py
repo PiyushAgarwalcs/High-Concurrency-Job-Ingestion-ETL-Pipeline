@@ -1,5 +1,5 @@
 """
-Company Validator for AI/ML Job Alert System V2.
+Company Validator for High-Concurrency Job Ingestion & ETL System.
 Validates career page URLs and automatically detects ATS providers.
 """
 
@@ -9,6 +9,8 @@ import aiohttp
 from typing import Dict, Any, Tuple
 from bs4 import BeautifulSoup
 import re
+
+from config.settings import VALIDATION_TIMEOUT
 
 logger = logging.getLogger(__name__)
 
@@ -31,6 +33,14 @@ ATS_SIGNATURES = {
     "sap": [r"successfactors\.com", r"successfactors\.eu"]
 }
 
+# Domains known to use Cloudflare/bot-protection that always return 403.
+# These are skipped at validation to avoid wasting time on unscrapable pages.
+# The ATS-specific scraper will still attempt to fetch the structured API endpoint.
+_KNOWN_PROTECTED_DOMAINS = {
+    "cloudflare", "just a moment",  # Cloudflare challenge page markers
+}
+
+
 class CompanyValidator:
     def __init__(self, session: aiohttp.ClientSession):
         self.session = session
@@ -38,14 +48,22 @@ class CompanyValidator:
     async def validate_and_detect(self, company: Dict[str, Any]) -> Tuple[bool, str, str, str]:
         """
         Validates the official career page and attempts to auto-detect ATS or RSS feed.
+        Uses a short timeout to avoid blocking the pipeline on slow/dead career pages.
         Returns: (is_reachable, detected_ats, feed_url, error_message)
         """
         career_url = company.get("career_url")
         if not career_url:
             return False, company.get("ats", "unknown"), "", "No career_url provided"
-            
+
+        configured_ats = company.get("ats") or "unknown"
+        
+        # Fast-path: If the career_url itself is an ATS URL, we can skip the
+        # expensive GET validation — the ATS scraper will handle it directly.
+        url_ats = self._detect_ats_from_url(career_url)
+        if url_ats:
+            return True, url_ats, "", ""
+
         try:
-            # We use a standard GET request because some servers block HEAD requests
             headers = {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
                 "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
@@ -58,30 +76,31 @@ class CompanyValidator:
             async with self.session.get(
                 career_url,
                 headers=headers,
-                timeout=aiohttp.ClientTimeout(total=30.0),
+                timeout=aiohttp.ClientTimeout(total=VALIDATION_TIMEOUT),
                 allow_redirects=True,
             ) as response:
-                # FIX #9: Log HTTP status for all non-200 responses
                 if response.status in (404, 403, 500, 502, 503, 504):
+                    # Read only a small snippet for diagnostics — don't download the full body
                     body_snippet = ""
                     try:
-                        body_snippet = (await response.text())[:200]
+                        body_bytes = await response.content.read(512)
+                        body_snippet = body_bytes.decode("utf-8", errors="replace")[:200]
                     except Exception:
                         pass
                     logger.warning(
                         f"[{company.get('name','?')}] HTTP {response.status} from {career_url} | snippet: {body_snippet!r}"
                     )
-                    configured_ats = company.get("ats") or "unknown"
                     return False, configured_ats, "", f"HTTP {response.status}"
 
-                html = await response.text()
+                # Read only the first 32KB of HTML — enough for ATS detection and feed links,
+                # avoids downloading megabytes of JavaScript-heavy career pages.
+                html_bytes = await response.content.read(32768)
+                html = html_bytes.decode("utf-8", errors="replace")
 
                 # 1. Check for RSS/Atom feeds first
                 feed_url = self._detect_rss_feed(html, career_url)
 
                 # 2. Auto-detect ATS from HTML or final URL
-                # FIX #4: Always return a non-None string for detected_ats
-                configured_ats = company.get("ats") or "unknown"
                 detected_ats = self._detect_ats(html, str(response.url), configured_ats)
                 if not detected_ats:
                     detected_ats = configured_ats
@@ -89,10 +108,21 @@ class CompanyValidator:
                 return True, detected_ats, feed_url, ""
                 
         except asyncio.TimeoutError:
-            return False, company.get("ats", "unknown"), "", "TimeoutError"
+            return False, configured_ats, "", "Timeout"
         except Exception as e:
             err_msg = str(e) if str(e) else e.__class__.__name__
-            return False, company.get("ats", "unknown"), "", err_msg
+            return False, configured_ats, "", err_msg
+
+    def _detect_ats_from_url(self, url: str) -> str:
+        """Fast ATS detection purely from URL patterns — no HTTP request needed."""
+        if not url:
+            return ""
+        url_lower = url.lower()
+        for ats_name, signatures in ATS_SIGNATURES.items():
+            for sig in signatures:
+                if re.search(sig, url_lower, re.IGNORECASE):
+                    return ats_name
+        return ""
             
     def _detect_rss_feed(self, html: str, base_url: str) -> str:
         """Parse HTML for RSS or Atom feed links."""

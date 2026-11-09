@@ -1,5 +1,5 @@
 """
-Central configuration for the AI/ML Job Alert System V2.
+Central configuration for the High-Concurrency Job Ingestion & ETL System.
 Loads settings from JSON files and sets environment constants.
 """
 
@@ -61,11 +61,12 @@ TELEGRAM_API_URL = "https://api.telegram.org/bot{token}/sendMessage"
 TELEGRAM_MAX_MESSAGE_LENGTH = 4096
 
 # ─── Scraping & RequestGuard Concurrency Configuration ─────────────────────────
-REQUEST_TIMEOUT = 30          # Maximum request timeout in seconds
-RETRY_ATTEMPTS = 3            # Retry up to 3 times on transient failures
-RETRY_DELAY = 2               # Base backoff delay in seconds
-MAX_CONCURRENT_REQUESTS = 30  # Global concurrency limit across all domains
+REQUEST_TIMEOUT = 20          # Maximum request timeout in seconds (reduced from 30)
+RETRY_ATTEMPTS = 2            # Retry up to 2 times on transient failures (reduced from 3)
+RETRY_DELAY = 1               # Base backoff delay in seconds (reduced from 2)
+MAX_CONCURRENT_REQUESTS = 50  # Global concurrency limit across all domains (increased from 30)
 PER_HOST_CONCURRENCY = 5      # Maximum concurrent requests per specific domain
+VALIDATION_TIMEOUT = 12       # Maximum timeout for career page validation (seconds)
 
 # ─── RequestGuard Circuit Breaker Thresholds ───────────────────────────────────
 CIRCUIT_BREAKER_FAILURES = 3   # Consecutive failures to trip breaker

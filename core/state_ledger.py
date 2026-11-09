@@ -78,22 +78,25 @@ class StateLedger:
 
     def _initialize_database(self):
         """Create the job_fingerprints table and index if they do not exist."""
-        with self._get_connection() as conn:
-            conn.execute("""
-                CREATE TABLE IF NOT EXISTS job_fingerprints (
-                    hash TEXT PRIMARY KEY,
-                    company TEXT NOT NULL,
-                    title TEXT NOT NULL,
-                    location TEXT,
-                    canonical_url TEXT,
-                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                )
-            """)
-            conn.execute("""
-                CREATE INDEX IF NOT EXISTS idx_fingerprints_created_at
-                ON job_fingerprints(created_at)
-            """)
-            conn.commit()
+        conn = self._get_connection()
+        try:
+            with conn:
+                conn.execute("""
+                    CREATE TABLE IF NOT EXISTS job_fingerprints (
+                        hash TEXT PRIMARY KEY,
+                        company TEXT NOT NULL,
+                        title TEXT NOT NULL,
+                        location TEXT,
+                        canonical_url TEXT,
+                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                    )
+                """)
+                conn.execute("""
+                    CREATE INDEX IF NOT EXISTS idx_fingerprints_created_at
+                    ON job_fingerprints(created_at)
+                """)
+        finally:
+            conn.close()
 
     @staticmethod
     def normalize_text(raw_text: str) -> str:
@@ -162,22 +165,25 @@ class StateLedger:
         If new: records it in the database and returns True.
         If already seen: returns False.
         """
-        with self._get_connection() as conn:
-            cursor = conn.cursor()
-            cursor.execute("SELECT 1 FROM job_fingerprints WHERE hash = ?", (fingerprint,))
-            if cursor.fetchone() is not None:
-                return False  # Already exists in ledger
+        conn = self._get_connection()
+        try:
+            with conn:
+                cursor = conn.cursor()
+                cursor.execute("SELECT 1 FROM job_fingerprints WHERE hash = ?", (fingerprint,))
+                if cursor.fetchone() is not None:
+                    return False  # Already exists in ledger
 
-            cursor.execute(
-                """
-                INSERT OR IGNORE INTO job_fingerprints 
-                (hash, company, title, location, canonical_url) 
-                VALUES (?, ?, ?, ?, ?)
-                """,
-                (fingerprint, company, title, location, canonical_url)
-            )
-            conn.commit()
-            return True
+                cursor.execute(
+                    """
+                    INSERT OR IGNORE INTO job_fingerprints 
+                    (hash, company, title, location, canonical_url) 
+                    VALUES (?, ?, ?, ?, ?)
+                    """,
+                    (fingerprint, company, title, location, canonical_url)
+                )
+                return True
+        finally:
+            conn.close()
 
     def batch_check_and_register(
         self, listings: List[Dict[str, Any]]
@@ -209,42 +215,45 @@ class StateLedger:
 
         # Query in chunks of 500 to stay well within SQLite limits
         chunk_size = 500
-        with self._get_connection() as conn:
-            cursor = conn.cursor()
-            for i in range(0, len(unique_fingerprints), chunk_size):
-                chunk = unique_fingerprints[i:i + chunk_size]
-                placeholders = ",".join("?" for _ in chunk)
-                cursor.execute(
-                    f"SELECT hash FROM job_fingerprints WHERE hash IN ({placeholders})",
-                    chunk
-                )
-                for row in cursor.fetchall():
-                    already_known.add(row[0])
+        conn = self._get_connection()
+        try:
+            with conn:
+                cursor = conn.cursor()
+                for i in range(0, len(unique_fingerprints), chunk_size):
+                    chunk = unique_fingerprints[i:i + chunk_size]
+                    placeholders = ",".join("?" for _ in chunk)
+                    cursor.execute(
+                        f"SELECT hash FROM job_fingerprints WHERE hash IN ({placeholders})",
+                        chunk
+                    )
+                    for row in cursor.fetchall():
+                        already_known.add(row[0])
 
-            # Separate new listings from duplicates
-            new_listings: List[Dict[str, Any]] = []
-            records_to_insert: List[Tuple[str, str, str, str, str]] = []
+                # Separate new listings from duplicates
+                new_listings: List[Dict[str, Any]] = []
+                records_to_insert: List[Tuple[str, str, str, str, str]] = []
 
-            for fp, item in fingerprint_map.items():
-                if fp not in already_known:
-                    new_listings.append(item)
-                    company = item.get("company_name") or item.get("company", "")
-                    title = item.get("job_title") or item.get("title", "")
-                    location = item.get("location", "")
-                    url = item.get("apply_url") or item.get("job_url", "")
-                    records_to_insert.append((fp, company, title, location, url))
+                for fp, item in fingerprint_map.items():
+                    if fp not in already_known:
+                        new_listings.append(item)
+                        company = item.get("company_name") or item.get("company", "")
+                        title = item.get("job_title") or item.get("title", "")
+                        location = item.get("location", "")
+                        url = item.get("apply_url") or item.get("job_url", "")
+                        records_to_insert.append((fp, company, title, location, url))
 
-            # Batch insert new fingerprints
-            if records_to_insert:
-                cursor.executemany(
-                    """
-                    INSERT OR IGNORE INTO job_fingerprints 
-                    (hash, company, title, location, canonical_url) 
-                    VALUES (?, ?, ?, ?, ?)
-                    """,
-                    records_to_insert
-                )
-                conn.commit()
+                # Batch insert new fingerprints
+                if records_to_insert:
+                    cursor.executemany(
+                        """
+                        INSERT OR IGNORE INTO job_fingerprints 
+                        (hash, company, title, location, canonical_url) 
+                        VALUES (?, ?, ?, ?, ?)
+                        """,
+                        records_to_insert
+                    )
+        finally:
+            conn.close()
 
         duplicate_count = len(listings) - len(new_listings)
         return new_listings, duplicate_count
@@ -260,30 +269,34 @@ class StateLedger:
 
     def get_total_fingerprints_count(self) -> int:
         """Return the total number of tracked fingerprints in the database."""
+        conn = self._get_connection()
         try:
-            with self._get_connection() as conn:
-                cursor = conn.cursor()
-                cursor.execute("SELECT COUNT(*) FROM job_fingerprints")
-                row = cursor.fetchone()
-                return row[0] if row else 0
+            cursor = conn.cursor()
+            cursor.execute("SELECT COUNT(*) FROM job_fingerprints")
+            row = cursor.fetchone()
+            return row[0] if row else 0
         except Exception:
             return 0
+        finally:
+            conn.close()
 
     def prune_old_fingerprints(self, days: int = 90) -> int:
         """Prune fingerprints older than `days` to keep database fast and lean."""
+        conn = self._get_connection()
         try:
-            with self._get_connection() as conn:
+            with conn:
                 cursor = conn.cursor()
                 cursor.execute(
                     "DELETE FROM job_fingerprints WHERE created_at < datetime('now', ?)",
                     (f"-{days} days",)
                 )
                 deleted_rows = cursor.rowcount
-                conn.commit()
                 if deleted_rows > 0:
                     conn.execute("VACUUM")
                 return deleted_rows
         except Exception as e:
             logger.warning(f"Failed to prune old fingerprints: {e}")
             return 0
+        finally:
+            conn.close()
 

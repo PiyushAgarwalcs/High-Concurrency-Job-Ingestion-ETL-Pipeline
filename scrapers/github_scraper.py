@@ -1,5 +1,5 @@
 """
-GitHub Job Sources Scraper for AI/ML Job Alert System V2.
+GitHub Job Sources Scraper for High-Concurrency Job Ingestion & ETL System.
 Scrapes markdown files from community-maintained job lists (e.g., PittCSC, Ouckah).
 """
 

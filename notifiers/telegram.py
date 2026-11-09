@@ -104,7 +104,7 @@ class TelegramNotifier(BaseNotifier):
         now_ist = datetime.now(IST).strftime("%d %b %Y, %I:%M %p IST")
 
         header = (
-            "🚀 <b>AI/ML Fresher Job Alert</b>\n"
+            "🚀 <b>High-Concurrency Job Ingestion Alert</b>\n"
             "━━━━━━━━━━━━━━━━━━━━━━\n"
             f"🕐 {now_ist}\n"
             f"📊 New Jobs Since Last Run: <b>{len(jobs)}</b>\n"
@@ -157,7 +157,7 @@ class TelegramNotifier(BaseNotifier):
                 "🔍 <b>Source Health</b>\n"
                 + "\n".join(source_health) + "\n"
                 "━━━━━━━━━━━━━━━━━━━━━━\n"
-                "<i>Powered by AI/ML Job Alert Pipeline</i> 🤖"
+                "<i>Powered by High-Concurrency ETL Pipeline</i> 🤖"
             )
 
         # Chunk into messages strictly under Telegram's 4096 character limit
@@ -208,14 +208,14 @@ class TelegramNotifier(BaseNotifier):
     async def _send_no_jobs_message(self, stats: Optional[Dict[str, Any]] = None) -> bool:
         now_ist = datetime.now(IST).strftime("%d %b %Y, %I:%M %p IST")
         message = (
-            "📭 <b>AI/ML Job Alert — No New Jobs</b>\n"
+            "📭 <b>Job Ingestion Alert — No New Jobs</b>\n"
             "━━━━━━━━━━━━━━━━━━━━━━\n"
             f"🕐 {now_ist}\n\n"
             "No new AI/ML fresher opportunities found since the last run.\n"
             "All discovered jobs were already reported in previous alerts.\n\n"
             "The system will check again at the next scheduled cycle.\n"
             "━━━━━━━━━━━━━━━━━━━━━━\n"
-            "<i>Powered by AI/ML Job Alert Pipeline</i> 🤖"
+            "<i>Powered by High-Concurrency ETL Pipeline</i> 🤖"
         )
         return await self._send_message(message)
 

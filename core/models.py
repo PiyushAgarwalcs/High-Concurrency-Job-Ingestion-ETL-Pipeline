@@ -1,5 +1,5 @@
 """
-Data models for the AI/ML Job Alert System V2.
+Data models for the High-Concurrency Job Ingestion & ETL System.
 JobListing dataclass with serialization, hashing, and utility methods.
 """
 

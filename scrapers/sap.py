@@ -1,5 +1,5 @@
 """
-SAP SuccessFactors scraper for AI/ML Job Alert System V2.
+SAP SuccessFactors scraper for High-Concurrency Job Ingestion & ETL System.
 """
 
 import logging

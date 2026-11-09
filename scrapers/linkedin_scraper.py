@@ -1,5 +1,5 @@
 """
-LinkedIn Easy Apply job scraper for AI/ML Job Alert System V2.
+LinkedIn Easy Apply job scraper for High-Concurrency Job Ingestion & ETL System.
 Targets Bangalore jobs with 12+ LPA salary using LinkedIn public job search API.
 Filters for Easy Apply listings only.
 

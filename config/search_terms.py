@@ -1,6 +1,6 @@
 """
 Search terms, role keywords, experience filters, location filters,
-and negative keywords for the AI/ML Job Alert System.
+and negative keywords for the High-Concurrency Job Ingestion & ETL System.
 """
 
 # ─── Target Role Keywords (by Priority) ────────────────────────────────────────

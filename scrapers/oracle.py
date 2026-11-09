@@ -1,5 +1,5 @@
 """
-Oracle Careers scraper for AI/ML Job Alert System V2.
+Oracle Careers scraper for High-Concurrency Job Ingestion & ETL System.
 """
 
 import logging

@@ -1,5 +1,5 @@
 """
-Scraper Manager for AI/ML Job Alert System V3.
+Scraper Manager for High-Concurrency Job Ingestion & ETL System.
 Orchestrates async scraping based on configuration, Priority Queue,
 and DeployGuard Domain-Aware Circuit Breaking and Concurrency Throttling.
 """
@@ -298,7 +298,7 @@ class ScraperManager:
         global_semaphore = asyncio.Semaphore(MAX_CONCURRENT_REQUESTS)
         ssl_ctx = ssl.create_default_context(cafile=certifi.where())
         connector = aiohttp.TCPConnector(ssl=ssl_ctx, limit=MAX_CONCURRENT_REQUESTS)
-        timeout = aiohttp.ClientTimeout(total=45, connect=15)
+        timeout = aiohttp.ClientTimeout(total=30, connect=10)
 
         async with aiohttp.ClientSession(connector=connector, timeout=timeout) as session:
             tasks = [

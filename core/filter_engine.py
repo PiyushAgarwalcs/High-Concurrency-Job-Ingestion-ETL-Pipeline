@@ -1,5 +1,5 @@
 """
-Filter engine for AI/ML Job Alert System V2.
+Filter engine for High-Concurrency Job Ingestion & ETL System.
 
 Fixes:
 - SDE/SWE title roles now validated against ML/AI/DSA keywords (search_terms.py)

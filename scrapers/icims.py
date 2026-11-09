@@ -1,5 +1,5 @@
 """
-iCIMS ATS scraper for AI/ML Job Alert System V2.
+iCIMS ATS scraper for High-Concurrency Job Ingestion & ETL System.
 """
 
 import logging

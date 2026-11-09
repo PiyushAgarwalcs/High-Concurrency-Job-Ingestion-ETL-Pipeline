@@ -1,5 +1,5 @@
 """
-Report Generator for AI/ML Job Alert System V2.
+Report Generator for High-Concurrency Job Ingestion & ETL System.
 Generates Markdown and CSV reports for Jobs, Health, and Broken Pages.
 """
 

@@ -1,5 +1,5 @@
 """
-AI/ML Fresher Job Discovery & Automation Pipeline V3
+High-Concurrency Job Ingestion & ETL Pipeline V3
 Fuses RequestGuard (Upstream Isolation & Safety Gate) and StateLedger (State Fingerprinting & Telemetry).
 
 100% Deterministic, Zero Cost, No LLMs.
@@ -97,7 +97,7 @@ async def async_main(args: argparse.Namespace) -> int:
     metrics.start()
 
     logger.info("═" * 68)
-    logger.info("🚀 AI/ML Fresher Job Discovery Pipeline V3")
+    logger.info("🚀 High-Concurrency Job Ingestion & ETL Pipeline V3")
     logger.info("   Architecture: RequestGuard Safety Gate & StateLedger Telemetry")
     logger.info(f"   Execution Timestamp : {now_ist.strftime('%Y-%m-%d %H:%M:%S IST')}")
     logger.info(f"   Dry Run Mode        : {is_dry_run}")
@@ -253,7 +253,7 @@ async def async_main(args: argparse.Namespace) -> int:
             try:
                 alert_notifier = TelegramNotifier()
                 crash_msg = (
-                    "⚠️ <b>AI/ML Job Alert Pipeline Failure</b>\n"
+                    "⚠️ <b>ETL Pipeline Failure</b>\n"
                     "━━━━━━━━━━━━━━━━━━━━━━\n"
                     f"🕐 {datetime.now(IST).strftime('%d %b %Y, %I:%M %p IST')}\n"
                     f"❌ <b>Error:</b> <code>{TelegramNotifier._escape_html(str(e)[:300])}</code>\n\n"

@@ -11,7 +11,7 @@ from core.models import JobListing
 from notifiers.console import ConsoleNotifier
 
 
-async def test_full_data_engineering_pipeline_flow():
+def test_full_data_engineering_pipeline_flow():
     with tempfile.NamedTemporaryFile(suffix=".db", delete=False) as tf:
         temp_db = tf.name
 
@@ -88,9 +88,17 @@ async def test_full_data_engineering_pipeline_flow():
 
         # 6. Console Notifier Strategy
         notifier = ConsoleNotifier()
-        assert await notifier.test_connection() is True
+
+        def _run_coro(coro):
+            try:
+                coro.send(None)
+            except StopIteration as e:
+                return e.value
+            raise RuntimeError("Coroutine did not complete synchronously")
+
+        assert _run_coro(notifier.test_connection()) is True
         job_listings = [JobListing.from_dict(item) for item in new_items]
-        notified = await notifier.send_job_alerts(job_listings, {"total_sources": 2, "successful_sources": 2})
+        notified = _run_coro(notifier.send_job_alerts(job_listings, {"total_sources": 2, "successful_sources": 2}))
         assert notified is True
         metrics.notifications_dispatched = len(new_items)
 
@@ -102,7 +110,6 @@ async def test_full_data_engineering_pipeline_flow():
         assert "RequestGuard & StateLedger" in report
         assert "25.0% (1 duplicate listings)" in report
         assert "75.0% (1 quarantined records)" in report
-
     finally:
         if os.path.exists(temp_db):
             os.remove(temp_db)
