@@ -26,6 +26,7 @@ from config.settings import (
     CIRCUIT_BREAKER_COOLDOWN,
     RETENTION_DAYS,
 )
+from core.models import JobListing
 from database.db_manager import DBManager
 from scrapers.scraper_manager import ScraperManager
 from core.request_guard import CircuitBreaker
