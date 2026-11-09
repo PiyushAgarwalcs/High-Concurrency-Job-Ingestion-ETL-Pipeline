@@ -6,7 +6,7 @@ JobListing dataclass with serialization, hashing, and utility methods.
 import hashlib
 from dataclasses import dataclass, field, asdict
 from datetime import datetime, timezone
-from typing import Optional
+from typing import Optional, Dict, Any
 
 
 @dataclass
@@ -27,8 +27,8 @@ class JobListing:
 
     # ─── Optional Fields ────────────────────────────────────────────────────
     salary: Optional[str] = None
-    estimated_salary_lpa: Optional[int] = None
-    salary_confidence: Optional[str] = None      # 'high', 'medium', 'low'
+    estimated_salary_lpa: Optional[float] = None
+    salary_confidence: Optional[str] = None      # 'high', 'medium', 'low', 'unknown'
     experience_required: Optional[str] = None
     required_skills: list[str] = field(default_factory=list)
     job_description_summary: Optional[str] = None
@@ -41,7 +41,14 @@ class JobListing:
     last_seen: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     job_id: str = ""                # SHA256 hash, computed after init
     rank_score: float = 0.0        # Computed by ranking engine
-    role_priority: int = 3          # 1, 2, or 3 based on role match
+    role_priority: int = 3          # 1, 2, 3, or 4 based on role match
+
+    # ─── Structured Filtering Metadata Fields ───────────────────────────────
+    role_category: Optional[str] = None
+    matched_role: Optional[str] = None
+    min_salary_lpa: Optional[float] = None
+    max_salary_lpa: Optional[float] = None
+    filtering_decision: Optional[Dict[str, Any]] = None
 
     def __post_init__(self):
         """Generate job_id hash after initialization."""
@@ -74,12 +81,22 @@ class JobListing:
         from core.state_ledger import StateLedger
         return StateLedger.normalize_location(self.location)
 
-    def to_dict(self) -> dict:
+    def to_dict(self, db_safe: bool = True) -> dict:
         """Convert to dictionary for JSON serialization or SQLite insertion."""
         d = asdict(self)
-        # SQLite cannot store lists natively, so convert required_skills to JSON string
         import json
         d['required_skills'] = json.dumps(d['required_skills'])
+        if db_safe:
+            # Keep only known SQLite columns to prevent insert errors on legacy schema
+            KNOWN_DB_COLUMNS = {
+                'job_id', 'company_name', 'job_title', 'location', 'apply_url',
+                'source_platform', 'ats_provider', 'salary', 'estimated_salary_lpa',
+                'salary_confidence', 'experience_required', 'required_skills',
+                'job_description_summary', 'posting_date', 'company_category',
+                'company_prestige_score', 'discovery_timestamp', 'last_seen',
+                'rank_score', 'role_priority', 'notification_sent', 'status'
+            }
+            return {k: v for k, v in d.items() if k in KNOWN_DB_COLUMNS}
         return d
 
     @classmethod

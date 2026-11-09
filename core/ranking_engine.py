@@ -75,6 +75,8 @@ class RankingEngine:
             score += 30.0
         elif job.role_priority == 3:
             score += 15.0
+        elif job.role_priority == 4:
+            score += 5.0
 
         # 2. Resume keyword match
         text = f"{job.job_title} {job.job_description_summary or ''}".lower()

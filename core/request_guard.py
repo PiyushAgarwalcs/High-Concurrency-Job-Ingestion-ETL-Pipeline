@@ -82,7 +82,7 @@ class JobSchema(BaseModel):
     source_platform: str = Field(default="unknown", max_length=50)
     ats_provider: str = Field(default="unknown", max_length=50)
     salary: Optional[str] = Field(default=None, max_length=100)
-    estimated_salary_lpa: Optional[int] = Field(default=None, ge=0, le=500)
+    estimated_salary_lpa: Optional[float] = Field(default=None, ge=0, le=500)
     salary_confidence: Optional[str] = Field(default=None, max_length=20)
     experience_required: Optional[str] = Field(default=None, max_length=100)
     required_skills: list[str] = Field(default_factory=list)
@@ -91,7 +91,7 @@ class JobSchema(BaseModel):
     company_category: Optional[str] = Field(default=None, max_length=100)
     company_prestige_score: int = Field(default=5, ge=1, le=10)
     rank_score: float = Field(default=0.0, ge=0.0, le=1000.0)
-    role_priority: int = Field(default=3, ge=1, le=3)
+    role_priority: int = Field(default=3, ge=1, le=4)
 
     @field_validator("company_name", mode="before")
     @classmethod

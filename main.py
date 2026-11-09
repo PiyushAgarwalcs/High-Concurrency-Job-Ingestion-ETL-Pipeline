@@ -13,6 +13,7 @@ import os
 import signal
 import sys
 from datetime import datetime, timezone
+from typing import Optional
 
 from config.settings import (
     DB_PATH,
@@ -37,6 +38,8 @@ from core.dedup_engine import DedupEngine
 from core.ranking_engine import RankingEngine
 from notifiers import BaseNotifier, TelegramNotifier, ConsoleNotifier
 from reports.report_generator import ReportGenerator
+
+logger = logging.getLogger("main")
 
 
 def setup_logging():

@@ -43,12 +43,14 @@ def test_role_priority_base_scores(ranking_engine):
     job_p1 = _make_job(role_priority=1, desc="", category="other", source="other")
     job_p2 = _make_job(role_priority=2, desc="", category="other", source="other")
     job_p3 = _make_job(role_priority=3, desc="", category="other", source="other")
+    job_p4 = _make_job(role_priority=4, desc="", category="other", source="other")
 
     score_p1 = ranking_engine._calculate_score(job_p1)
     score_p2 = ranking_engine._calculate_score(job_p2)
     score_p3 = ranking_engine._calculate_score(job_p3)
+    score_p4 = ranking_engine._calculate_score(job_p4)
 
-    assert score_p1 > score_p2 > score_p3
+    assert score_p1 > score_p2 > score_p3 > score_p4
 
 
 def test_salary_bonus_calculation():
