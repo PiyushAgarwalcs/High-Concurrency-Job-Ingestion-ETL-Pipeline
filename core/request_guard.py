@@ -161,12 +161,24 @@ class JobSchema(BaseModel):
     @classmethod
     def from_job_listing(cls, listing: Any) -> "JobSchema":
         """Build and validate a JobSchema from a dictionary or JobListing object."""
+        import json as _json
+
         if hasattr(listing, "to_dict"):
             data = listing.to_dict()
         elif isinstance(listing, dict):
-            data = listing
+            data = dict(listing)          # shallow copy to avoid mutating caller
         else:
-            data = listing.__dict__
+            data = dict(listing.__dict__)
+
+        # to_dict() serialises required_skills to a JSON string for SQLite;
+        # Pydantic expects list[str], so deserialise it back.
+        skills = data.get("required_skills")
+        if isinstance(skills, str):
+            try:
+                data["required_skills"] = _json.loads(skills)
+            except (_json.JSONDecodeError, TypeError):
+                data["required_skills"] = []
+
         return cls(**data)
 
 
