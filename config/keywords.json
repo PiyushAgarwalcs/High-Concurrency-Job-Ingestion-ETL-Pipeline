@@ -6,6 +6,14 @@
         "hybrid bengaluru",
         "karnataka",
         "india",
+        "hyderabad",
+        "pune",
+        "mumbai",
+        "gurgaon",
+        "gurugram",
+        "noida",
+        "delhi",
+        "chennai",
         "remote"
     ],
     "accepted_roles": [
@@ -38,6 +46,7 @@
         "data engineer",
         "forward deployed engineer",
         "forward deployed software engineer",
+        "forward deployed ai engineer",
         "solutions engineer",
         "applied scientist",
         "mlops engineer"

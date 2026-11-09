@@ -167,15 +167,21 @@ class FilterEngine:
     def _is_acceptable_location(self, job: JobListing) -> bool:
         loc = (job.location or "").lower().strip()
         if not loc or loc in ("n/a", "not specified"):
+            # Empty / unspecified location: treat as unknown, accept with caution
             return True
+
+        # First check explicit foreign/negative locations
         for bad in self.ignore_locations:
             if bad in loc:
                 return False
+
+        # STRICT INDIA FILTER: location must explicitly match India, an Indian city, or Remote
         for good in self.accepted_locations:
             if good in loc:
                 return True
-        # Unknown location — accept rather than silently drop
-        return True
+
+        # If it has a specific location specified and it doesn't match India / Bangalore / Remote, reject it
+        return False
 
     # ── Salary extraction ─────────────────────────────────────────────────────
 

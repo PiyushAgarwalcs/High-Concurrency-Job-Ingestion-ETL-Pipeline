@@ -16,6 +16,9 @@ PRIORITY_1_ROLES = [
     "ai research engineer",
     "ml research engineer",
     "artificial intelligence engineer",
+    "forward deployed engineer",
+    "forward deployed software engineer",
+    "forward deployed ai engineer",
     # Core SDE/SWE roles (will be further validated against AI/DSA skills)
     "software development engineer",
     "software developer engineer",
