@@ -137,25 +137,12 @@ class TelegramNotifier(BaseNotifier):
             top_salary = max((j.estimated_salary_lpa or 0 for j in jobs), default=0)
             top_companies = ", ".join(sorted(set(j.company_name for j in jobs[:5])))
 
-            source_health = []
-            for src_name, src_data in stats.get("source_results", {}).items():
-                count = src_data.get("jobs_found", 0)
-                status = src_data.get("status", "unknown")
-                if count > 0:
-                    source_health.append(f"✅ {src_name}: {count}")
-                elif "success" in status:
-                    source_health.append(f"⚪ {src_name}: 0")
-                else:
-                    source_health.append(f"❌ {src_name}")
-
             summary = (
                 "━━━━━━━━━━━━━━━━━━━━━━\n"
                 "📈 <b>Summary</b>\n"
                 f"• Total New Jobs: {len(jobs)}\n"
                 f"• Highest Est. Salary: ₹{top_salary} LPA\n"
-                f"• Top Companies: {self._escape_html(top_companies)}\n\n"
-                "🔍 <b>Source Health</b>\n"
-                + "\n".join(source_health) + "\n"
+                f"• Top Companies: {self._escape_html(top_companies)}\n"
                 "━━━━━━━━━━━━━━━━━━━━━━\n"
                 "<i>Powered by High-Concurrency ETL Pipeline</i> 🤖"
             )
