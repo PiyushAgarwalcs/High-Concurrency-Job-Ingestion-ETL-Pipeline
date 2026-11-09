@@ -32,17 +32,24 @@ class AshbyScraper(BaseScraper):
         headers = {"Content-Type": "application/json", "User-Agent": "Mozilla/5.0"}
 
         data = None
+        import aiohttp
+
         async with self.semaphore:
-            for attempt in range(3):
+            for attempt in range(2):
                 try:
-                    async with self.session.post(api_url, json=payload, headers=headers) as resp:
+                    async with self.session.post(
+                        api_url,
+                        json=payload,
+                        headers=headers,
+                        timeout=aiohttp.ClientTimeout(total=12.0)
+                    ) as resp:
                         if resp.status == 200:
                             data = await resp.json()
                             break
                         if resp.status in (404, 403):
                             return []
                 except Exception:
-                    if attempt == 2:
+                    if attempt == 1:
                         return []
 
         if not data:

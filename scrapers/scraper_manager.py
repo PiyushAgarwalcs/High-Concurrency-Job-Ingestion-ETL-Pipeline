@@ -52,6 +52,14 @@ _ATS_MAP = {
 }
 
 
+class _NullSemaphore:
+    """Non-blocking passthrough context manager when concurrency is already enforced upstream."""
+    async def __aenter__(self):
+        return self
+    async def __aexit__(self, exc_type, exc_val, exc_tb):
+        return None
+
+
 def _build_scraper(ats: str, session, semaphore, db_manager=None):
     """Instantiate the correct scraper for a given ATS name. Returns None if unknown."""
     if ats not in _ATS_MAP:
@@ -131,34 +139,40 @@ class ScraperManager:
                         logger.info(f"⏭  Skipping {company_name} (temporarily disabled due to consecutive failures)")
                         return company_name, False, 0.0, [], "Source disabled"
 
-                    # 3. Validate career page + auto-detect ATS
-                    validator = CompanyValidator(session)
-                    is_reachable, detected_ats, feed_url, error_msg = await validator.validate_and_detect(company)
+                    # 3. Resolve ATS: Fast-path if already configured with valid ATS and identifier
+                    configured_ats = (company.get("ats") or "").strip().lower()
+                    ats_url = company.get("ats_url") or ""
+                    feed_url = ""
 
-                    if not is_reachable:
-                        logger.warning(f"[{company_name}] Career page unreachable: {error_msg}")
-                        # Record failure against circuit breaker for status 429/503/timeout
-                        if any(err_code in error_msg for err_code in ("429", "503", "Timeout")):
-                            self.circuit_breaker.record_failure(domain, error_msg)
-                        self.metrics_tracker.http_errors_isolated += 1
+                    if configured_ats and configured_ats in _ATS_MAP and ats_url:
+                        # Direct ATS endpoint already known — bypass expensive marketing page validation
+                        ats = configured_ats
+                    else:
+                        # Validate career page + auto-detect ATS for custom / unknown sources
+                        validator = CompanyValidator(session)
+                        is_reachable, detected_ats, feed_url, error_msg = await validator.validate_and_detect(company)
 
-                        await self.db_manager.update_source_health(
-                            company_name, False, time.time() - start_time, 0
-                        )
-                        return company_name, False, time.time() - start_time, [], error_msg
+                        if not is_reachable:
+                            logger.warning(f"[{company_name}] Career page unreachable: {error_msg}")
+                            # Record failure against circuit breaker for status 429/503/timeout
+                            if any(err_code in error_msg for err_code in ("429", "503", "Timeout")):
+                                self.circuit_breaker.record_failure(domain, error_msg)
+                            self.metrics_tracker.http_errors_isolated += 1
 
-                    # 4. Resolve ATS
-                    ats = (detected_ats or company.get("ats", "")).strip().lower()
-                    if not ats:
-                        ats = company.get("ats", "unknown").strip().lower()
+                            await self.db_manager.update_source_health(
+                                company_name, False, time.time() - start_time, 0
+                            )
+                            return company_name, False, time.time() - start_time, [], error_msg
+
+                        ats = (detected_ats or configured_ats or "unknown").strip().lower()
 
                     company["ats"] = ats
 
                     if feed_url:
                         logger.info(f"[{company_name}] RSS feed detected: {feed_url} (using ATS: {ats})")
 
-                    # 5. Build scraper
-                    scraper = _build_scraper(ats, session, global_semaphore, self.db_manager)
+                    # 5. Build scraper (use _NullSemaphore because global + host semaphores are already held)
+                    scraper = _build_scraper(ats, session, _NullSemaphore(), self.db_manager)
                     if scraper is None:
                         msg = f"No scraper for ATS '{ats}'"
                         logger.warning(f"[{company_name}] {msg}")
